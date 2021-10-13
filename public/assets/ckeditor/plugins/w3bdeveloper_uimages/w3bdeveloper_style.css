@@ -1,0 +1,152 @@
+.ui-tabs .ui-tabs-nav li 
+{
+	font-size: 14px !important;
+}
+.ui-tabs-nav
+{
+	border-radius: 0px !important;
+}
+.ui-tabs .ui-tabs-panel 
+{
+	padding-left:0px !important; 
+	padding-right:0px !important; 
+}
+.ui-tabs
+{
+	margin-top: 13px;
+}
+.ui-widget-header
+{
+	border-top:none !important;
+	border-left:none !important;
+	border-right:none !important;
+	border-bottom:1px solid #ccc !important;
+	background: none !important;
+}
+.ui-widget-content
+{
+	border:none !important;
+}
+/* start custom div scrool style */
+.scrooled_div::-webkit-scrollbar
+{
+  background: transparent;
+  overflow: visible;
+  width: 16px;
+}
+
+.scrooled_div::-webkit-scrollbar-thumb
+{
+  background-color: rgba(0,0,0,0.2); 
+  border: solid #fff;
+}
+
+.scrooled_div::-webkit-scrollbar-thumb:hover
+{
+  background: rgba(0,0,0,0.4);
+  cursor:pointer;
+}
+
+.scrooled_div::-webkit-scrollbar-thumb:horizontal
+{
+  border-width: 4px 6px;
+  min-width: 40px;
+}
+
+.scrooled_div::-webkit-scrollbar-thumb:vertical
+{
+  border-width: 6px 4px;
+  min-height: 40px;
+}
+
+.scrooled_div::-webkit-scrollbar-track-piece
+{
+  background-color: #fff;
+}
+
+.scrooled_div::-webkit-scrollbar-corner
+{
+  background: transparent;
+}
+
+.scrooled_div::-webkit-scrollbar-thumb
+{
+  background-color: #DDD;
+}
+
+.scrooled_div::-webkit-scrollbar-thumb:hover
+{
+  background-color: #999;
+}
+.scrooled_div
+{
+	background-color:white;
+	color:black;
+	overflow:auto;
+}
+.close_small_btn 
+{
+	background-image: url('uploader/small_close_btn.png');
+	background-position: -0px -24px;
+	background-repeat: no-repeat;
+	display: block;
+	width: 11px;
+	height: 11px;
+	border: none;
+	cursor: pointer;
+	float: right;
+	display: block;
+}
+.close_small_btn:hover
+{
+	background-position: -0px -36px;
+	background-repeat: no-repeat;
+}
+.media-item-links
+{
+	width: 80%;
+	display: inline-block;
+	margin-top: 5px;
+}
+.media-item-copy-links
+{
+	display: inline-block;
+	padding: 2px 20px !important;
+	line-height: normal !important;
+}
+.media-item-links p span.label
+{
+	font-weight: bold;
+}
+.remove_media
+{
+	margin-top:10px;
+	margin-right: 10px;
+	background-position: -0px 0px !important;
+	background-size: 15px;
+	width: 15px !important;
+	height: 15px !important;
+} 
+.remove_media:hover
+{
+	background-position: -0px -16px !important;
+}
+.media-item
+{
+	width: 100%;
+	display: block;
+	border: 1px solid #ccc;
+	margin: 7px 0 7px 0;
+}
+.media-item:hover
+{
+	background-color: #EBE9E9;
+}
+.media-item-image
+{
+	max-width: 150px;
+	/*border: 1px solid #ccc;*/
+	padding:5px;
+	margin: 0 10px 0 0;
+	cursor: pointer;
+}

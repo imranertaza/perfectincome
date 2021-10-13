@@ -1,0 +1,19 @@
+.profile_img{
+	width: 100px;
+	height: 100px;
+	border-radius:100px;
+	border: 2px solid #116815;	    
+}
+
+
+.tree_arrow_right{ padding-left:15px;}
+.tree_arrow_left{ padding-right:15px;}
+.tree_arrow_sort_r{padding-left:0px;}
+.tree_arrow_sort_l{padding-right:0px;}
+.level{width: 95px !important; height: 95px !important;}
+.level2{width: 80px !important; height: 80px !important;}
+.level3{
+	width: 55px !important;
+    height: 55px !important;
+    margin: 5px;	
+}

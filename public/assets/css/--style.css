@@ -1,0 +1,98 @@
+body { margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; color:#221e1f; background: #F8F8F8;}
+.main_body{ width:980px; margin:0 auto; box-shadow: 0px 0px 5px #ccc;}
+.logo{ float:left;}
+.sign_in{ float:left; font-size:12px; margin:10px 0 0 565px;}
+.sign_in a{ text-decoration:none; color:#221e1f;}
+.items{ font-size:12px; float:left; margin:5px 0 0 40px;}
+.how_to_buy{ float:left; margin:5px 0 0 565px;}
+.how_to_buy_img{ float:left;}
+.how_to_buy_txt{ font-size:10px; float:left; margin-left:5px;}
+.how_to_buy_txt a{ text-decoration:none; color:#221e1f;}
+.cash{ float:left; margin:5px 0 0 20px;}
+.cash_img{ float:left;}
+.cash_txt{ font-size:10px; float:left; margin-left:5px;}
+.replacment{ float:left; margin:5px 0 0 10px;}
+.replacment_img{ float:left;}
+.replacment_txt{ font-size:10px; float:left; margin-left:5px;}
+.side_bar{ width:225px; float:left;}
+.categories_top{ font-size:16px; text-align:center; background:#b2b2b2; padding:14.5px 0px;}
+.categories{ border:1px solid #b2b2b2;}
+.categories ul{ margin:0; padding:0; list-style:none;}
+.categories ul li{ font-size:12px; padding:10px 10px; border-bottom:1px solid #b2b2b2;}
+.categories ul li a{ text-decoration:none; color:#221e1f;}
+.categories ul li a:hover{ text-decoration:underline;}
+.arrow{ float:right;}
+.home_delivery{ height:242px; background:url(../images/home_delivery.png) right no-repeat; border:1px solid #b2b2b2; margin-top:5px;}
+.gift{ height:200px; background:url(../images/gift.jpg) no-repeat; margin-top:10px;}
+.gift_txt{ font-size:16px; padding:175px 0 0 10px; color:#ded822;}
+.delivery_txt{ font-size:20px; margin:40px 5px;}
+.content{ float:left; width:755px; }
+.content_top{ width:755px; background:#117b3d; float:left;}
+.sarch_bar{ width:580px; float:left; background:#FFF; margin:5px;}
+.select_categoris{ width:100px; color:#999; font-size:12px; border-right:1px solid #b2b2b2; float:left; padding:12px 5px;}
+.saech_box{ float:left;}
+.sarch{ float:right; background:#b2b2b2; font-size:12px; padding:12.5px 20px;}
+.hotline{ color:#FFF; font-size:12px; text-align:center; margin-top:10px;}
+.slider{ margin:5px; float:left;}
+.order_by_phone{ height:260px; width:221px; border:1px solid #b2b2b2; float:right; margin-top:5px; background:url(../images/call.png) right no-repeat}
+.order_text{ font-size:18px; float:left; margin:30px 0 0 5px;}
+.phone{ padding:145px 0 0 10px;}
+.call{ font-size:14px; margin:10px 0 0 5px;}
+.product{ margin:10px 3px; }
+.product_top{ border-bottom:1px solid #b2b2b2; font-size:16px; padding:10px 0 0 5px;}
+.product_top a{ text-decoration:none; color:#a4a0a0; font-size:10px;}
+.product_box{ height:255px; width:180px; border:1px solid #b2b2b2; margin:10px 0 0 5px; float:left;}
+.product_img{ margin:10px 30px;}
+.product_txt{ font-size:12px; text-align:center; border-bottom:1px solid #b2b2b2; padding-bottom:10px;}
+.price{ font-size:12px; margin:3px 10px;}
+.footer{ height:65px; background:#eaeaea;}
+.footer_manu ul{ margin-left:200px; padding:0; list-style:none; }
+.footer_manu ul li a{ text-decoration:none; color:#221e1f; font-size:12px; float:left; padding:25px 15px;}
+.footer_manu ul li a:hover{ text-decoration:underline;}
+.sosla_txt{ font-size:12px; padding:25px 10px 0 30px; float:left;}
+.sosal_img{ padding:20px 0px; float:left;}
+
+
+/****************** This is for products indevisual css start*************************/
+.product_page{ height:1000px; margin:0 auto;}
+.product_img1{ width:300px; float:left; margin:10px;}
+.product_img2{ margin:5px;}
+.product_img_bake{ height:300px; width:300px; border:1px solid #b2b2b2;}
+.product_img2{ margin:25px 70px;}
+.product_img_bake1{ height:93px; width:90px; border:1px solid #b2b2b2; float:left; margin:4px;}
+.product_img3{ margin:5px 24px;}
+.product_details{ float:left; margin:10px;}
+.product_txt1{ font-size:18px; font-family:Arial, Helvetica, sans-serif;}
+.product_txt2{ font-size:12px; font-family:Arial, Helvetica, sans-serif; margin-top:30px; border-bottom:1px solid #b2b2b2;}
+.product_txt3{ font-size:12px; font-family:Arial, Helvetica, sans-serif; margin-top:30px; float:left;}
+.product_txt4{ font-size:12px; font-family:Arial, Helvetica, sans-serif; float:right; margin-top:55px;}
+.product_size1{ width:30px; padding:10px; border:1px solid #b2b2b2; text-align:center; float:left; margin:5px;}
+.product_size2{ width:30px; padding:10px; border:1px solid #b2b2b2; float:left; text-align:center; margin:5px;}
+.product_Prise{ text-align:center; font-size:12px; font-family:Arial, Helvetica, sans-serif; margin-top:70px;}
+.quantity_{ width:165px; margin-top:10px; float:left;}
+.quantity{ height:40px; width:65px; text-align:center; margin:10px; 20px;}
+.buy_now{ color:#FFF; font-size:14px; font-family:Arial, Helvetica, sans-serif; background:#117b3d; float:left; padding:15px 15px; margin:20px;}
+.contact{ border-top:1px solid #b2b2b2;}
+.wishlist_img{ float:left; margin:10px 5px;}
+.wishlist_txt{ font-size:12px; font-family:Arial, Helvetica, sans-serif; float:left; padding:15px 5px;}
+.email_img{ float:left; margin:15px 5px;}
+.email_txt{ font-size:12px; font-family:Arial, Helvetica, sans-serif; float:left; padding:15px 5px;}
+/****************** This is for products indevisual css end*************************/
+
+.success { background:#00A400; color:#fff; }
+.error { background:#F88; color:#fff; }
+
+
+
+#wrap{
+	min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
