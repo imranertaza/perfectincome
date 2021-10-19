@@ -11,9 +11,7 @@
                         <hr/>
                         <div class="row store2">
                             <div class="col-md-12 table-responsive">
-                                <div class="message">
                                     <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;if($message){  echo $message; } ?>
-                                </div>
                                 <table class="table-bordered table ">
                                     <tr>
                                         <th>Image</th>
@@ -36,6 +34,8 @@
                                                 <td>
                                                     <?php print $each_product->model; ?></td>
                                                 <td><?php print $each_product->name; ?>
+                                                    <input type="hidden" name="pro_id[]"
+                                                           value="<?php print $each_product->pro_id; ?>"/>
                                                     <input type="hidden" value="<?php print $each_product->name; ?>"
                                                            name="name"/>
                                                 </td>

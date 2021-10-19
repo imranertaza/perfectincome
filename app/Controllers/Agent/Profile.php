@@ -118,7 +118,7 @@ class Profile extends BaseController
 
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
-            $data['check_user'] = $user_id;
+            $data['check_user'] = $clientLogin;
             $data['ID'] = $user_id;
             $data['u_name'] = get_field_by_id_from_table('users', 'username', 'ID', $user_id);
             $data['f_name'] = get_field_by_id_from_table('users', 'f_name', 'ID', $user_id);
@@ -127,7 +127,7 @@ class Profile extends BaseController
             $data['gameBalance'] = get_field_by_id_from_table('users', 'OP_game_balance', 'ID', $user_id);
             $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
-            //$data['user_id'] = $user_id;
+            $data['user_id'] = $user_id;
             $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
             echo view('Front/Client_area/header', $data);
 

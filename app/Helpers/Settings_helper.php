@@ -469,10 +469,10 @@ function get_field_by_id_from_table($table, $col, $col_id, $src_id)
     $tableRow = DB()->table($table);
     $numRow = $tableRow->where($col_id,$src_id)->countAllResults();
 
-    if ($numRow === 1) {
+    if ($numRow == 1) {
         $output = $query->$col;
     } else {
-        $output = '';
+        $output = 0;
     }
     return $output;
 }
@@ -507,9 +507,10 @@ function get_email_by_id($id)
 
 function get_total_price_of_a_sale($sale_id)
 {
-    $ci =& get_instance();
-    $ci->load->database();
-    $query = $ci->db->query("SELECT `pro_info` FROM `sales` WHERE `sale_id` = '$sale_id'")->row();
+    $sales = DB()->table('sales');
+    $sales->where('sale_id',$sale_id)->get()->getRow();
+
+    $query = $sales->where('sale_id',$sale_id)->get()->getRow();;
     $product_info = json_decode($query->pro_info);
     $keys = array_keys((array)$product_info);
     $price = 0;
@@ -522,9 +523,8 @@ function get_total_price_of_a_sale($sale_id)
 
 function get_price_by_id($pro_id)
 {
-    $ci =& get_instance();
-    $ci->load->database();
-    $query = $ci->db->query("SELECT `price` FROM `products` WHERE `pro_id` = '$pro_id'")->row();
+    $products = DB()->table('products');
+    $query = $products->where('pro_id',$pro_id)->get()->getRow();
     $price = $query->price;
     return $price;
 }
