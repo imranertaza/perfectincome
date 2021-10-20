@@ -54,14 +54,14 @@ class Member extends BaseController
                 'searchkey2' => $key2,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('page_list') == true) {
                 echo view('Admin/Member/list', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -80,14 +80,14 @@ class Member extends BaseController
                 'pro_image' => $img,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Member/view', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -106,14 +106,14 @@ class Member extends BaseController
                 'pro_image' => $img,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Member/edit', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -187,15 +187,15 @@ class Member extends BaseController
                 'functionModel' => $this->functionModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 //echo view('Admin/Product/add', $data);
                 echo view('Admin/Member/add', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
