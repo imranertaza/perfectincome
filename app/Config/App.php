@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/starsfair/public/';
+    public $baseURL = 'http://localhost/perfect_income/public_html/';
 
     /**
      * --------------------------------------------------------------------------

@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'starsfair',
+        'database' => 'perfect_income',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
