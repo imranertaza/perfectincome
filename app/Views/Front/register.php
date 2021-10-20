@@ -6,8 +6,6 @@
                             <div class="col-md-3"></div>
                                 <div class="header inner col-md-12"
                                      style=" background: url('<?php print base_url(); ?>/uploads/gallery/banner6.jpg'); background-repeat: no-repeat; background-size: cover; ">
-                                <form id="regform" role="form" id="add_user" method="post" action="<?php print base_url(); ?>/member_form/register_action">
-                                    <h3>Registration Form</h3>
                                     <div class="col-md-12">
                                         <?php $error = isset($_SESSION['error']) ? $_SESSION['error'] : 0;
                                         if ($error) { ?>
@@ -17,6 +15,9 @@
                                             </div>
                                         <?php } ?>
                                     </div>
+                                <form id="regform" role="form" id="add_user" method="post" action="<?php print base_url(); ?>/member_form/register_action">
+                                    <h3>Registration Form</h3>
+
                                     <div class="form-register">
                                         <div class="form-wrapper">
                                             <label for="">Full Name</label>
@@ -44,27 +45,29 @@
                                     </div>
 
                                     <div class="form-register">
-                                        <div class="form-wrapper">
-                                            <label for="">Pin</label>
-                                            <input id="myInput" name="pin" type="text"  onchange="pin_check(this.value)" required class=" reg"><b id="pin_bar"></b>
-                                        </div>
+<!--                                        <div class="form-wrapper">-->
+<!--                                            <label for="">Pin</label>-->
+<!--                                            <input id="myInput" name="pin" type="text"  onchange="pin_check(this.value)" required class=" reg"><b id="pin_bar"></b>-->
+<!--                                        </div>-->
                                         <div class="form-wrapper">
                                             <label for="">Sponsor ID</label>
                                             <input name="spon_id" type="text"  onchange="check_spon(this.value)" required class=" reg">
                                             <b id="spon_bar"></b>
                                         </div>
-                                    </div>
-                                    <div class="form-register">
+
                                         <div class="form-wrapper">
                                             <label for="">Placement ID</label>
                                             <input name="p_id" type="text"  onchange="parent_check(this.value)" required class=" reg"><b id="parent_check"></b>
                                         </div>
+                                    </div>
+<!--                                    <div class="form-register">-->
+
                                         <div class="form-wrapper" >
                                             <label for="">Choose hand</label>
                                             <select class="reg" name="position" id="hand" style="background-color:#3e6278;" required>
                                             </select>
                                         </div>
-                                    </div>
+<!--                                    </div>-->
 
                                     <div class="checkbox">
                                         <label>
