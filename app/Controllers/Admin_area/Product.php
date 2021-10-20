@@ -53,14 +53,14 @@ class Product extends BaseController
                 'searchkey' => $key,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('page_list') == true) {
                 echo view('Admin/Product/list', $data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -79,14 +79,14 @@ class Product extends BaseController
                 'pro_image' => $img,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Product/view', $data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -105,14 +105,14 @@ class Product extends BaseController
                 'pro_image' => $img,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Product/edit', $data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -166,14 +166,14 @@ class Product extends BaseController
                 'productfunctionModel' => $this->productfunctionModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Product/add', $data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 

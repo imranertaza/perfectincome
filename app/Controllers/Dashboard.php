@@ -33,14 +33,14 @@ class Dashboard extends BaseController
 
             $data = ['functionModel' => $this->functionModel, ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
                 echo view('Admin/index',$data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 

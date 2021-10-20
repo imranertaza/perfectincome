@@ -101,7 +101,7 @@ class Product_sale extends BaseController
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $userId);
                 $data['user_id'] = $this->session->user_id;
 
-                $data['sidebar_left'] = view('Front/client_area/sidebar-left', $data);
+                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
                 $data['sidebar_right'] = view('Front/Client_area/Agent/sidebar-right', $data);
                 $pro = DB()->table('products');
                 $products = $pro->where('quantity >', 0)->get();

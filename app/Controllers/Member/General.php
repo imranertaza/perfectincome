@@ -67,7 +67,7 @@ class General extends BaseController
                 $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
                 $data['user_id'] = $user_id;
-                $data['sidebar_left'] = view('Front/client_area/sidebar-left', $data);
+                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
                 echo view('Front/Client_area/header', $data);
 
                 $user = DB()->table('users');

@@ -41,15 +41,15 @@ class Category extends BaseController
                 'category' => $cat,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('page_list') == true) {
 
                 echo view('Admin/Category/category_list',$data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -68,14 +68,14 @@ class Category extends BaseController
                 'pro_image' => $img,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Member/view', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -94,14 +94,14 @@ class Category extends BaseController
                 'categoryModel' => $this->categoryModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Category/edit_category', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -134,14 +134,14 @@ class Category extends BaseController
                 'categoryModel' => $this->categoryModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Category/add_category',$data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 

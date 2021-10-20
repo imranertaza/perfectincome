@@ -35,14 +35,14 @@ class Location extends BaseController
                 'location' => $location,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('page_list') == true) {
                 echo view('Admin/Location/division_list', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -57,14 +57,14 @@ class Location extends BaseController
                 'functionModel' => $this->functionModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/add_division', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -94,14 +94,14 @@ class Location extends BaseController
                 'row' => $rows,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/edit_division', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -129,15 +129,15 @@ class Location extends BaseController
                 'functionModel' => $this->functionModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
 
                 echo view('Admin/Location/add_district', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -169,14 +169,14 @@ class Location extends BaseController
                 'location' => $loca,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/district_list', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -194,14 +194,14 @@ class Location extends BaseController
                 'row' => $loca,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/edit_district', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -233,14 +233,14 @@ class Location extends BaseController
                 'functionModel' => $this->functionModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/add_thana', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -274,14 +274,14 @@ class Location extends BaseController
                 'location' => $location,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/thana_list', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -300,14 +300,14 @@ class Location extends BaseController
                 'row' => $location,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/edit_thana', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -337,14 +337,14 @@ class Location extends BaseController
                 'functionModel' => $this->functionModel,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/add_word', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -377,14 +377,14 @@ class Location extends BaseController
                 'word' => $word,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/word_list', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -404,14 +404,14 @@ class Location extends BaseController
                 'row' => $word,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('edit_page') == true) {
                 echo view('Admin/Location/edit_word', $data);
             } else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 

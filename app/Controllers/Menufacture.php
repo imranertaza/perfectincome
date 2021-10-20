@@ -32,14 +32,14 @@ class Menufacture extends BaseController
                 'menufacture' => $menuf,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
                 echo view('Admin/Menufacture/list',$data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -54,14 +54,14 @@ class Menufacture extends BaseController
 
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
                 echo view('Admin/Menufacture/add',$data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -90,14 +90,14 @@ class Menufacture extends BaseController
                 'menufacture' => $query,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
                 echo view('Admin/Menufacture/edit', $data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 

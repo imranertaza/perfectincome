@@ -31,14 +31,14 @@ class Product_cat extends BaseController
                 'proCat' => $query,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
                 echo view('Admin/Product_cat/list',$data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -53,14 +53,14 @@ class Product_cat extends BaseController
 
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
                 echo view('Admin/Product_cat/add',$data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
@@ -89,14 +89,14 @@ class Product_cat extends BaseController
                 'get_category' => $query,
             ];
 
-            echo view('admin/header');
-            echo view('admin/sidebar');
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
                 echo view('Admin/Product_cat/edit', $data);
             }else {
-                echo view('admin/no_permission');
+                echo view('Admin/no_permission');
             }
-            echo view('admin/footer');
+            echo view('Admin/footer');
         }
     }
 
