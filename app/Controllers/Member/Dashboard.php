@@ -154,6 +154,7 @@ class Dashboard extends BaseController
         $pins = DB()->table('pins');
         $pins->where('pin', $this->request->getPost('pin'))->update($pin);
 
+
         //Sponsor commision will be added to main Commission
         $spon_id = get_field_by_id_from_table("tree", "spon_id", "u_id", $userID);
         $spons_previous_bal = get_field_by_id_from_table("users", "commission", "ID", $spon_id);
@@ -221,6 +222,8 @@ class Dashboard extends BaseController
             if ($hand->r_t == $user_id) {
                 $point_hand = "rpoint";
             }
+
+
             $old_point = get_field_by_id_from_table("users", $point_hand, "ID", $parent_id);
             $pr_point = array(
                 $point_hand => $old_point + $min_matching_point
@@ -306,7 +309,7 @@ class Dashboard extends BaseController
                         'rpoint' => $rpoint - $min_matching_point
                     );
                     $lfUpdate = DB()->table('users');
-                    $lfUpdate->where('ID', $parent_id)->update('users', $left_data);
+                    $lfUpdate->where('ID', $parent_id)->update($left_data);
 
 
                     //Deducting history of points
@@ -372,11 +375,15 @@ class Dashboard extends BaseController
             $parent_id = get_field_by_id_from_table("tree", "pr_id", "u_id", $parent_id);
         }
 
+        $uStatus = array(
+            'status' => 'Active'
+        );
+        $stUser = DB()->table('users');
+        $stUser->where('ID', $userID)->update($uStatus);
+
         $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Successfully active!</div>');
-        return redirect()->to(site_url("/dashboard"));
+        return redirect()->to(site_url("member/dashboard"));
     }
-
-
 
 
 }

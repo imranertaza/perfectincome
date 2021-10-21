@@ -15,7 +15,7 @@
                                         <form action="<?php echo base_url('member/dashboard/pin_active')?>" method="post" >
                                             <div class="input">
                                                 <label>Pin</label>
-                                                <input type="text" id="myInput" class="form-control" placeholder="pin" onchange="pin_check(this.value)" required >
+                                                <input type="text" id="myInput" class="form-control" name="pin" placeholder="pin" onchange="pin_check(this.value)" required >
                                                 <b id="pin_bar"></b>
                                             </div>
                                             <div class="input" style="padding-top: 20px;">

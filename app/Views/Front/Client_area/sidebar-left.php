@@ -115,12 +115,12 @@
                     <li>
                         <a href="<?php print base_url(); ?>/member/general/matching_report"><i class="fa fa-file-text"></i> Matching Report</a>
                     </li>
-                    <li>
-                        <a href=""><i class="fa fa-indent"></i>Product</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-file-text"></i>Product Purchase History</a>
-                    </li>
+<!--                    <li>-->
+<!--                        <a href=""><i class="fa fa-indent"></i>Product</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href=""><i class="fa fa-file-text"></i>Product Purchase History</a>-->
+<!--                    </li>-->
                 <?php } ?>
             </ul>
         </div>
