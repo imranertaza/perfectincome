@@ -19,9 +19,16 @@
                                     
                                     <form method="post" action="<?php echo base_url(); ?>/pin_generat/pin_generat_action">
                                         <div class="col-lg-4">
-                                        <label>Agent Name </label>
-                                        <input class="form-control" name="user_id" onchange="check_agent(this.value)"  required>
-                                        <p class="help-block help_text" id="spon_bar">Please put the Agent Name here</p>
+                                        <label>Package </label>
+
+                                            <select class="form-control" name="package_id" required>
+                                                <option value="">Please select</option>
+                                                <?php foreach ($package as $item) { ?>
+                                                    <option value="<?php echo $item->package_id;?>"><?php echo $item->package_name;?></option>
+                                                <?php } ?>
+
+                                            </select>
+                                        <p class="help-block help_text" id="spon_bar">Please Select Package</p>
                                         </div>
 
                                         <input class="form-control" type="hidden" name="pin" value="12" hidden>

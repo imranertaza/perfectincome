@@ -34,7 +34,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
             <?php }
-
+            /*
             if ($this->functionModel->hasPermission('std_list') == true) { ?>
                 <li>
                     <a href="#"><i class="fa fa-list-ol" aria-hidden="true"></i> Products <span class="fa arrow"></span></a>
@@ -93,7 +93,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                         <?php } ?>
                     </ul>
                 </li>
-            <?php }
+            <?php } */
             if ($this->functionModel->hasPermission('std_list') == true) { ?>
                 <li>
                     <a href="#"><i class="fa fa-fw"></i> Member <span class="fa arrow"></span></a>
@@ -221,6 +221,9 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
 
+                <li>
+                    <a href="<?php echo base_url(); ?>/Package"><i class="fa fa-fw"></i> Package</a>
+                </li>
 
                 <li>
                     <a href="#"><i class="fa fa-fw"></i> Pin Gnerate<span class="fa arrow"></span></a>
@@ -249,7 +252,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                         if ($this->functionModel->hasPermission('add_download') == true) { ?>
                             <li>
                                 <a href="<?php echo base_url(); ?>/Admin_ut/Balance_history/"><i
-                                            class="fa fa-plus-square fa-fw"></i> Load Agent Balance</a>
+                                            class="fa fa-plus-square fa-fw"></i> User Load Balance</a>
                             </li>
                         <?php } ?>
                     </ul>

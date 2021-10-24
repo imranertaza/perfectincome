@@ -26,7 +26,7 @@ class Balance_history extends BaseController
             echo view('Admin/login');
         } else {
             $table = DB()->table('users');
-            $sql = $table->where('type',2)->get();
+            $sql = $table->where('type',4)->where('status','Active')->get();
             $query = $sql->getResult();
 
             $data = [
@@ -67,8 +67,8 @@ class Balance_history extends BaseController
                 'amount' => $balance,
             );
             $trans = DB()->table('history_transection');
-
             $trans->insert($data);
+
 
             //Update Balance
             $userBalance = get_balance_by_id($receiverId);
@@ -77,8 +77,10 @@ class Balance_history extends BaseController
             $tblup = DB()->table('users');
             $tblup->where('ID',$receiverId);
             $tblup->update($upBal);
-            //Update Admin Balance
 
+
+
+            //Update Admin Balance
             $admindata = array(
                 'balance' => $totalAdminBalance,
             );

@@ -126,11 +126,11 @@ class Member_form extends BaseController
 
 
 
-            $this->session->setFlashdata('error', 'Successfully Registered. Please Login');
+            $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Successfully Registered. Please Login</div>');
             return redirect()->to(site_url("/member_form/login"));
 
         }else {
-            $this->session->setFlashdata('error', 'Email or password mismatch');
+            $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Email or password mismatch</div>');
             return redirect()->to(site_url("/member_form/register"));
         }
     }

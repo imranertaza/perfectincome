@@ -4,6 +4,7 @@ namespace App\Controllers\Admin_ut;
 
 use App\Controllers\BaseController;
 use App\Models\FunctionModel;
+use App\Models\UserModel;
 
 class Point_history extends BaseController
 {
@@ -13,7 +14,6 @@ class Point_history extends BaseController
 
     public function __construct()
     {
-
         $this->session = \Config\Services::session();
         $this->functionModel = new FunctionModel();
         $this->validation = \Config\Services::validation();
@@ -27,37 +27,47 @@ class Point_history extends BaseController
             echo view('Admin/login');
         } else {
 
+//            UserModel::findAll();
+
             $username = $this->request->getPost('username');
             $u_id = get_ID_by_username($username);
 
             $type = $this->request->getPost('type');
 
             //query nagad transection list for this user
-            $balance = number_format(get_balance_by_id($u_id) ,2);
+            $balance = number_format(get_balance_by_id($u_id), 2);
             $commission = number_format(get_commission_by_id($u_id), 2);
-            $history_point = DB()->table('history_point');
-            if ($type) {
-                $sql = $history_point->where('u_id',$u_id)->get();
+
+            if (!empty($type)) {
+                $history_point1 = DB()->table('history_point');
+                $sql = $history_point1->where('u_id', $u_id)->where('type', $type)->get();
                 $hisPoint = $sql->getResult();
-            }else {
-                $sql2 = $history_point->where('u_id')->get();
+            } else {
+                $history_point2 = DB()->table('history_point');
+                $sql2 = $history_point2->where('u_id', $u_id)->get();
                 $hisPoint = $sql2->getResult();
             }
+
+
+            $hisLAd = DB()->table('history_point');
             $whe = array("u_id" => $u_id, "lpoint !=" => "Null", "type" => "Add");
-            $totalLeftAdd = $history_point->where($whe)->countAllResults();
+            $totalLeftAdd = $hisLAd->where($whe)->countAllResults();
 
+            $hisRAd = DB()->table('history_point');
             $whe2 = array("u_id" => $u_id, "rpoint !=" => "Null", "type" => "Add");
-            $totalRightAdd = $history_point->where($whe2)->countAllResults();
+            $totalRightAdd = $hisRAd->where($whe2)->countAllResults();
 
-            $whe3 =  array("u_id" => $u_id, "type" => "Deduct");
-            $totalDeduct = $history_point->where($whe3)->countAllResults();
+            $hisDed = DB()->table('history_point');
+            $whe3 = array("u_id" => $u_id, "type" => "Deduct");
+            $totalDeduct = $hisDed->where($whe3)->countAllResults();
 
+            $hisFlu = DB()->table('history_point');
             $whe4 = array("u_id" => $u_id, "lpoint" => "100", "type" => "Flush");
-            $totalLeftFlush = $history_point->where($whe4)->countAllResults();
+            $totalLeftFlush = $hisFlu->where($whe4)->countAllResults();
 
+            $hisFluR = DB()->table('history_point');
             $whe5 = array("u_id" => $u_id, "rpoint" => "100", "type" => "Flush");
-            $totalRightFlush = $history_point->where($whe5)->countAllResults();
-
+            $totalRightFlush = $hisFluR->where($whe5)->countAllResults();
 
 
             $data = [
@@ -84,10 +94,6 @@ class Point_history extends BaseController
             echo view('Admin/footer');
         }
     }
-
-
-
-
 
 
 }

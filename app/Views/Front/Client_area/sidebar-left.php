@@ -92,28 +92,34 @@
                 <?php
                 if (($check_user == true) && ($role == 6)) { ?>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/dashboard"><i class="fa fa-tachometer"></i> Dashboard</a>
+                        <a href="<?php print base_url(); ?>/Member/dashboard"><i class="fa fa-tachometer"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/general/tree"><i class="fa fa-sitemap"></i> My Tree</a>
+                        <a href="<?php print base_url(); ?>/Member/general/tree"><i class="fa fa-sitemap"></i> My Tree</a>
                     </li>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/profile"><i class="fa fa-user"></i> Profile</a>
+                        <a href="<?php print base_url(); ?>/Member/General/pin_generate"><i class="fa fa-sitemap"></i> Pin generate</a>
                     </li>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/profile/profile_update"><i class="fa fa-pencil-square-o"></i> Edit Profile</a>
+                        <a href="<?php print base_url(); ?>/Member/profile"><i class="fa fa-user"></i> Profile</a>
                     </li>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/general/referrals"><i class="fa fa-share-alt-square"></i> Referrals</a>
+                        <a href="<?php print base_url(); ?>/Member/profile/profile_update"><i class="fa fa-pencil-square-o"></i> Edit Profile</a>
                     </li>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/general/withdraw"><i class="fa fa-paper-plane-o"></i> Withdraw</a>
+                        <a href="<?php print base_url(); ?>/Member/general/referrals"><i class="fa fa-share-alt-square"></i> Referrals</a>
                     </li>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/general/withdraw_report"><i class="fa fa-file-text"></i> Withdraw Report</a>
+                        <a href="<?php print base_url(); ?>/Member/general/withdraw"><i class="fa fa-paper-plane-o"></i> Withdraw</a>
                     </li>
                     <li>
-                        <a href="<?php print base_url(); ?>/member/general/matching_report"><i class="fa fa-file-text"></i> Matching Report</a>
+                        <a href="<?php print base_url(); ?>/Member/general/withdraw_report"><i class="fa fa-file-text"></i> Withdraw Report</a>
+                    </li>
+                    <li>
+                        <a href="<?php print base_url(); ?>/Member/general/matching_report"><i class="fa fa-file-text"></i> Matching Report</a>
+                    </li>
+                    <li>
+                        <a href="<?php print base_url(); ?>/Member/general/sponser_report"><i class="fa fa-file-text"></i> Sponser Report</a>
                     </li>
 <!--                    <li>-->
 <!--                        <a href=""><i class="fa fa-indent"></i>Product</a>-->

@@ -25,7 +25,7 @@ class Pin_generat extends BaseController
             echo view('Admin/login');
         } else {
             $table = DB()->table('pins');
-            $sql = $table->groupBy('user_id')->get();
+            $sql = $table->groupBy('package_id')->get();
             $result = $sql->getResult();
 
             $data = [
@@ -50,9 +50,12 @@ class Pin_generat extends BaseController
         if (!isset($adminLogin) || $adminLogin != TRUE) {
             echo view('Admin/login');
         } else {
+            $tab = DB()->table('package');
+            $query = $tab->get()->getResult();
 
             $data = [
                 'functionModel' => $this->functionModel,
+                'package' => $query,
             ];
 
             echo view('Admin/header');
@@ -67,22 +70,48 @@ class Pin_generat extends BaseController
     }
 
     public function pin_generat_action(){
-
+        $userId = $this->session->user_id;
         $num_pins = $this->request->getPost('amount');
-        $userName = $this->request->getPost('user_id');
-        $usrID = get_userid_by_username($userName);
-        for($i = 1; $i <= $num_pins; $i++) {
-            $pin = $this->generate();
-            $data = [
-                'user_id' => $usrID,
-                'pin' => $pin,
-            ];
-            $table = DB()->table('pins');
-            $table->insert($data);
+        $packageId = $this->request->getPost('package_id');
+        $balance = get_id_by_data('balance', 'users', 'ID', $userId);
+        $packAmount = get_id_by_data('price', 'package', 'package_id', $packageId);
+        $totalPrice = $packAmount * $num_pins;
+
+        if ($balance >= $totalPrice) {
+
+            for ($i = 1; $i <= $num_pins; $i++) {
+                $pin = $this->generate();
+                $data = [
+                    'package_id' => $packageId,
+                    'generated_by' => $userId,
+                    'pin' => $pin,
+                ];
+                $table = DB()->table('pins');
+                $table->insert($data);
+            }
+
+            $oldPack = get_id_by_data('total_pin_generated_number', 'package', 'package_id', $packageId);
+            $newPin = $oldPack + $num_pins;
+
+            $data = ['total_pin_generated_number' => $newPin];
+            $pack = DB()->table('package');
+            $pack->where('package_id', $packageId)->update($data);
+
+
+
+            //admin balance update
+            $newBalUser = $balance - $totalPrice;
+            $adminUser = DB()->table('users');
+            $adminUser->where('ID', $userId)->update(['balance' => $newBalUser]);
+
+            $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Add successfully</div>');
+            return redirect()->to(site_url("/Pin_generat"));
+        } else {
+            $this->session->setFlashdata('message', '<div class="alert alert-danger alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Sorry your load balance is not enough!</div>');
+            return redirect()->to(site_url("/Pin_generat"));
         }
 
-        $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Add successfully</div>');
-        return redirect()->to(site_url("/Pin_generat"));
+
     }
 
     public function generate()
@@ -97,7 +126,7 @@ class Pin_generat extends BaseController
             echo view('Admin/login');
         } else {
             $table = DB()->table('pins');
-            $sql  = $table->where('user_id',$id)->get();
+            $sql  = $table->where('package_id',$id)->get();
             $query = $sql->getResult();
             $data = [
                 'functionModel' => $this->functionModel,

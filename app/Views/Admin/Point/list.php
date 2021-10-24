@@ -6,7 +6,6 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            
             <div class="row">
                 <div class="col-lg-12">
                         <div class="panel-body no_padding">

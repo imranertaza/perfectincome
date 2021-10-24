@@ -118,6 +118,18 @@ class Ajax extends BaseController
         }
     }
 
+    public function check_user(){
+        $uname = $this->request->getPost('username');
+
+        $table = DB()->table('users');
+        $rowcount = $table->where('username',$uname)->countAllResults();
+        if ($rowcount==0){
+            return '0';
+        }else {
+                return '1';
+        }
+    }
+
     public function check_pin(){
         $pin = $this->request->getPost('pin');
 

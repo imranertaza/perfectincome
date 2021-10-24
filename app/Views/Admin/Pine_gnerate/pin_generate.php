@@ -34,10 +34,10 @@
                             <tr class="odd gradeX">
                                 <td><?php echo ++$i; ?></td>
 
-                                <td><?php print get_username_by_id($rows->user_id); ?></td>
+                                <td><?php print get_id_by_data('package_name','package','package_id',$rows->package_id); ?></td>
                                 <td class="center">
 
-                                    <a href="<?php print base_url(); ?>/pin_generat/view_agent_pin/<?php print $rows->user_id; ?>.html"
+                                    <a href="<?php print base_url(); ?>/pin_generat/view_agent_pin/<?php print $rows->package_id; ?>"
                                        class="btn btn-primary take_margin" title="Edit"><i class="fa fa-fw"></i></a>
 
                                 </td>

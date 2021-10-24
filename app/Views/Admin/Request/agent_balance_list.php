@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Load Agent Balance</h1>
+            <h1 class="page-header">User Load Balance</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -30,8 +30,8 @@
                         <tr>
                             <th width="150">
 
-                                <input type="text" class="form-control" name="username" id="username" onchange="check_agent(this.value)" required>
-                                <p class="help-block help_text" id="spon_bar">Please put the Agent Name here</p>
+                                <input type="text" class="form-control" name="username" id="username" onchange="check_user(this.value)" required>
+                                <p class="help-block help_text" id="spon_bar">Please put the user Name here</p>
                             </th>
                             <th width="100"><input type="text" class="form-control" name="balance" id="balance" required></th>
                             <th width="100">
@@ -86,9 +86,9 @@
 
 
 <script type="text/javascript">
-    function check_agent(uname) {
+    function check_user(uname) {
         $.ajax({
-            url: '<?php print base_url(); ?>/Ajax/check_agent',
+            url: '<?php print base_url(); ?>/Ajax/check_user',
             type: "POST",
             dataType: "text",
             data: {username: uname},

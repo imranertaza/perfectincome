@@ -75,7 +75,7 @@ class Dashboard extends BaseController
                 $data['row'] = $sqlUs->getRow();
 
                 $tree = DB()->table('tree');
-                $sqlTre = $tree->where('ref_id', $user_id)->get();
+                $sqlTre = $tree->where('spon_id', $user_id)->get();
                 $data['query'] = $sqlTre->getResult();
 
                 echo view('Front/Client_area/Member/dashboard', $data);
@@ -147,18 +147,22 @@ class Dashboard extends BaseController
     {
 
         $userID = $this->session->user_id;
-
+        $pinId = $this->request->getPost('pin');
         $pin = array(
-            'status' => 'used'
+            'status' => 'used',
+            'used_by' => $userID
         );
         $pins = DB()->table('pins');
-        $pins->where('pin', $this->request->getPost('pin'))->update($pin);
+        $pins->where('pin', $pinId)->update($pin);
+
+        $packageId = get_id_by_data('package_id','pins','pin',$pinId);
 
 
         //Sponsor commision will be added to main Commission
         $spon_id = get_field_by_id_from_table("tree", "spon_id", "u_id", $userID);
         $spons_previous_bal = get_field_by_id_from_table("users", "commission", "ID", $spon_id);
-        $sponsor_com = get_field_by_id_from_table("global_settings", "value", "title", "sponsor_commission");
+//        $sponsor_com = get_field_by_id_from_table("global_settings", "value", "title", "sponsor_commission");
+        $sponsor_com = get_id_by_data('sponsor_commission','package','package_id',$packageId);
         $sponsor_commision = array(
             'commission' => $spons_previous_bal + $sponsor_com,
         );
@@ -201,8 +205,10 @@ class Dashboard extends BaseController
 
         //All Users Perent_point will be increased And matching
         $min_matching_point = get_field_by_id_from_table("global_settings", "value", "title", "min_matching_point");
+        $point = get_id_by_data('point','package','package_id',$packageId);
         $per_day_matching = get_field_by_id_from_table("global_settings", "value", "title", "per_day_matching");
-        $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
+//        $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
+        $matching_commission = get_id_by_data('matching_commission','package','package_id',$packageId);
 
         $parent_id = get_field_by_id_from_table("tree", "pr_id", "u_id", $userID);
         $user_id = $userID;
@@ -226,7 +232,7 @@ class Dashboard extends BaseController
 
             $old_point = get_field_by_id_from_table("users", $point_hand, "ID", $parent_id);
             $pr_point = array(
-                $point_hand => $old_point + $min_matching_point
+                $point_hand => $old_point + $point
             );
             $userPoi = DB()->table('users');
             $userPoi->where('ID', $parent_id)->update($pr_point);
@@ -238,7 +244,7 @@ class Dashboard extends BaseController
             $current_balance = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
             $history_point_data = array(
                 'u_id' => $parent_id,
-                $point_hand => $min_matching_point,
+                $point_hand => $point,
                 'current_left_point' => $current_lpoint,
                 'current_right_point' => $current_rpoint,
                 'current_commission' => $current_commission,
@@ -335,7 +341,7 @@ class Dashboard extends BaseController
 
             }
 
-            //Flash existing Point after 25
+            //Flash existing Point after 100
             //$total_comm_taken = $com_taken_on_day + 1;
             if ($com_taken_on_day >= $per_day_matching) {
 

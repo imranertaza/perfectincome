@@ -18,22 +18,17 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Joining Date</th>
-                                    <th>Status</th>
                                 </tr>
-                                <?php
-                                foreach ($query as $ref_info) {
+                                <?php foreach ($query as $ref_info) {
                                     $tab = DB()->table('users');
                                     $row = $tab->where('ID',$ref_info->u_id)->get()->getRow();
                                     $class = ($row->status == "Active") ? "btn btn-success" : "btn btn-danger";
-                                    ?>
+                                ?>
                                     <tr>
                                         <td><?php echo $row->username; ?></td>
                                         <td><?php echo $row->email; ?></td>
                                         <td><?php echo $row->phn_no; ?></td>
                                         <td><?php echo $row->time; ?></td>
-                                        <td>
-                                            <button type="button" class="<?php print $class; ?>"><?php echo $row->status; ?></button>
-                                        </td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
