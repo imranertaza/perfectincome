@@ -559,7 +559,7 @@ function get_side_point_by_id($side, $id)
 {
     $ci =& get_instance();
     $ci->load->database();
-    $query = $ci->db->query("SELECT `$side` FROM `Tree` WHERE `u_id` = $id")->row();
+    $query = $ci->db->query("SELECT `$side` FROM `tree` WHERE `u_id` = $id")->row();
     $side_id = $query->$side;
     return get_pr_point_by_id($side_id);
 }
@@ -639,7 +639,7 @@ function get_username_byID($id){
 
 
 function get_hand_byID($id, $hand='l_t'){
-    $table = DB()->table('Tree');
+    $table = DB()->table('tree');
     $query = $table->select($hand)->where('u_id',$id)->get();
     $rows = $query->getRow();
 
