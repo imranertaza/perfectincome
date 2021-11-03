@@ -60,7 +60,9 @@
     <div class="main_body">
         <div class="container">
             <div class="col-md-3">
-                <strong style="margin-top:5px;"><a href="<?php echo base_url(); ?>">Stars Fair BD</a></strong>
+                <strong style="margin-top:5px;"><a href="<?php echo base_url(); ?>">
+                        <?php print \App\Models\Settings\Global_settings::get_each_setting_value("site_title")?>
+                    </a></strong>
             </div>
             <div class="col-md-1 col-md-offset-8 text-right">
                 <?php $clientLogin = new_session()->isLoggedInClient;

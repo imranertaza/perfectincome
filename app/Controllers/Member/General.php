@@ -133,7 +133,7 @@ class General extends BaseController
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id2);
 
 
-            $data['p_id'] = empty($user_id) ? get_field_by_id_from_table('Tree', 'pr_id', 'u_id', $user_id2) : get_field_by_id_from_table('Tree', 'pr_id', 'u_id', $user_id);
+            $data['p_id'] = empty($user_id) ? get_field_by_id_from_table('tree', 'pr_id', 'u_id', $user_id2) : get_field_by_id_from_table('tree', 'pr_id', 'u_id', $user_id);
             if (($user_id == $user_id2) || (empty($user_id))) {
                 $data['p_id'] = "";
             }
@@ -152,7 +152,7 @@ class General extends BaseController
             $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
 
             echo view('Front/Client_area/header', $data);
-            echo view('Front/Client_area/member/tree', $data);
+            echo view('Front/Client_area/Member/tree', $data);
             echo view('Front/Client_area/footer', $data);
 
         }
