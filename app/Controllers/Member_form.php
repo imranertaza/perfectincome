@@ -65,11 +65,12 @@ class Member_form extends BaseController
 
     }
 
-    public function register_action(){
+    public function register_action()
+    {
 
         $position = $this->request->getPost('position');
         if (($position == 1) || ($position == 2)) {
-
+            DB()->transStart();
             // Insert into user
             $data_personal = array(
                 'email' => $this->request->getPost('email'),
@@ -84,7 +85,6 @@ class Member_form extends BaseController
             $users = DB()->table('users');
             $users->insert($data_personal);
             $userID = DB()->insertID();
-
 
 
             // Insert into user_role
@@ -122,14 +122,14 @@ class Member_form extends BaseController
                 );
             }
             $treeUp = DB()->table('tree');
-            $treeUp->where('u_id',$pid)->update($data_left_right);
+            $treeUp->where('u_id', $pid)->update($data_left_right);
 
-
+            DB()->transComplete();
 
             $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Successfully Registered. Please Login</div>');
             return redirect()->to(site_url("/member_form/login"));
 
-        }else {
+        } else {
             $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Email or password mismatch</div>');
             return redirect()->to(site_url("/member_form/register"));
         }
@@ -214,7 +214,8 @@ class Member_form extends BaseController
 
     }
 
-    public function logout(){
+    public function logout()
+    {
         $session = \Config\Services::session();
 
         unset($_SESSION['user_id']);

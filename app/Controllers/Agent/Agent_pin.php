@@ -115,7 +115,7 @@ class Agent_pin extends BaseController
         $totalAdminBalance = $adminBalance + $totalAmount;
 
         if ($balance >= $totalAmount) {
-
+            DB()->transStart();
             $num_pins = $this->request->getPost('amount');
 
             //Balance Update
@@ -209,6 +209,7 @@ class Agent_pin extends BaseController
                 $hisBalAdmin->insert($hisBalanceadmincommission);
             }
 
+            DB()->transComplete();
 
             $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Pin generate successfully</div>');
             return redirect()->to(site_url("Agent/agent_pin"));

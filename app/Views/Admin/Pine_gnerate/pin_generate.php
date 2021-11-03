@@ -37,7 +37,7 @@
                                 <td><?php print get_id_by_data('package_name','package','package_id',$rows->package_id); ?></td>
                                 <td class="center">
 
-                                    <a href="<?php print base_url(); ?>/pin_generat/view_agent_pin/<?php print $rows->package_id; ?>"
+                                    <a href="<?php print base_url(); ?>/Pin_generat/view_agent_pin/<?php print $rows->package_id; ?>"
                                        class="btn btn-primary take_margin" title="Edit"><i class="fa fa-fw"></i></a>
 
                                 </td>

@@ -144,7 +144,7 @@ class Product_sale extends BaseController
                 $agentBl = get_field_by_id_from_table('users', 'balance', 'ID', $sessionId);
 
                 if ($agentBl >= $totalamount) {
-
+                    DB()->transStart();
                     //sales insert
                     $saleProduct = array(
                         'u_id' => $userID,
@@ -196,7 +196,7 @@ class Product_sale extends BaseController
                         $upUser = DB()->table('users');
                         $upUser->where('ID', $userID)->update($userdata);
                     }
-
+                    DB()->transComplete();
                     $this->cart->destroy();
                     $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Successfully Purchased</div>');
                     return redirect()->to(site_url("Agent/product_sale"));

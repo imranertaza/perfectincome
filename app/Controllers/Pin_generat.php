@@ -78,7 +78,7 @@ class Pin_generat extends BaseController
         $totalPrice = $packAmount * $num_pins;
 
         if ($balance >= $totalPrice) {
-
+            DB()->transStart();
             for ($i = 1; $i <= $num_pins; $i++) {
                 $pin = $this->generate();
                 $data = [
@@ -103,6 +103,9 @@ class Pin_generat extends BaseController
             $newBalUser = $balance - $totalPrice;
             $adminUser = DB()->table('users');
             $adminUser->where('ID', $userId)->update(['balance' => $newBalUser]);
+
+            DB()->transComplete();
+
 
             $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Add successfully</div>');
             return redirect()->to(site_url("/Pin_generat"));

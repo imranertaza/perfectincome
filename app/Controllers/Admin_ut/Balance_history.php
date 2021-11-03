@@ -55,7 +55,7 @@ class Balance_history extends BaseController
         $totalAdminBalance = $adminBalance - $balance;
 
         if ($adminBalance >= $balance) {
-
+            DB()->transStart();
             //Insert
             $sendarID = $this->session->user_id;
             $receiverId = get_userid_by_username($user_name);
@@ -87,6 +87,7 @@ class Balance_history extends BaseController
             $tblAdup = DB()->table('users');
             $tblAdup->where('ID', 1);
             $tblAdup->update($admindata);
+            DB()->transComplete();
 
             $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Update successfully</div>');
             return redirect()->to(site_url("Admin_ut/Balance_history"));
@@ -166,15 +167,6 @@ class Balance_history extends BaseController
         $user->where('ID', $ID);
         $user->update($users);
 
-
-//        $fields['spon_id'] = $this->Request->getPost('spon_id');
-//        $fields['ref_id'] = $this->Request->getPost('ref_id');
-//        $fields['pr_id'] = $this->Request->getPost('p_id');
-//        $fields['position'] = $this->Request->getPost('position');
-//
-//        $Tree = DB()->table('Tree');
-//        $Tree->where('u_id', $ID);
-//        $Tree->update($fields);
 
         $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Update successfully</div>');
         return redirect()->to(site_url("Admin_area/member/list"));

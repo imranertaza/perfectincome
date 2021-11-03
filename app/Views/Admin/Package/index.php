@@ -41,8 +41,8 @@
                                 <td><?php echo $item->point;?></td>
                                 <td><?php echo $item->total_pin_generated_number;?></td>
                                 <td>
-                                    <a href="<?php echo base_url('package/update/'.$item->package_id)?>" class="btn btn-primary take_margin"  title="Edit"><i class="fa fa-pencil-square-o"></i></a>
-                                    <a href="<?php echo base_url('package/delete/'.$item->package_id)?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                    <a href="<?php echo base_url('Package/update/'.$item->package_id)?>" class="btn btn-primary take_margin"  title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="<?php echo base_url('Package/delete/'.$item->package_id)?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

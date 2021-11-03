@@ -67,7 +67,6 @@ class Menufacture extends BaseController
 
     public function action(){
         $fields['brand_name'] = $this->request->getPost('menu_name');
-//        $fields['perent_id '] = $this->request->getPost('perent');
 
         $menufacture = DB()->table('menufacture');
         $menufacture->insert($fields);

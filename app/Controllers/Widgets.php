@@ -103,8 +103,7 @@ class Widgets extends BaseController
         }
     }
 
-    public function update()
-    {
+    public function update(){
 
         $w_id = $this->request->getPost('w_id');
         $fields['title'] = $this->request->getPost('title');

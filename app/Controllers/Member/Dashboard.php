@@ -145,7 +145,7 @@ class Dashboard extends BaseController
 
     public function pin_active()
     {
-
+        DB()->transStart();
         $userID = $this->session->user_id;
         $pinId = $this->request->getPost('pin');
         $pin = array(
@@ -207,7 +207,6 @@ class Dashboard extends BaseController
         $min_matching_point = get_field_by_id_from_table("global_settings", "value", "title", "min_matching_point");
         $point = get_id_by_data('point','package','package_id',$packageId);
         $per_day_matching = get_field_by_id_from_table("global_settings", "value", "title", "per_day_matching");
-//        $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
         $matching_commission = get_id_by_data('matching_commission','package','package_id',$packageId);
 
         $parent_id = get_field_by_id_from_table("tree", "pr_id", "u_id", $userID);
@@ -386,6 +385,8 @@ class Dashboard extends BaseController
         );
         $stUser = DB()->table('users');
         $stUser->where('ID', $userID)->update($uStatus);
+
+        DB()->transComplete();
 
         $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Successfully active!</div>');
         return redirect()->to(site_url("member/dashboard"));

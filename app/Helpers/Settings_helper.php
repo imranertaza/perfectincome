@@ -428,7 +428,7 @@ function get_point_by_id($user_id)
 {
     $ci =& get_instance();
     $ci->load->database();
-    $query = $ci->db->query("SELECT `Point` FROM `users` WHERE `ID` = '$user_id'");
+    $query = $ci->db->query("SELECT `point` FROM `users` WHERE `ID` = '$user_id'");
     $point = $query->row()->point;
     return $point;
 }

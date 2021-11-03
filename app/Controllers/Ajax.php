@@ -27,7 +27,7 @@ class Ajax extends BaseController
     public function district(){
         $divisionId = $this->request->getPost('division_id');
 
-        $table = DB()->table('Location');
+        $table = DB()->table('location');
         $query = $table->where('per_id',$divisionId)->get();
 
         $output = '<option value="0">Select District...</option>';
@@ -41,7 +41,7 @@ class Ajax extends BaseController
     public function thana(){
         $districtId = $this->request->getPost('district_id');
 
-        $table = DB()->table('Location');
+        $table = DB()->table('location');
         $query = $table->where('per_id',$districtId)->get();
 
         $output = '<option value="0">Select Thana/upazilla...</option>';
@@ -55,7 +55,7 @@ class Ajax extends BaseController
     public function ward(){
         $thanaId = $this->request->getPost('thana_id');
 
-        $table = DB()->table('Location');
+        $table = DB()->table('location');
         $query = $table->where('per_id',$thanaId)->get();
 
         $output = '<option value="0">Select Union/ward...</option>';
