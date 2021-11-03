@@ -275,7 +275,7 @@ function get_location($per_id, $sel = 0)
 
 function get_division($sel)
 {
-    $table = DB()->table('Location');
+    $table = DB()->table('location');
     $query = $table->where('per_id', 0)->get();
     $output = '<option value="0">Choose Division...</option>';
     foreach ($query->getResult() as $row) {
@@ -287,7 +287,7 @@ function get_division($sel)
 
 function get_district($districtId, $division)
 {
-    $table = DB()->table('Location');
+    $table = DB()->table('location');
     $query = $table->where('per_id', $division)->get();
     $output = '<option value="0">Select District...</option>';
     foreach ($query->getResult() as $row) {
@@ -299,7 +299,7 @@ function get_district($districtId, $division)
 
 function get_upozila($select, $district)
 {
-    $table = DB()->table('Location');
+    $table = DB()->table('location');
     $query = $table->where('per_id', $district)->get();
     $output = '<option value="0">Select Thana/Upazila...</option>';
     foreach ($query->getResult() as $row) {
@@ -311,7 +311,7 @@ function get_upozila($select, $district)
 
 function get_union($select, $upozila)
 {
-    $table = DB()->table('Location');
+    $table = DB()->table('location');
     $query = $table->where('per_id', $upozila)->get();
     $output = '<option value="0">Select Union/Ward...</option>';
     foreach ($query->getResult() as $row) {
@@ -327,7 +327,7 @@ function get_location_type($type)
     $ci =& get_instance();
     $ci->load->database();
     $output = '';
-    $query = $ci->db->query("SELECT `lo_id`,`name` FROM `Location` WHERE `type` = '$type'");
+    $query = $ci->db->query("SELECT `lo_id`,`name` FROM `location` WHERE `type` = '$type'");
     foreach ($query->result() as $row) {
         $output .= '<option value="' . $row->lo_id . '">' . $row->name . '</option>';
     }
