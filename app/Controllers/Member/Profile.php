@@ -53,7 +53,7 @@ class Profile extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id = $this->session->user_id;
+            $user_id = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -110,7 +110,7 @@ class Profile extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id = $this->session->user_id;
+            $user_id = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -138,7 +138,7 @@ class Profile extends BaseController
     }
 
     public function general_action(){
-        $id = $this->session->user_id;
+        $id = $this->session->user_id_client;
         $data['f_name'] = $this->request->getPost('fname');
         $data['l_name'] = $this->request->getPost('lname');
         $data['address1'] = $this->request->getPost('addr');
@@ -157,7 +157,7 @@ class Profile extends BaseController
 
     public function personal_action()
     {
-        $id = $this->session->user_id;
+        $id = $this->session->user_id_client;
         $data['blood'] = $this->request->getPost('b_group');
         $data['division'] = $this->request->getPost('division');
         $data['district'] = $this->request->getPost('district');
@@ -182,7 +182,7 @@ class Profile extends BaseController
 
     public function account_action()
     {
-        $id = $this->session->user_id;
+        $id = $this->session->user_id_client;
         $data['username'] = $this->request->getPost('uname');
         $data['email'] = $this->request->getPost('email');
         $pass = $this->request->getPost('pass');
@@ -198,7 +198,7 @@ class Profile extends BaseController
     }
 
     public function photo_action(){
-        $id = $this->session->user_id;
+        $id = $this->session->user_id_client;
         if (!empty($_FILES['photo']['name'])) {
             $image = $this->request->getFile('photo');
             $name = $image->getRandomName();

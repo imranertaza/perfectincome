@@ -53,8 +53,8 @@ class Dashboard extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $role = $this->session->role;
-            $user_id = $this->session->user_id;
+            $role = $this->session->role_client;
+            $user_id = $this->session->user_id_client;
             if ($role == 6) {
                 $data['log_url'] = 'member_form/logout';
                 $data['log_title'] = 'Logout';
@@ -67,8 +67,6 @@ class Dashboard extends BaseController
                 $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
                 $data['user_id'] = $user_id;
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
 
                 $user = DB()->table('users');
                 $sqlUs = $user->where('ID', $user_id)->get();
@@ -78,6 +76,8 @@ class Dashboard extends BaseController
                 $sqlTre = $tree->where('spon_id', $user_id)->get();
                 $data['query'] = $sqlTre->getResult();
 
+                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
+                echo view('Front/Client_area/header', $data);
                 echo view('Front/Client_area/Member/dashboard', $data);
                 echo view('Front/Client_area/footer', $data);
             }
@@ -118,8 +118,8 @@ class Dashboard extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $role = $this->session->role;
-            $user_id = $this->session->user_id;
+            $role = $this->session->role_client;
+            $user_id = $this->session->user_id_client;
             if ($role == 6) {
                 $data['log_url'] = 'member_form/logout';
                 $data['log_title'] = 'Logout';
@@ -146,7 +146,7 @@ class Dashboard extends BaseController
     public function pin_active()
     {
         DB()->transStart();
-        $userID = $this->session->user_id;
+        $userID = $this->session->user_id_client;
         $pinId = $this->request->getPost('pin');
         $pin = array(
             'status' => 'used',
@@ -208,7 +208,6 @@ class Dashboard extends BaseController
         $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
         $point = get_id_by_data('point','package','package_id',$packageId);
         $per_day_matching = get_field_by_id_from_table("global_settings", "value", "title", "per_day_matching");
-        //$matching_commission = get_id_by_data('matching_commission','package','package_id',$packageId);
 
         $parent_id = get_field_by_id_from_table("tree", "pr_id", "u_id", $userID);
         $user_id = $userID;
@@ -256,7 +255,15 @@ class Dashboard extends BaseController
             $hisPoinTbl->insert($history_point_data);
 
 
-            //Matching Commission
+            //Matching Commission Start
+            if ($current_lpoint > $current_rpoint){
+                $total_matching_time = $current_rpoint/$min_matching_point;
+            }else {
+                $total_matching_time = $current_lpoint/$min_matching_point;
+            }
+
+            for($i=0; $i<=$total_matching_time; $i++){
+
             $whereBetween = ("`date` BETWEEN '" . date("Y-m-d") . " 00:00:00' AND '" . date("Y-m-d") . " 23:59:59'");
             $comMatch = DB()->table('comm_matching');
             $com_taken_on_day = $comMatch->where('u_id', $parent_id)->where($whereBetween)->countAllResults();
@@ -277,7 +284,7 @@ class Dashboard extends BaseController
                     $userMetCom = DB()->table('users');
                     $userMetCom->where('ID', $parent_id)->update($data);
 
-                    //$matching_commission;
+                    //Matching Commission History;
                     $data = array(
                         'u_id' => $parent_id,
                         'purpose' => 'Matching Commission' . date("Y-m-d h:i:s A"),
@@ -308,7 +315,7 @@ class Dashboard extends BaseController
                     $hisAdBal->insert($hisBalanceadmin);
 
 
-                    //Decreasing Left Point
+                    //Decreasing Point from both side
                     //$matching_point = $next_com_times * $min_matching_point;
                     $left_data = array(
                         'lpoint' => $lpoint - $min_matching_point,
@@ -340,6 +347,10 @@ class Dashboard extends BaseController
                 }
 
             }
+
+            }
+            //Matching Commission End
+
 
             //Flash existing Point after 100
             //$total_comm_taken = $com_taken_on_day + 1;

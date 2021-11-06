@@ -82,7 +82,7 @@ class Ajax extends BaseController
         $query = $table->where('username',$username)->get();
         $rowuser = $query->getRow();
 
-        $tree = DB()->table('Tree');
+        $tree = DB()->table('tree');
         $sql = $tree->where('u_id',$rowuser->ID)->get();
         $row = $sql->getRow();
 

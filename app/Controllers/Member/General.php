@@ -53,8 +53,8 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $role = $this->session->role;
-            $user_id = $this->session->user_id;
+            $role = $this->session->role_client;
+            $user_id = $this->session->user_id_client;
             if ($role == 6) {
                 $data['log_url'] = 'member_form/logout';
                 $data['log_title'] = 'Logout';
@@ -118,7 +118,7 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id2 = $this->session->user_id;
+            $user_id2 = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -190,7 +190,7 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id2 = $this->session->user_id;
+            $user_id2 = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -247,7 +247,7 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id2 = $this->session->user_id;
+            $user_id2 = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -313,7 +313,7 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id2 = $this->session->user_id;
+            $user_id2 = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -371,7 +371,7 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id2 = $this->session->user_id;
+            $user_id2 = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -436,7 +436,7 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id2 = $this->session->user_id;
+            $user_id2 = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -494,7 +494,7 @@ class General extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id2 = $this->session->user_id;
+            $user_id2 = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -525,7 +525,7 @@ class General extends BaseController
 
     public function pin_generat_action()
     {
-        $user_id = $this->session->user_id;
+        $user_id = $this->session->user_id_client;
         $num_pins = $this->request->getPost('amount');
         $packageId = $this->request->getPost('package_id');
         $balance = get_id_by_data('balance', 'users', 'ID', $user_id);

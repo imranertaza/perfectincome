@@ -218,12 +218,11 @@ class Member_form extends BaseController
     {
         $session = \Config\Services::session();
 
-        unset($_SESSION['user_id']);
-        unset($_SESSION['username']);
-        unset($_SESSION['role']);
+        unset($_SESSION['user_id_client']);
+        unset($_SESSION['username_client']);
+        unset($_SESSION['role_client']);
         unset($_SESSION['isLoggedInClient']);
-
-        $session->destroy();
+        
         return redirect()->to(site_url("/member_form/login"));
     }
 

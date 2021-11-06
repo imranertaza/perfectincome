@@ -54,9 +54,9 @@ class UserLoginModel extends Model {
             $rolRow = $sql->getRow();
 
             $sessionArray = array(
-                'user_id' => $user->ID,
-                'role' => $rolRow->roleID,
-                'username' => $user->username,
+                'user_id_client' => $user->ID,
+                'role_client' => $rolRow->roleID,
+                'username_client' => $user->username,
                 'isLoggedInClient' => TRUE
             );
             $new_session->set($sessionArray);

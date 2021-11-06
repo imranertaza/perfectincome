@@ -90,7 +90,7 @@
                 <li><a href="<?php print base_url(); ?>stockist/withdraw_report/">Withdraw Report</a></li>
                 <?php } */ ?>
                 <?php
-                if (($check_user == true) && ($role == 6)) { ?>
+                if (($check_user == 1) && ($role == 6)) { ?>
                     <li>
                         <a href="<?php print base_url(); ?>/Member/dashboard"><i class="fa fa-tachometer"></i> Dashboard</a>
                     </li>

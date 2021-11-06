@@ -26,7 +26,7 @@ class Admin extends BaseController
 
     public function index2()
     {
-        $this->isLoggedIn();
+//        $this->isLoggedIn();
     }
 
     /**
@@ -110,8 +110,6 @@ class Admin extends BaseController
         unset($_SESSION['user_id']);
         unset($_SESSION['username']);
         unset($_SESSION['isLoggedInAdmin']);
-
-        $session->destroy();
         return redirect()->to(site_url("/admin"));
     }
 
