@@ -17,7 +17,6 @@
                         <div class="panel with-nav-tabs panel-default">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab1default" data-toggle="tab">General</a></li>
-                                <li class=""><a href="#tab2default" data-toggle="tab">Personal</a></li>
                                 <li class=""><a href="#tab3account" data-toggle="tab">Account</a></li>
                                 <li class=""><a href="#tab3photo" data-toggle="tab">Photo</a></li>
 
@@ -52,6 +51,14 @@
                                                            value="<?php echo $value->address2; ?>" required>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label>Blood group <sup class="required">*</sup></label>
+                                                    <select name="b_group" class="form-control">
+
+                                                        <?php print get_list_global_settings('blood_group', $value->blood); ?>
+                                                    </select>
+                                                </div>
+
 
                                             </div>
                                             <div class="col-lg-6">
@@ -75,7 +82,12 @@
                                                     <input class="form-control" name="mother" type="text"
                                                            value="<?php echo $value->mother; ?>" required>
                                                 </div>
-
+                                                <div class="form-group">
+                                                    <label>Religion <sup class="required">*</sup></label>
+                                                    <select name="religion" class="form-control">
+                                                        <?php print get_list_global_settings('religion', $value->religion); ?>
+                                                    </select>
+                                                </div>
 
                                             </div>
                                             <div class="col-lg-12">
@@ -86,104 +98,7 @@
                                     </div>
 
 
-                                    <div class="tab-pane fade in" id="tab2default">
-                                        <form role="form" id="add_user" method="post"
-                                              action="<?php print base_url(); ?>/member/profile/personal_action">
-                                            <div class="col-lg-6">
 
-                                                <div class="form-group">
-                                                    <label>Blood group <sup class="required">*</sup></label>
-                                                    <select name="b_group" class="form-control">
-
-                                                        <?php print get_list_global_settings('blood_group', $value->blood); ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Bank Name <sup class="required">*</sup></label>
-                                                    <select name="banks" class="form-control">
-                                                        <?php print bank_list($value->bank_name); ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Bank Account No <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="account_no" type="text"
-                                                           value="<?php echo $value->account_no; ?>">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Nominee Name <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="non" type="text"
-                                                           value="<?php echo $value->nominee; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Relationship <sup class="required">*</sup></label>
-                                                    <select name="relation" class="form-control">
-                                                        <?php print get_list_global_settings('relationship', $value->relationship); ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Nominee's DOB <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="nodob" type="date"
-                                                           value="<?php echo $value->nominee; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Sex <sup class="required">*</sup></label>
-                                                    <select name="sex" class="form-control">
-                                                        <option value="<?php echo $value->sex; ?>"><?php echo sex_status($value->sex); ?></option>
-                                                        <?php print get_list_global_settings('sex'); ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Division <sup class="required">*</sup></label>
-                                                    <select name="division" class="form-control"
-                                                            onchange="get_district(this.value);" required>
-
-                                                        <?php print get_division($value->division); ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>District <sup class="required">*</sup></label>
-                                                    <select name="district" class="form-control" id="district"
-                                                            onchange="get_thana(this.value);">
-                                                        <?php echo get_district($value->district, $value->division); ?>
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Upozila <sup class="required">*</sup></label>
-                                                    <select name="upozila" class="form-control" id="thana"
-                                                            onchange="get_ward(this.value);">
-                                                        <?php echo get_upozila($value->upozila, $value->district); ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Union/Ward <sup class="required">*</sup></label>
-                                                    <select name="union" class="form-control" id="ward">
-                                                        <?php echo get_union($value->union, $value->upozila); ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Postcode <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="post_code" type="text"
-                                                           value="<?php echo $value->post; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Religion <sup class="required">*</sup></label>
-                                                    <select name="religion" class="form-control">
-                                                        <?php print get_list_global_settings('religion', $value->religion); ?>
-                                                    </select>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-lg-12">
-                                                <input type="submit" class="btn btn-default btn btn-primary"
-                                                       value="Save" name=""/>
-                                            </div>
-                                        </form>
-                                    </div>
                                     <div class="tab-pane fade in" id="tab3account">
                                         <form role="form" id="add_user" method="post"
                                               action="<?php print base_url(); ?>/member/profile/account_action">

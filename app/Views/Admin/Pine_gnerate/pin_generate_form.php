@@ -17,7 +17,7 @@
 
                                 <div class="col-lg-12">
                                     
-                                    <form method="post" action="<?php echo base_url(); ?>/pin_generat/pin_generat_action">
+                                    <form method="post" action="<?php echo base_url(); ?>/Admin/Pin_generat/pin_generat_action">
                                         <div class="col-lg-4">
                                         <label>Package </label>
 

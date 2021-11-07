@@ -12,7 +12,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
-                            	<form method="post" action="<?php echo base_url('Category/action')?>">
+                            	<form method="post" action="<?php echo base_url('Admin/Category/action')?>">
                                 <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Catagory Name</label>

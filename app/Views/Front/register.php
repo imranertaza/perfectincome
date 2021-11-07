@@ -7,7 +7,7 @@
                                 <div class="header inner col-md-12"
                                      style=" background: url('<?php print base_url(); ?>/uploads/gallery/banner6.jpg'); background-repeat: no-repeat; background-size: cover; ">
                                     <div class="col-md-12">
-                                        <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;if($message){  echo $message; } ?>
+                                        <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0; if ($message) {  echo $message;  } ?>
                                     </div>
                                 <form id="regform" role="form" id="add_user" method="post" action="<?php print base_url(); ?>/member_form/register_action">
                                     <h3>Registration Form</h3>

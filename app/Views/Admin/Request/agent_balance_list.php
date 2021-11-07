@@ -15,7 +15,7 @@
             } ?>
         </div>
         <div class="col-lg-12">
-            <form  action="<?php print base_url(); ?>/Admin_ut/balance_history/action" method="POST">
+            <form  action="<?php print base_url(); ?>/Admin/Balance_history/action" method="POST">
                 <div class="panel-body no_padding">
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>

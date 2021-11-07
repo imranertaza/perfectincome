@@ -87,7 +87,6 @@
                     <div class="topnav">
                         <a href="<?php echo base_url(); ?>">Home</a>
                         <a href="<?php print base_url(); ?>/details/page/notice">Notice</a>
-                        <a href="<?php print base_url(); ?>/gallery">Event Gallery</a>
                         <a href="<?php print base_url(); ?>/details/page/about-us">About Us</a>
                         <a href="<?php print base_url(); ?>/details/page/contact-us">Contact Us</a>
                         <?php $clientLogin = new_session()->isLoggedInClient;

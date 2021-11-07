@@ -181,7 +181,7 @@ class Member_form extends BaseController
 
         $clientLogin = $this->session->isLoggedInClient;
         if (isset($clientLogin) || $clientLogin == TRUE) {
-            return redirect()->to(site_url("agent/dashboard"));
+            return redirect()->to(site_url("Member/dashboard"));
         } else {
             $data['log_url'] = 'member_form/login';
             $data['log_title'] = 'Login';
@@ -203,9 +203,6 @@ class Member_form extends BaseController
         $result = $this->userLoginModel->memberLogin($username, $password);
 
         if ($result == TRUE) {
-            if ($this->session->role == 4) {
-                return redirect()->to(site_url("agent/dashboard"));
-            }
             return redirect()->to(site_url("Member/dashboard"));
         } else {
             $this->session->setFlashdata('error', 'Email or password mismatch');

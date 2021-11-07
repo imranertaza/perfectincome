@@ -8,8 +8,8 @@
             <!-- /.row -->
             
             <ul class="nav nav-tabs">
-              <li class="active"><a href="<?php echo base_url(); ?>/General_settings/slider">Image List</a></li>
-              <li><a href="<?php echo base_url(); ?>/General_settings/create_slide">Upload</a></li>
+              <li class="active"><a href="<?php echo base_url(); ?>/Admin/General_settings/slider">Image List</a></li>
+              <li><a href="<?php echo base_url(); ?>/Admin/General_settings/create_slide">Upload</a></li>
             </ul>
             
             <div class="row">
@@ -40,7 +40,7 @@
                                             <td><?php print $rows->name; ?></td>
                                             <td class="center">
                                             <?php if ($functionModel->hasPermission('delete_slider') == true) { ?>
-                                            <a href="<?php echo base_url('General_settings/delete/'.$rows->sl_id)?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                            <a href="<?php echo base_url('Admin/General_settings/delete/'.$rows->sl_id)?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
                                             <?php } ?>
                                             </td>
                                         </tr>

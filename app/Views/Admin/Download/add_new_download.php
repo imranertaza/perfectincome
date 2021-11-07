@@ -16,7 +16,7 @@
 
                                 <div class="col-lg-12">
                                     
-                                    <form method="post" action="<?php echo base_url('Download/action')?>" enctype="multipart/form-data">
+                                    <form method="post" action="<?php echo base_url('Admin/Download/action')?>" enctype="multipart/form-data">
                                 	<div class="col-lg-8">
                                         <label>Title</label>
                                         <input class="form-control" name="title">

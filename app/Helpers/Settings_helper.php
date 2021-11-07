@@ -620,9 +620,16 @@ function view_user_image_leve3($user_id, $w, $h){
 function Tk_view($amount)
 {
 
-    $TK = "(৳) $amount/-";
+    $TK = "$$amount/-";
     return $TK;
 }
+
+//function Tk_view($amount)
+//{
+//
+//    $TK = "(৳) $amount/-";
+//    return $TK;
+//}
 
 function get_username_byID($id){
 

@@ -34,12 +34,12 @@
                                 <td><?php print $rows->file; ?></td>
                                 <td class="center">
                                     <?php if ($functionModel->hasPermission('edit_download') == true) { ?>
-                                        <a href="<?php print base_url(); ?>/Download/edit_download/<?php print $rows->dwn_id; ?>"
+                                        <a href="<?php print base_url(); ?>/Admin/Download/edit_download/<?php print $rows->dwn_id; ?>"
                                            class="btn btn-primary take_margin" title="Edit"><i
                                                     class="fa fa-pencil-square-o"></i></a>
                                     <?php } ?>
                                     <?php if ($functionModel->hasPermission('delete_download') == true) { ?>
-                                        <a href="<?php print base_url(); ?>/Download/delete/<?php print $rows->dwn_id; ?>"
+                                        <a href="<?php print base_url(); ?>/Admin/Download/delete/<?php print $rows->dwn_id; ?>"
                                            class="btn btn-danger take_margin" title="Delete"><i
                                                     class="fa fa-trash-o"></i></a>
                                     <?php } ?>

@@ -52,7 +52,7 @@
                                 <?php echo $error; ?>
                             </div>
                         <?php } ?>
-                        <form role="form" action="<?php print base_url(); ?>/Admin/loginMe" method="post">
+                        <form role="form" action="<?php print base_url(); ?>/Admin/Admin/loginMe" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail"  name="email" type="email" required>

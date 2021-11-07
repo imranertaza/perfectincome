@@ -8,8 +8,8 @@
     <!-- /.row -->
 
     <ul class="nav nav-tabs">
-        <li><a href="<?php echo base_url(); ?>/General_settings/slider">Image List</a></li>
-        <li class="active"><a href="<?php echo base_url(); ?>General_settings/create_slide">Upload</a></li>
+        <li><a href="<?php echo base_url(); ?>/Admin/General_settings/slider">Image List</a></li>
+        <li class="active"><a href="<?php echo base_url(); ?>/Admin/General_settings/create_slide">Upload</a></li>
     </ul>
 
     <div class="row">
@@ -17,7 +17,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
-                        <form method="post" action="<?php print base_url(); ?>/General_settings/slide_action"
+                        <form method="post" action="<?php print base_url(); ?>/Admin/General_settings/slide_action"
                               enctype="multipart/form-data">
                             <div class="form-group col-lg-6">
                                 <label>Slide Title</label>

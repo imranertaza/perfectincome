@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12" style="padding-top: 10px;">
-            <a href="<?php echo base_url('package/add')?>" class="btn btn-primary" style="float: right;">Add Package</a>
+            <a href="<?php echo base_url('Admin/package/add')?>" class="btn btn-primary" style="float: right;">Add Package</a>
             <h1 class="page-header">Package List</h1>
         </div>
         <!-- /.col-lg-12 -->
@@ -41,8 +41,8 @@
                                 <td><?php echo $item->point;?></td>
                                 <td><?php echo $item->total_pin_generated_number;?></td>
                                 <td>
-                                    <a href="<?php echo base_url('Package/update/'.$item->package_id)?>" class="btn btn-primary take_margin"  title="Edit"><i class="fa fa-pencil-square-o"></i></a>
-                                    <a href="<?php echo base_url('Package/delete/'.$item->package_id)?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                    <a href="<?php echo base_url('Admin/Package/update/'.$item->package_id)?>" class="btn btn-primary take_margin"  title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="<?php echo base_url('Admin/Package/delete/'.$item->package_id)?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

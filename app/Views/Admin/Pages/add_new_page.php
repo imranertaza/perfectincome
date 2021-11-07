@@ -13,7 +13,7 @@
                         <div class="panel-body">
                             <div class="row">
 
-                            	<form method="post" action="<?php echo base_url('Pages/action')?>">
+                            	<form method="post" action="<?php echo base_url('Admin/Pages/action')?>">
                                         <div class="form-group col-lg-8">
                                             <label>Page Title</label>
                                             <input class="form-control" name="page_tilte" value="" required>

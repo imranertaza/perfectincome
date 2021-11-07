@@ -31,10 +31,10 @@
                                                 <td><?php print $rows->short_des; ?></td>
                                                 <td class="center">
                                                     <?php if ($functionModel->hasPermission('edit_page') == true) { ?>
-                                                        <a href="<?php print base_url(); ?>/Pages/edit_page/<?php print $page_id; ?>" class="btn btn-primary take_margin" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                                        <a href="<?php print base_url(); ?>/Admin/Pages/edit_page/<?php print $page_id; ?>" class="btn btn-primary take_margin" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
                                                     <?php } ?>
                                                     <?php if ($functionModel->hasPermission('delete_page') == true) { ?>
-                                                        <a href="<?php print base_url('Pages/delete/'.$page_id) ?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                        <a href="<?php print base_url('Admin/Pages/delete/'.$page_id) ?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
                                                     <?php } ?>
                                                 </td>
                                             </tr>

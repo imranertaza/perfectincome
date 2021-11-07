@@ -1,7 +1,3 @@
-<?php
-/*$selete_page = $this->db->get_where('products', array('pro_id' => $pro_id));
-$row = $selete_page->row_array();*/
-?>
 <script type="text/javascript" src="<?php print base_url(); ?>/assets/ckeditor/ckeditor.js"></script>
 <div id="page-wrapper">
     <div class="row">
@@ -31,7 +27,7 @@ $row = $selete_page->row_array();*/
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td colspan="2" align="center"><a class="parent"
-                                                                          href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $u_id; ?>/">
+                                                                          href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $u_id; ?>/">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img"/><br>
                                                 <?php print get_username_byID($u_id);
@@ -47,14 +43,14 @@ $row = $selete_page->row_array();*/
 
                                     <tr>
                                         <td colspan="12" style="text-align: center;"><img
-                                                    src="<?php echo base_url() ?>/uploads/Treeimage/level1.png"
+                                                    src="<?php echo base_url() ?>/uploads/treeimage/level1.png"
                                                     width="420"></td>
                                     </tr>
 
                                     <tr>
 
                                         <td colspan="6" style="text-align: center;"><a
-                                                    href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_left; ?>">
+                                                    href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_left; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img level"/><br>
                                                 <?php
@@ -66,7 +62,7 @@ $row = $selete_page->row_array();*/
 
 
                                         <td colspan="6" style="text-align: center;"><a
-                                                    href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_right; ?>">
+                                                    href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_right; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img level"/><br>
                                                 <?php
@@ -90,7 +86,7 @@ $row = $selete_page->row_array();*/
 
                                     <tr>
                                         <td colspan="3" style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_l_left; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_l_left; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve2"/><br>
                                                 <?php
@@ -102,7 +98,7 @@ $row = $selete_page->row_array();*/
                                         </td>
 
                                         <td colspan="3" style="text-align: center;"><a
-                                                    href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_l_right; ?>">
+                                                    href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_l_right; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve2"/><br>
                                                 <?php
@@ -113,7 +109,7 @@ $row = $selete_page->row_array();*/
                                             </a></td>
 
                                         <td colspan="3" style="text-align: center;"><a
-                                                    href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_r_left; ?>">
+                                                    href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_r_left; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve2"/><br>
                                                 <?php
@@ -124,7 +120,7 @@ $row = $selete_page->row_array();*/
                                             </a></td>
 
                                         <td colspan="3" style="text-align: center;"><a
-                                                    href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_r_right; ?>">
+                                                    href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_r_right; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve2"/><br>
                                                 <?php
@@ -159,7 +155,7 @@ $row = $selete_page->row_array();*/
 
                                     <tr>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_l_l_left; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_l_l_left; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php
@@ -171,7 +167,7 @@ $row = $selete_page->row_array();*/
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_l_l_right; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_l_l_right; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php
@@ -182,7 +178,7 @@ $row = $selete_page->row_array();*/
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_l_r_left; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_l_r_left; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php
@@ -194,7 +190,7 @@ $row = $selete_page->row_array();*/
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_l_r_right; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_l_r_right; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php
@@ -205,7 +201,7 @@ $row = $selete_page->row_array();*/
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_r_l_left; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_r_l_left; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php
@@ -217,7 +213,7 @@ $row = $selete_page->row_array();*/
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_r_l_right; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_r_l_right; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php
@@ -228,7 +224,7 @@ $row = $selete_page->row_array();*/
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_r_r_left; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_r_r_left; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php
@@ -240,7 +236,7 @@ $row = $selete_page->row_array();*/
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/Admin_area/Tree/index/<?php print $p_r_r_right; ?>">
+                                            <a href="<?php print base_url(); ?>/Admin/Tree/index/<?php print $p_r_r_right; ?>">
                                                 <img src="<?php print base_url(); ?>/uploads/widget_image/no_thumb.jpg"
                                                      class="profile_img leve3"/>
                                                 <?php

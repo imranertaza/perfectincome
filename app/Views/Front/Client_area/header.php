@@ -91,7 +91,6 @@ print $globalSettingsModel->get_each_setting_value($key = 'site_title'); ?></tit
                                 print base_url().'/member/dashboard/';
                               }?>">Home</a>
                               <a href="<?php print base_url(); ?>/details/page/notice/">Notice</a>
-                              <a href="<?php print base_url(); ?>/gallery/">Event Gallery</a>
                               <a href="<?php print base_url(); ?>/details/page/about-us/">About Us</a>
                               <a href="<?php print base_url(); ?>/details/page/contact-us/">Contact Us</a>
 <!--                              <a href="--><?php //print base_url($log_url); ?><!--">--><?php //print $log_title; ?><!--</a>-->

@@ -147,29 +147,7 @@ class Profile extends BaseController
         $data['nid'] = $this->request->getPost('nid');
         $data['father'] = $this->request->getPost('father');
         $data['mother'] = $this->request->getPost('mother');
-
-        $tab = DB()->table('users');
-        $tab->where('ID', $id)->update($data);
-
-        $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Update successfully</div>');
-        return redirect()->to(site_url("Member/profile/profile_update"));
-    }
-
-    public function personal_action()
-    {
-        $id = $this->session->user_id_client;
         $data['blood'] = $this->request->getPost('b_group');
-        $data['division'] = $this->request->getPost('division');
-        $data['district'] = $this->request->getPost('district');
-        $data['nominee'] = $this->request->getPost('non');
-        $data['relationship'] = $this->request->getPost('relation');
-        $data['nominee'] = $this->request->getPost('nodob');
-        $data['sex'] = $this->request->getPost('sex');
-        $data['bank_name'] = $this->request->getPost('banks');
-        $data['account_no'] = $this->request->getPost('account_no');
-        $data['upozila'] = $this->request->getPost('upozila');
-        $data['union'] = $this->request->getPost('union');
-        $data['post'] = $this->request->getPost('post_code');
         $data['religion'] = $this->request->getPost('religion');
 
         $tab = DB()->table('users');
@@ -177,8 +155,9 @@ class Profile extends BaseController
 
         $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Update successfully</div>');
         return redirect()->to(site_url("Member/profile/profile_update"));
-
     }
+
+
 
     public function account_action()
     {

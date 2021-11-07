@@ -19,7 +19,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div>
-                            <form method="post" action="<?php echo base_url('General_settings/action')?>">
+                            <form method="post" action="<?php echo base_url('Admin/General_settings/action')?>">
                             	<label>Website title</label>
                                 <input type="text" name="site_title" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'site_title'); ?>" />
                                 

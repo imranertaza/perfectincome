@@ -14,6 +14,10 @@
                         <?php } ?>
                     </div>
 
+                    <div class="col-md-12">
+                        <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0; if ($message) {  echo $message;  } ?>
+                    </div>
+
                     <div class="col-md-3"></div>
 
                     <?php if (empty($check_user)) { ?>

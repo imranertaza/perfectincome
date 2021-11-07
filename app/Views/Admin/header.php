@@ -81,7 +81,7 @@ $this->session = \Config\Services::session();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php print base_url(); ?>/dashboard">Stars Fair - Admin Panel<sup>(v1)</sup></a>
+                <a class="navbar-brand" href="<?php print base_url(); ?>/Admin/Dashboard">Perfect Income - Admin Panel<sup>(v1)</sup></a>
             </div>
             <!-- /.navbar-header -->
             
@@ -100,7 +100,7 @@ $this->session = \Config\Services::session();
                         <li><a href="<?php print base_url(); ?>general_settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url(); ?>/Admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url(); ?>/Admin/Admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
