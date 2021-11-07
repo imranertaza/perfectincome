@@ -93,7 +93,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                         <?php } ?>
                     </ul>
                 </li>
-            <?php } */
+            <?php }
             if ($this->functionModel->hasPermission('std_list') == true) { ?>
                 <li>
                     <a href="#"><i class="fa fa-fw"></i> Member <span class="fa arrow"></span></a>
@@ -112,7 +112,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                         <?php } ?>
                     </ul>
                 </li>
-            <?php }
+            <?php } */
             if ($this->functionModel->hasPermission('category_list') == true) { ?>
                 <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> Catagory<span class="fa arrow"></span></a>
@@ -154,7 +154,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
 
-
+                <?php /* ?>
                 <li>
                     <a href="#"><i class="fa fa-puzzle-piece fa-fw"></i> Location<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -192,7 +192,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                         </li>
                     </ul>
                 </li>
-
+                <?php */ ?>
 
                 <li>
                     <?php if ($this->functionModel->hasPermission('post_list') == true) { ?>
@@ -246,7 +246,7 @@ $this->functionModel = new \App\Models\FunctionModel();
             <?php }
             if ($this->functionModel->hasPermission('download_list') == true) { ?>
                 <li>
-                    <a href="#"><i class="fa fa-fw"></i> Deposit/Withdraw<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-fw"></i> Deposit <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <?php
                         if ($this->functionModel->hasPermission('add_download') == true) { ?>

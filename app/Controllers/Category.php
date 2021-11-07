@@ -33,7 +33,7 @@ class Category extends BaseController
             echo view('Admin/login');
         } else {
 
-            $table = DB()->table('Category');
+            $table = DB()->table('category');
             $query = $table->get();
             $cat = $query->getResult();
             $data = [
@@ -85,7 +85,7 @@ class Category extends BaseController
         if (!isset($adminLogin) || $adminLogin != TRUE) {
             echo view('Admin/login');
         } else {
-            $table = DB()->table('Category');
+            $table = DB()->table('category');
             $query = $table->get();
             $cat = $query->getRow();
             $data = [
