@@ -27,32 +27,12 @@
                             <td><?php echo $row->phn_no;?></td>
                           </tr>
                           <tr>
-                            <td>National ID</td>
-                            <td><?php echo $row->nid;?></td>
-                          </tr>
-                          <tr>
-                            <td>Father Name</td>
-                            <td><?php echo $row->father;?></td>
-                          </tr>
-                          <tr>
-                            <td>Mother Name</td>
-                            <td><?php echo $row->mother;?></td>
-                          </tr>
-                          <tr>
                             <td>Address1</td>
                             <td><?php echo $row->address1;?></td>
                           </tr>
                           <tr>
                             <td>Address2</td>
                             <td><?php echo $row->address2;?></td>
-                          </tr>
-                          <tr>
-                            <td>Religion</td>
-                            <td><?php echo get_globle($row->religion, 'religion');?></td>
-                          </tr>
-                          <tr>
-                            <td>Nominee</td>
-                            <td><?php echo $row->nominee;?></td>
                           </tr>
 
                           <tr>

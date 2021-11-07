@@ -144,11 +144,6 @@ class Profile extends BaseController
         $data['address1'] = $this->request->getPost('addr');
         $data['address2'] = $this->request->getPost('per_addr');
         $data['phn_no'] = $this->request->getPost('phone');
-        $data['nid'] = $this->request->getPost('nid');
-        $data['father'] = $this->request->getPost('father');
-        $data['mother'] = $this->request->getPost('mother');
-        $data['blood'] = $this->request->getPost('b_group');
-        $data['religion'] = $this->request->getPost('religion');
 
         $tab = DB()->table('users');
         $tab->where('ID', $id)->update($data);

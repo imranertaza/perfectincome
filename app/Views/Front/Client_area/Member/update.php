@@ -40,6 +40,19 @@
                                                     <input class="form-control" name="lname" type="text"
                                                            value="<?php echo $value->l_name; ?>" required>
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label>Phone</label>
+                                                    <input class="form-control" name="phone" type="text"
+                                                           value="<?php echo $value->phn_no; ?>">
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="col-lg-6">
+
+
                                                 <div class="form-group">
                                                     <label>Present Addres <sup class="required"></sup></label>
                                                     <input type="text" class="form-control" name="addr"
@@ -51,43 +64,6 @@
                                                            value="<?php echo $value->address2; ?>" required>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label>Blood group <sup class="required">*</sup></label>
-                                                    <select name="b_group" class="form-control">
-
-                                                        <?php print get_list_global_settings('blood_group', $value->blood); ?>
-                                                    </select>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Phone</label>
-                                                    <input class="form-control" name="phone" type="text"
-                                                           value="<?php echo $value->phn_no; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>National ID </label>
-                                                    <input class="form-control" name="nid"
-                                                           value="<?php echo $value->nid; ?>" type="text">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Father Name <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="father" type="text"
-                                                           value="<?php echo $value->father; ?>" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Mother Name <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="mother" type="text"
-                                                           value="<?php echo $value->mother; ?>" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Religion <sup class="required">*</sup></label>
-                                                    <select name="religion" class="form-control">
-                                                        <?php print get_list_global_settings('religion', $value->religion); ?>
-                                                    </select>
-                                                </div>
 
                                             </div>
                                             <div class="col-lg-12">
