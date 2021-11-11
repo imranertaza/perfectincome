@@ -1,127 +1,176 @@
-<section class="slider-section">
-  <div class="container-fluid slider_area">
-    <div class="row">
-        <img src="<?php print base_url(); ?>/uploads/gallery/banner.jpg" width="100%">
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-xl-4 col-lg-4">
+          <h1><?php print \App\Models\Settings\Global_settings::get_each_setting_value("site_title")?></h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+          <p><a class="btn btn-primary" href="#">Contact Us <i class="bi bi-arrow-right-short"></i></a></p>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <main id="main">
 
-<section class="content-section">
-  <div class="container-fluid wraper">
-  		<div class="row">
-          <div class="container" id="area_pad">
-            <div class="col-md-12 text-center">
-        	     <h1><b><?php print $title; ?></b></h1>
-               <center><p class="front-border"></p></center>
-            </div>
-            <div class="col-md-12  results" id="cont-padding">
-              <p><?php print $description; ?></p>
-            </div>
-            
+    <section id="welcome" class="welcome">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+            <img src="<?php print base_url(); ?>/assets/img/logo-big.png" class="img-fluid" alt="">
           </div>
+          <div class="col-lg-6 pt-4 pt-lg-0content" data-aos="fade-right" data-aos-delay="100">
+            <h5 class="title">Our Info</h5>
+            <h1><?php print $title; ?></h1>
+            <?php print $description; ?>
+          </div>
+        </div>
+
       </div>
-  </div>
-</section>
+    </section>
 
-<section class="incentives-offers-section">
-  <div class="container-fluid" style="background-image: url('uploads/gallery/banner.jpg'); background-attachment: fixed; background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover; ">
-      <div class="row" style="background-color: rgba(36, 29, 29, 0.42);">
-                <div class="container" id="area_pad">  
-                      <div class="col-md-12 text-center" >
-                        <h1 ><b>Incentives Offers</b></h1> 
-                        <center><p class="front-border" ></p></center>                       
-                      </div>                      
-                      <div class="col-md-12 results" style="margin-top:30px; ">                      
-                        <section class="customer-logos slider">
-                          <div class="slide"><img src="<?php print base_url(); ?>/assets/images/1ster.JPG"></div>
-                          <div class="slide"><img src="<?php print base_url(); ?>/assets/images/2ster.JPG"></div>
-                          <div class="slide"><img src="<?php print base_url(); ?>/assets/images/3ster.JPG"></div>
-                          <div class="slide"><img src="<?php print base_url(); ?>/assets/images/4 star.JPG"></div>
-                          <div class="slide"><img src="<?php print base_url(); ?>/assets/images/5 star.JPG"></div>
-                          <div class="slide"><img src="<?php print base_url(); ?>/assets/images/6 star.JPG"></div>
-                          <div class="slide"><img src="<?php print base_url(); ?>/assets/images/7 star.JPG"></div>
-                       </section>
-                      </div>
-                </div>
+    <section id="offers" class="offers">
+      <div class="container" data-aos="zoom-in">
+        <div class="text-center">
+          <h2 class="title">Incentives Offers</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <img src="assets/img/offer1.png" class="img-fluid" alt="">
+            <p class="text-center">5 Star will get Motorcycle</p>
+          </div>
+          <div class="col-lg-3">
+            <img src="assets/img/offer2.png" class="img-fluid" alt="">
+            <p class="text-center">6 Star will get Car</p>
+          </div>
+          <div class="col-lg-3">
+            <img src="assets/img/offer3.png" class="img-fluid" alt="">
+            <p class="text-center">4 Star will get Laptop</p>
+            <h3 class="text-center">Standard</h3>
+          </div>
+          <div class="col-lg-3">
+            <img src="assets/img/offer4.png" class="img-fluid" alt="">
+            <p class="text-center">7 Star will get Car</p>
+            <h3 class="text-center">Premium</h3>
+          </div>
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<section class="notice-section">
-  <div class="container-fluid wraper" >
-      <div class="row" >
-            <div class="container" id="area_pad" style="" >  
-                  <div class="col-md-12">
-                      <div class="col-md-12 text-center" >
-                        <h1><b>Products</b></h1>
-                        <center><p class="front-border"></p></center>       
-                      </div>                         
-                      <div class="col-md-12  results " id="cont-padding" >
-                          <div class="col-md-4">
-                            <img style="border:1px solid; " src="<?php print base_url(); ?>/uploads/gallery/product.jpg" width="100%" class="img-rounded">
+    <section id="packages" class="packages">
+      <div class="container" data-aos="fade-up">
+        <div class="text-center">
+          <h2 class="title">Package</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <table class="table-responsive" width="100%">
+              <tr>
+                <th colspan="2">Basic</th>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>$22</td>
+              </tr>
+              <tr>
+                <td>Sponsor Commission</td>
+                <td>$4</td>
+              </tr>
+              <tr>
+                <td>Point</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Matching Commission</td>
+                <td>$1</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-lg-4">
+            <table class="table-responsive" width="100%">
+              <tr>
+                <th colspan="2">Standard</th>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>$110</td>
+              </tr>
+              <tr>
+                <td>Sponsor Commission</td>
+                <td>$20</td>
+              </tr>
+              <tr>
+                <td>Point</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>Matching Commission</td>
+                <td>$5</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-lg-4">
+            <table class="table-responsive" width="100%">
+              <tr>
+                <th colspan="2">Premium</th>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>$550</td>
+              </tr>
+              <tr>
+                <td>Sponsor Commission</td>
+                <td>$100</td>
+              </tr>
+              <tr>
+                <td>Point</td>
+                <td>2500</td>
+              </tr>
+              <tr>
+                <td>Matching Commission</td>
+                <td>$25</td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
-                          </div>
-                          <div class="col-md-8">
-                            <p class="font-size" ><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            <a type="button" class="btn btn-info btn-lg" >Price: <?php echo Tk_view(660);?></a>
-                          </div>
-                      </div>
-                    </div>
-            </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<section class="About-section">
-  <div class="container-fluid " style="background-image: url('uploads/gallery/bb (2).jpg'); background-attachment: fixed; background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover; " >
-      <div class="row" style="background-color: rgba(36, 29, 29, 0.48);">
-            <div class="container" id="area_pad" >  
-                  <div class="col-md-12">
-                      <div class="col-md-12 text-center" >
-                        <h1><b>About Us</b></h1>
-                        <center><p class="front-border"></p></center>
-                                                    
-                      </div>                         
-                      <div class="col-md-12  results" id="cont-padding">
-                          <div class="col-md-8">
-                            <p class="font-size" style="color: white;"><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          </div>
-                          <div class="col-md-4">
-                            <img src="<?php print base_url(); ?>/uploads/gallery/bb (1).jpg" width="100%" class="img-rounded">
-                          </div>
-                    </div>
-                        
-                </div>
-            </div>
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <h2>About Us</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<section class="notice-section">
-  <div class="container-fluid wraper" >
-      <div class="row" >
-            <div class="container" id="area_pad" style="" >  
-                  <div class="col-md-12">
-                      <div class="col-md-12 text-center" >
-                        <h1><b>Notice</b></h1>
-                        <center><p class="front-border"></p></center>       
-                      </div>                         
-                      <div class="col-md-12  results text-center" id="cont-padding" >
-                          <ul class="notice">                      
-                            <?php foreach($list_notice as $row) { ?>
-                              <li ><p><a style="font-size: 16px;" href=""><?php print $row->title; ?></a></p></li>
-                            <?php }?>                          
-                          </ul>
-                      </div>
-                    </div>
-            </div>
+    <section id="notice" class="notice">
+      <div class="container" data-aos="fade-up">
+        <h2 class="text-center">Notice</h2>
+        <div class="row">
+          <div class="col-lg-5">
+            <img src="assets/img/notice.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-1 text-center">
+            <i class="bi bi-arrow-up-circle-fill"></i>
+          </div>
+          <div class="col-lg-6">
+            <ul>
+              <?php foreach($list_notice as $row) { ?>
+                <li ><?php print $row->title; ?></li>
+              <?php }?>
+            </ul>
+          </div>
+        </div>
+
       </div>
-  </div>
-</section>
+    </section>
 
-
+  </main><!-- End #main -->

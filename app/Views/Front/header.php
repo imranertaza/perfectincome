@@ -1,8 +1,10 @@
-<!DOCTYPE html >
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
-    <?php
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <?php
 
     if (!empty($page_title)) {
         $pages = DB()->table('pages');
@@ -23,8 +25,7 @@
 
     ?>
 
-
-    <title><?php
+  <title><?php
         if (!empty($page_title)) {
             print $page_title . ' | ';
         }
@@ -32,75 +33,84 @@
             print $web_page_title . " | ";
         }
         print $globalSettingsModel->get_each_setting_value($key = 'site_title'); ?></title>
-
-    <meta name="description" content="<?php if (empty($page_description)) {
+  <meta content="<?php if (empty($page_description)) {
         print 'Dnationsoft CMS';
     } else {
         print $page_description;
-    } ?>"/>
+    } ?>" name="description">
+  <meta content="<?php if (empty($page_description)) {
+        print 'Dnationsoft CMS';
+    } else {
+        print $page_description;
+    } ?>" name="keywords">
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/bootstrap.css"/>
-    <link href="<?php echo base_url(); ?>/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/front/slick/slick.css"/>
-    <script type="text/javascript" src="<?php echo base_url(); ?>/assets/front/js/jquery-1.11.0.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/front/js/jquery.cycle.all.js" type="text/javascript"></script>
+  <!-- Favicons -->
+  <link href="<?php echo base_url(); ?>/assets/img/favicon.png" rel="icon">
+  <link href="<?php echo base_url(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- For slider -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/bjqs.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/tree.css"/>
-    <script src="<?php echo base_url(); ?>/assets/js/bjqs-1.3.js" type="text/javascript"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
 
-    <!-- end of slider -->
+  <!-- Vendor CSS Files -->
+  <link href="<?php echo base_url(); ?>/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-<section class="header-section">
-    <div class="main_body">
-        <div class="container">
-            <div class="col-md-3">
-                <strong style="margin-top:5px;"><a href="<?php echo base_url(); ?>">
-                        <?php print \App\Models\Settings\Global_settings::get_each_setting_value("site_title")?>
-                    </a></strong>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-lg-between">
+
+       <a href="index.html" class="logo me-auto me-lg-0"><img src="<?php echo base_url(); ?>/assets/img/logo.png" alt="" class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="<?php echo base_url(); ?>">Home</a></li>
+          <li><a class="nav-link scrollto" href="<?php print base_url(); ?>/details/page/package">Packages</a></li>
+          <li><a class="nav-link scrollto" href="<?php print base_url(); ?>/details/page/incentives">Incentives</a></li>
+          <li><a class="nav-link scrollto" href="<?php print base_url(); ?>/details/page/notice">Notice</a></li>
+          <li><a class="nav-link scrollto" href="<?php print base_url(); ?>/details/page/about-us">About Us</a></li>
+          <li><a class="nav-link scrollto" href="<?php print base_url(); ?>/details/page/contact-us">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-right">
+        <?php $clientLogin = new_session()->isLoggedInClient;
+        if (isset($clientLogin) || $clientLogin == TRUE) { ?>
+            <a href="<?php print base_url($log_url); ?>"> Dashboard</a>
+            <a href="<?php print base_url('Member_form/logout'); ?>"> Logout</a>
+        <?php } else { ?>
+            <a href="<?php print base_url(); ?>/member_form/register" class="scrollto">Register</a>
+            <a href="<?php print base_url($log_url); ?>" class="scrollto"><?php print $log_title; ?></a>
+        <?php } ?>
+        <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#search">
+          <i class="bi bi-search"></i>
+        </button>
+        <div class="collapse" id="search">
+          <div class="search-box">
+            <div class="input-group">
+              <div class="form-outline">
+                <input type="search" id="form1" class="form-control" placeholder="Search here!" />
+              </div>
+              <button type="button" class="btn btn-search">
+                <i class="bi bi-search"></i>
+              </button>
             </div>
-            <div class="col-md-1 col-md-offset-8 text-right">
-                <?php $clientLogin = new_session()->isLoggedInClient;
-                if (isset($clientLogin) || $clientLogin == TRUE) { ?>
-                    <a href="<?php print base_url('Member_form/logout'); ?>"> Logout</a>
-                <?php } else { ?>
-                    <a href="<?php print base_url($log_url); ?>"><?php print $log_title; ?></a>
-                <?php } ?>
-            </div>
+          </div>
         </div>
+      </div>
+
+      
+
     </div>
-    <!--finish of the header-->
-
-    <div class="container-fluid wraper">
-        <div class="row">
-            <div class="container" style="padding: 10px;">
-                <div class="col-md-4">
-                    <a href="<?php echo base_url(); ?>"><img src="<?php print base_url(); ?>/assets/images/logos.png"
-                                                             width="250"/></a>
-                </div>
-                <div class="col-md-8 " id="navigation">
-                    <div class="topnav">
-                        <a href="<?php echo base_url(); ?>">Home</a>
-                        <a href="<?php print base_url(); ?>/details/page/notice">Notice</a>
-                        <a href="<?php print base_url(); ?>/details/page/about-us">About Us</a>
-                        <a href="<?php print base_url(); ?>/details/page/contact-us">Contact Us</a>
-                        <?php $clientLogin = new_session()->isLoggedInClient;
-                        if (isset($clientLogin) || $clientLogin == TRUE) { ?>
-                            <a href="<?php print base_url($log_url); ?>"> Dashboard</a>
-                        <?php } else { ?>
-                            <a href="<?php print base_url(); ?>/member_form/register">Register</a>
-                            <a href="<?php print base_url($log_url); ?>"><?php print $log_title; ?></a>
-                        <?php } ?>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</section>
+  </header><!-- End Header -->
