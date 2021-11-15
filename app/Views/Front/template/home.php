@@ -140,16 +140,16 @@
       </div>
     </section>
 
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <h2>About Us</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
+              <div class="row">
+                  <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                      <h2>About Us</h2>
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
     <section id="notice" class="notice">
       <div class="container" data-aos="fade-up">

@@ -34,12 +34,12 @@
         }
         print $globalSettingsModel->get_each_setting_value($key = 'site_title'); ?></title>
   <meta content="<?php if (empty($page_description)) {
-        print 'Dnationsoft CMS';
+        print 'DNS CMS';
     } else {
         print $page_description;
     } ?>" name="description">
   <meta content="<?php if (empty($page_description)) {
-        print 'Dnationsoft CMS';
+        print 'DNS CMS';
     } else {
         print $page_description;
     } ?>" name="keywords">
@@ -52,13 +52,13 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?php echo base_url(); ?>/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/plugins/aos/aos.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/plugins/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/plugins/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/plugins/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/plugins/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/plugins/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet">
@@ -70,7 +70,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-       <a href="index.html" class="logo me-auto me-lg-0"><img src="<?php echo base_url(); ?>/assets/img/logo.png" alt="" class="img-fluid"></a>
+       <a href="<?php echo base_url(); ?>" class="logo me-auto me-lg-0"><img src="<?php echo base_url(); ?>/assets/img/logo.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>

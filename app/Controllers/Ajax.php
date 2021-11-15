@@ -24,47 +24,6 @@ class Ajax extends BaseController
         helper('Member');
     }
 
-    public function district(){
-        $divisionId = $this->request->getPost('division_id');
-
-        $table = DB()->table('location');
-        $query = $table->where('per_id',$divisionId)->get();
-
-        $output = '<option value="0">Select District...</option>';
-        foreach($query->getResult() as $row) {
-            $output .= '<option value="'.$row->lo_id.'">'.$row->name.'</option>';
-        }
-
-        return $output;
-    }
-
-    public function thana(){
-        $districtId = $this->request->getPost('district_id');
-
-        $table = DB()->table('location');
-        $query = $table->where('per_id',$districtId)->get();
-
-        $output = '<option value="0">Select Thana/upazilla...</option>';
-        foreach($query->getResult() as $row) {
-            $output .= '<option value="'.$row->lo_id.'">'.$row->name.'</option>';
-        }
-
-        return $output;
-    }
-
-    public function ward(){
-        $thanaId = $this->request->getPost('thana_id');
-
-        $table = DB()->table('location');
-        $query = $table->where('per_id',$thanaId)->get();
-
-        $output = '<option value="0">Select Union/ward...</option>';
-        foreach($query->getResult() as $row) {
-            $output .= '<option value="'.$row->lo_id.'">'.$row->name.'</option>';
-        }
-        return $output;
-    }
-
     public function check_username(){
         $username = $this->request->getPost('username');
         $table = DB()->table('users');

@@ -24,6 +24,12 @@ a:hover {
   text-decoration: none;
 }
 h2 {font-size: 3rem;}
+.form-group {
+  margin-bottom: 30px;
+}
+.form-control {
+  height: 50px;
+}
 .btn.btn-primary {
     background-color: #DB0013;
     border-color: #DB0013;
@@ -33,6 +39,14 @@ h2 {font-size: 3rem;}
     font-size: 25px;
 }
 .btn:focus {box-shadow: none;}
+.btn.btn-submit {
+  color: #FFF;
+  background-color: #DB0013;
+  border-color: #DB0013;
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -64,6 +78,8 @@ h2 {font-size: 3rem;}
   visibility: visible;
   opacity: 1;
 }
+
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -151,7 +167,10 @@ h2 {font-size: 3rem;}
 #header .logo img {
   max-height: 105px;
 }
-.header-right {position: relative;}
+.header-right {
+  position: relative;
+  display: inline-block;
+}
 .header-right a {
   color: #000;
   padding: 0 10px;
@@ -171,6 +190,18 @@ h2 {font-size: 3rem;}
 }
 .search-box .btn-search {
   color: #FFF;
+}
+
+@media only screen and (max-width: 479px) {
+  .header-right {display: inline-flex;}
+  .btn.btn-primary {
+    background-color: #DB0013;
+    border-color: #DB0013;
+    border-radius: 0;
+    font-weight: 700;
+    padding: 10px 30px;
+    font-size: 20px;
+  }
 }
 
 
@@ -326,8 +357,8 @@ h2 {font-size: 3rem;}
   color: #151515;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #151515;
-  background-color: #ffc451;
+  color: #FFF;
+  background-color: #E5181C;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -477,6 +508,15 @@ h2 {font-size: 3rem;}
   }
 }
 
+@media only screen and (max-width: 991px) {
+  #notice-banner,
+  #incentive-banner {height: auto;padding-top: 160px;}
+}
+@media only screen and (max-width: 767px) {
+  #banner {
+    padding-bottom: 0;
+  }
+}
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -557,6 +597,17 @@ section {
    padding: 10px;
    margin-bottom: 30px;
  }
+@media only screen and (max-width: 767px) {
+  .offers {text-align: center;}
+  .offers .img-fluid {
+    display: inline-block;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .about {
+    padding: 50px 0;
+  }
+}
 /*--------------------------------------------------------------
 # Packages
 --------------------------------------------------------------*/
@@ -586,6 +637,12 @@ section {
   padding: 15px;
 }
 
+@media only screen and (max-width: 991px) {
+  #package-banner {height: auto;padding-top: 160px;}
+  .packages .table-responsive {
+    margin-bottom: 50px;
+  }
+}
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -637,6 +694,23 @@ section {
 
 .content {}
 .content h1 {margin-bottom: 50px;}
+.no-banner {padding-top: 150px;padding-bottom: 100px;}
+
+@media only screen and (max-width: 991px) {
+  .notice .img-fluid {
+    width: 100%;
+  }
+  .notice .bi {
+    margin-bottom: 50px;
+    display: block;
+  }
+  .content .row {
+    margin-bottom: 30px;
+  }
+  .content h4 {
+    margin-top: 15px;
+  }
+}
 
 /*--------------------------------------------------------------
 # Contact
@@ -881,4 +955,157 @@ section {
 #footer .copyright {
   text-align: center;
   padding-top: 30px;
+}
+
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+.my-account h1 {margin-bottom: 50px;}
+.sidebar {
+  background-color: #DB0013;
+  color: #FFF;
+  padding: 30px;font-size: 14px;margin-bottom: 50px;
+}
+.user-info h3 {
+  font-size: 22px;
+}
+.user-info img {
+  width: 100px;
+  border: 3px solid #FFF;
+  border-radius: 100%;
+  margin-bottom: 15px;
+}
+.sidebar .nav li {display: block;width: 100%;}
+.sidebar .nav a {color: #ED8089;display: block;}
+.sidebar .nav a:hover {color: #FFF;}
+.point {
+  border-radius: 5px;
+  margin-bottom: 100px;
+  padding: 15px;
+}
+.pinlist {
+  padding: 15px;
+}
+.tree-search {
+  position: relative;
+  border-radius: 15px;
+}
+.tree-search .form-control {
+  border: 0;
+  height: 80px;
+  border-radius: 15px;
+}
+.tree-search .btn-search {
+  position: absolute;
+  right: 0;
+  color: #A8A8A8;
+  top: 0;
+  line-height: 48px;
+  padding: 15px 20px;
+  font-size: 25px;
+}
+
+.tree {text-align: center}
+.tree img {
+  width: 80px;
+  border: 2px solid #f5efef;
+  border-radius: 100%;
+  margin-bottom: 5px;
+}
+.tree ul {
+  padding-top: 20px; position: relative;
+  padding-left: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.tree li {
+  display: inline-block; text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 20px 5px 0 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before, .tree li::after{
+  content: '';
+  position: absolute; top: 0; right: 50%;
+  border-top: 1px solid #ccc;
+  width: 50%; height: 20px;
+}
+.tree li::after{
+  right: auto; left: 50%;
+  border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without
+any siblings*/
+.tree li:only-child::after, .tree li:only-child::before {
+  display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child{ padding-top: 0;}
+
+/*Remove left connector from first child and
+right connector from last child*/
+.tree li:first-child::before, .tree li:last-child::after{
+  border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before{
+  border-right: 1px solid #ccc;
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after{
+  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before{
+  content: '';
+  position: absolute; top: 0; left: 50%;
+  border-left: 1px solid #ccc;
+  width: 0; height: 20px;
+}
+
+.tree li a{
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #666;
+  font-family: arial, verdana, tahoma;
+  font-size: 11px;
+  display: inline-block;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree li a:hover, .tree li a:hover+ul li a {
+  background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+}
+/*Connector styles on hover*/
+.tree li a:hover+ul li::after,
+.tree li a:hover+ul li::before,
+.tree li a:hover+ul::before,
+.tree li a:hover+ul ul::before{
+  border-color:  #94a0b4;
 }

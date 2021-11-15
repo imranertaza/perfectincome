@@ -15,7 +15,7 @@ $this->session = \Config\Services::session();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stars Fair - Admin Panel</title>
+    <title>Perfect Income - Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/assets/css/bootstrap.css" rel="stylesheet">
