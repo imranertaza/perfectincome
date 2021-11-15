@@ -75,7 +75,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 #-------------------------
 # System cache files
 #-------------------------
-public_html/assets/cache/*
+#public_html/assets/cache/*
 
 
 #-------------------------
