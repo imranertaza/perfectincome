@@ -267,8 +267,9 @@ class General extends BaseController
 
 
             //query nagad transection list for this user
-            $withwNaga = DB()->table('history_withdraw_nagad');
-            $data['nagad_trans'] = $withwNaga->where('receiver_id', $user_id2)->get()->getResult();
+//            $withwNaga = DB()->table('history_withdraw_nagad');
+//            $data['nagad_trans'] = $withwNaga->where('receiver_id', $user_id2)->get()->getResult();
+            $data['nagad_trans'] = [];
 
             //query nagad transection list for this user
             $withwpm = DB()->table('history_withdraw_pm');

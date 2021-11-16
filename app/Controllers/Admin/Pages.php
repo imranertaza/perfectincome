@@ -122,6 +122,7 @@ class Pages extends BaseController
         $fildes['page_title'] = $this->request->getPost('page_tilte');
         $fildes['page_description'] = $this->request->getPost('description');
         $fildes['short_des'] = $this->request->getPost('short_description');
+        $fildes['slug'] =  strtolower($this->request->getPost('page_tilte'));
         $fildes['page_type'] = 'page';
         $page = DB()->table('pages');
         if ($page->insert($fildes)) {

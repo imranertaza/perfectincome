@@ -1006,7 +1006,7 @@ section {
 }
 
 .tree {text-align: center}
-.tree img {
+.tree .level , .level2 , .level3 {
   width: 80px;
   border: 2px solid #f5efef;
   border-radius: 100%;
@@ -1108,4 +1108,23 @@ right connector from last child*/
 .tree li a:hover+ul::before,
 .tree li a:hover+ul ul::before{
   border-color:  #94a0b4;
+}
+
+.main-title{
+  color: #DB0013;
+}
+.border-con{
+  border: 1px solid #dee2e6;
+  padding: 10px;
+}
+.table{
+  font-size: 13px;
+}
+.st-font{
+  font-size: 10px;
+}
+.icon-round{
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 4px 25px 2px 5px;
 }

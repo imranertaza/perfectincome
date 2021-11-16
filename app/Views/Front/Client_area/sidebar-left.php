@@ -1,6 +1,8 @@
 <div class="sidebar">
     <div class="user-info text-center">
-        <img src="assets/img/offer1.png" class="img-fluid" alt="">
+        <?php $photo = get_field_by_id_from_table('users', 'photo', 'ID', $ID);?>
+<!--        <img src="assets/img/offer1.png" class="img-fluid" alt="">-->
+        <?php print view_user_image($ID, 90, 90); ?>
         <h3>Profile</h3>
         <p>User Name: <?php print $u_name; ?><br>Full Name: <?php print $f_name; ?></p>
     </div>

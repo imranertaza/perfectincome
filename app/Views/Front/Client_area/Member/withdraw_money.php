@@ -1,19 +1,21 @@
-<div class="container-fluid dash_body">
-  <div class="row">
-        <div class="container wraper" style="padding-bottom: 20px;">
+<main id="main" class="no-banner">
 
-                <?php print $sidebar_left; ?>
-
+    <section class="my-account">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <?php print $sidebar_left; ?>
+                </div>
                 <div class="col-md-9">
-                  <div class="right_contant dashboard_right">
-                    <div class="top_right_content">
-                      <h1>Withdraw</h1>
-                      <hr />
-                        <?php //print $this->session->flashdata('msg'); ?>
+                    <div class="right_contant dashboard_right">
+                        <div class="top_right_content pt-5">
+                            <h5 class="main-title">Withdraw</h5>
+                            <hr />
+                            <?php //print $this->session->flashdata('msg'); ?>
 
 
 
-                  <!--  <div class="panel with-nav-tabs panel-default"> -->
+                            <!--  <div class="panel with-nav-tabs panel-default"> -->
                             <!-- <ul class="nav nav-tabs">
                                 <li class=""><a href="#tab1default" data-toggle="tab">Perfect Money</a></li>
                                 <li class="active"><a href="#tab2default" data-toggle="tab">Postal Nagad</a></li>
@@ -31,7 +33,7 @@
                                         <br>
                                         <br> -->
 
-                                        <!-- <form action="<?php //print base_url(); ?>member/general/withdraw_perfectmoney/" method="post">
+                            <!-- <form action="<?php //print base_url(); ?>member/general/withdraw_perfectmoney/" method="post">
 
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -52,22 +54,22 @@
                                         </form> -->
 
 
-                                            <!-- <div class="row">
+                            <!-- <div class="row">
 
 
 
-                                            <br>
-                                            <br>
-                                            <div class="col-md-12"> -->
-                                                <!-- <hr>
-                                                <h4>Perfect Money withdraw list</h4>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Payer Account(From)</th>
-                                                        <th>Payee Account(To)</th> -->
-                <!--                                        <th>Transection Batch Number</th>-->
-                                                        <!-- <th>Amount</th>
+                            <br>
+                            <br>
+                            <div class="col-md-12"> -->
+                            <!-- <hr>
+                            <h4>Perfect Money withdraw list</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Payer Account(From)</th>
+                                    <th>Payee Account(To)</th> -->
+                            <!--                                        <th>Transection Batch Number</th>-->
+                            <!-- <th>Amount</th>
                                                         <th>Date</th>
                                                     </tr>
                                                     </thead>
@@ -76,8 +78,8 @@
                                                         <tr>
                                                             <td><?php //print $trans->payer_account; ?></td>
                                                             <td><?php //print $trans->payee_account; ?></td> -->
-                <!--                                            <td>--><?php //print $trans->payment_batch_num; ?><!--</td>-->
-                                                            <!-- <td><?php //print $trans->amount; ?></td>
+                            <!--                                            <td>--><?php //print $trans->payment_batch_num; ?><!--</td>-->
+                            <!-- <td><?php //print $trans->amount; ?></td>
                                                             <td><?php //print $trans->date; ?></td>
                                                         </tr>
                                                     <?php //} ?>
@@ -90,7 +92,7 @@
                                     </div> -->
 
 
-                                    <!-- <div class="tab-pane fade active in" id="tab2default">
+                            <!-- <div class="tab-pane fade active in" id="tab2default">
 
                                         <div class='alert alert-warning' role='alert'>Minimum <?php //print "$".$min_withdraw_amount_nagad; ?> TK to withdraw.</div>
 
@@ -119,7 +121,7 @@
 
                                         </form> -->
 
-                                        <!-- <hr>
+                            <!-- <hr>
                                         <br>
                                         <br>
                                         <h4>Nagad withdraw amount list</h4>
@@ -154,22 +156,16 @@
                             </div>
                         </div> -->
 
-                        <h2>Under Development </h2>
+                            <h2>Under Development </h2>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<script>
-//    function check_amount() {
-//        var amount = document.getElementById("payment_amount").value;
-//        if (amount >= <?php //print $min_amount_load_PM; ?>//) {
-//            $("#PM_load_method").submit();
-//        }else{
-//            $('#er_msg').html("Minimum $<?php //print $min_amount_load_PM; ?>// amount to load.");
-//        }
-//    }
-</script>
+</main><!-- End #main -->
+
+
+
+

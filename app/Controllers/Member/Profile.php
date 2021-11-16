@@ -144,6 +144,7 @@ class Profile extends BaseController
         $data['address1'] = $this->request->getPost('addr');
         $data['address2'] = $this->request->getPost('per_addr');
         $data['phn_no'] = $this->request->getPost('phone');
+        $data['country'] = $this->request->getPost('country');
 
         $tab = DB()->table('users');
         $tab->where('ID', $id)->update($data);
@@ -154,8 +155,8 @@ class Profile extends BaseController
 
 
 
-    public function account_action()
-    {
+    public function account_action(){
+
         $id = $this->session->user_id_client;
         $data['username'] = $this->request->getPost('uname');
         $data['email'] = $this->request->getPost('email');

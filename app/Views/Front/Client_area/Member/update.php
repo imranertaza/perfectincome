@@ -1,156 +1,187 @@
-<div class="container-fluid dash_body">
-    <div class="row">
-        <div class="container wraper" style="padding-bottom: 20px;">
-            <?php print $sidebar_left; ?>
+<main id="main" class="no-banner">
+    <section class="my-account">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <?php print $sidebar_left; ?>
+                </div>
+                <div class="col-lg-9">
+                    <div class="right_contant dashboard_right">
+                        <div class="top_right_content pt-5">
+                            <h5 class="main-title"> Update Profile </h5>
+                            <div class="message">
+                                <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;
+                                if ($message) {
+                                    echo $message;
+                                } ?>
+                            </div>
+                            <div class="mt-5 border-con">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                                aria-selected="true">General
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                                data-bs-target="#profile" type="button" role="tab"
+                                                aria-controls="profile"
+                                                aria-selected="false">Account
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#contact" type="button" role="tab"
+                                                aria-controls="contact"
+                                                aria-selected="false">Photo
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <?php foreach ($user as $value) { ?>
+                                        <div class="tab-pane fade show active pt-4" id="home" role="tabpanel"
+                                             aria-labelledby="home-tab">
+                                            <form role="form" id="add_user" method="post"
+                                                  action="<?php print base_url(); ?>/member/profile/general_action">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>First Name <sup class="required"></sup></label>
+                                                            <input class="form-control" name="fname" type="text"
+                                                                   value="<?php echo $value->f_name; ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Last Name <sup class="required"></sup></label>
+                                                            <input class="form-control" name="lname" type="text"
+                                                                   value="<?php echo $value->l_name; ?>" required>
+                                                        </div>
 
-            <div class="col-md-9">
-                <div class="right_contant dashboard_right">
-                    <div class="top_right_content">
-                        <h1> Update Profile </h1>
-                        <div class="message">
-                            <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;if($message){  echo $message; } ?>
-                        </div>
-
-                        <hr/>
+                                                        <div class="form-group">
+                                                            <label>Phone</label>
+                                                            <input class="form-control" name="phone" type="text"
+                                                                   value="<?php echo $value->phn_no; ?>">
+                                                        </div>
 
 
-                        <div class="panel with-nav-tabs panel-default">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab1default" data-toggle="tab">General</a></li>
-                                <li class=""><a href="#tab3account" data-toggle="tab">Account</a></li>
-                                <li class=""><a href="#tab3photo" data-toggle="tab">Photo</a></li>
+                                                    </div>
+                                                    <div class="col-lg-6">
 
-                            </ul>
-                            <?php foreach ($user
 
-                            as  $value) { ?>
+                                                        <div class="form-group">
+                                                            <label>Present Addres <sup class="required"></sup></label>
+                                                            <input type="text" class="form-control" name="addr"
+                                                                   value="<?php echo $value->address1; ?>" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Permanent Addres <sup
+                                                                        class="required"> </sup></label>
+                                                            <input type="text" class="form-control" name="per_addr"
+                                                                   value="<?php echo $value->address2; ?>" required>
+                                                        </div>
 
-                            <div class="panel-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane fade active in" id="tab1default">
-                                        <form role="form" id="add_user" method="post" action="<?php print base_url(); ?>/member/profile/general_action">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>First Name <sup class="required"></sup></label>
-                                                    <input class="form-control" name="fname" type="text"
-                                                           value="<?php echo $value->f_name; ?>" required>
+                                                        <div class="form-group">
+                                                            <label>Country <sup class="required"> </sup></label>
+                                                            <select class="form-control" name="country">
+                                                                <option value="">Please select</option>
+                                                                <?php foreach (country() as $key => $val) {
+                                                                    $sel = ($key == $value->country) ? 'selected' : ''; ?>
+                                                                    <option value="<?php echo $key; ?>" <?php echo $sel; ?> ><?php echo $val; ?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <input type="submit" class="btn btn-default btn btn-primary"
+                                                               value="Save" name="add_user"/>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Last Name <sup class="required"></sup></label>
-                                                    <input class="form-control" name="lname" type="text"
-                                                           value="<?php echo $value->l_name; ?>" required>
-                                                </div>
+                                            </form>
 
-                                                <div class="form-group">
-                                                    <label>Phone</label>
-                                                    <input class="form-control" name="phone" type="text"
-                                                           value="<?php echo $value->phn_no; ?>">
-                                                </div>
-
-
-
-                                            </div>
-                                            <div class="col-lg-6">
-
-
-                                                <div class="form-group">
-                                                    <label>Present Addres <sup class="required"></sup></label>
-                                                    <input type="text" class="form-control" name="addr"
-                                                           value="<?php echo $value->address1; ?>" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Permanent Addres <sup class="required"> </sup></label>
-                                                    <input type="text" class="form-control" name="per_addr"
-                                                           value="<?php echo $value->address2; ?>" required>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <input type="submit" class="btn btn-default btn btn-primary"
-                                                       value="Save" name="add_user"/>
-                                            </div>
-                                        </form>
-                                    </div>
-
-
-
-                                    <div class="tab-pane fade in" id="tab3account">
-                                        <form role="form" id="add_user" method="post"
-                                              action="<?php print base_url(); ?>/member/profile/account_action">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>User Name <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="uname" type="text"
-                                                           value="<?php echo $value->username; ?>"
-                                                           onchange="check_valid_username(this.value)" required>
-                                                    <p class="help-block" id="user_valid"></p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Email <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="email" type="email" id="email"
-                                                           value="<?php echo $value->email; ?>" onchange="validate()"
-                                                           required>
-                                                    <p class="help-block" id="result"></p>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Password <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="pass" type="password"
-                                                           id="txtNewPassword">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Confirm Password <sup class="required">*</sup></label>
-                                                    <input class="form-control" name="con_pass" type="password"
-                                                           id="txtConfirmPassword" onChange="checkPasswordMatch();">
-                                                </div>
-                                                <p class="help-block" id="divCheckPasswordMatch"></p>
-                                            </div>
-
-                                            <div class="col-lg-12">
-                                                <input type="submit" class="btn btn-default btn btn-primary"
-                                                       value="Save" name=""/>
-                                            </div>
-                                        </form>
-
-                                    </div>
-
-                                    <div class="tab-pane fade in" id="tab3photo">
-                                        <div class="form-group">
-                                            <?php $img = (!empty($value->photo))?$value->photo:'images.png'; ?>
-                                            <img src="<?php print base_url(); ?>/uploads/user_image/<?php echo $img; ?>"
-                                                 width="30%">
                                         </div>
-                                        <form role="form" id="add_user" method="post"
-                                              action="<?php print base_url(); ?>/member/profile/photo_action"
-                                              enctype="multipart/form-data">
+                                        <div class="tab-pane fade pt-4" id="profile" role="tabpanel"
+                                             aria-labelledby="profile-tab">
+                                            <form role="form" id="add_user" method="post"
+                                                  action="<?php print base_url(); ?>/member/profile/account_action">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>User Name <sup class="required">*</sup></label>
+                                                            <input class="form-control" name="uname" type="text"
+                                                                   value="<?php echo $value->username; ?>"
+                                                                   onchange="check_valid_username(this.value)" required>
+                                                            <p class="help-block" id="user_valid"></p>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Email <sup class="required">*</sup></label>
+                                                            <input class="form-control" name="email" type="email"
+                                                                   id="email"
+                                                                   value="<?php echo $value->email; ?>"
+                                                                   onchange="validate()"
+                                                                   required>
+                                                            <p class="help-block" id="result"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Password <sup class="required">*</sup></label>
+                                                            <input class="form-control" name="pass" type="password"
+                                                                   id="txtNewPassword">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Confirm Password <sup
+                                                                        class="required">*</sup></label>
+                                                            <input class="form-control" name="con_pass" type="password"
+                                                                   id="txtConfirmPassword"
+                                                                   onChange="checkPasswordMatch();">
+                                                        </div>
+                                                        <p class="help-block" id="divCheckPasswordMatch"></p>
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                        <input type="submit" class="btn btn-default btn btn-primary"
+                                                               value="Save" name=""/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade pt-4" id="contact" role="tabpanel"
+                                             aria-labelledby="contact-tab">
                                             <div class="form-group">
-                                                <label>Photo <sup class="required">*</sup></label>
-                                                <input class="form-control" name="photo" type="file" required>
-                                                <p class="help-block" id="progress_bar">Please put your photo</p>
+                                                <?php $img = (!empty($value->photo)) ? $value->photo : 'images.png'; ?>
+                                                <img src="<?php print base_url(); ?>/uploads/user_image/<?php echo $img; ?>"
+                                                     width="30%">
                                             </div>
-                                            <div class="col-lg-12">
-                                                <input type="submit" class="btn btn-default btn btn-primary"
-                                                       value="Save" name=""/>
-                                            </div>
-                                        </form>
-                                    </div>
-
-
+                                            <form role="form" id="add_user" method="post"
+                                                  action="<?php print base_url(); ?>/member/profile/photo_action"
+                                                  enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="form-group col-lg-6">
+                                                        <label>Photo <sup class="required">*</sup></label>
+                                                        <input class="form-control" name="photo" type="file" required>
+                                                        <p class="help-block" id="progress_bar">Please put your
+                                                            photo</p>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <input type="submit" class="btn btn-default btn btn-primary"
+                                                               value="Save" name=""/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
+
                         </div>
-
-                        <?php } ?>
-
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+
+</main><!-- End #main -->
 
 
 <script>

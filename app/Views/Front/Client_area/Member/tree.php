@@ -6,18 +6,18 @@
                 <div class="col-lg-3">
                     <?php print $sidebar_left; ?>
                 </div>
-                <div class="col-lg-9">
-                    <h1>My Tree</h1>
-                    <hr />
+                <div class="col-lg-9 pt-4">
+                    <h5 class="main-title">My Tree</h5>
+
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="tree">
+                        <div class="col-md-12 mt-5">
+                            <div class="tree border-con">
                                 <?php $u_id = empty($user_id) ? $ID : $user_id; ?>
 
-                                <table class="table-bordered table-hover table">
+                                <table class=" table-hover table">
                                     <tbody>
                                     <tr>
-                                        <td colspan="2"><strong><?php print $u_name;?></strong></td>
+                                        <td colspan="2"><h6 style="font-weight: bold;"><?php print $u_name;?></h6></td>
                                     </tr>
                                     <tr>
                                         <td>Left Point</td>

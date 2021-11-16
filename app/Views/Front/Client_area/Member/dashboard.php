@@ -8,65 +8,79 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="right_contant dashboard_right">
-                        <div class="top_right_content">
+                        <div class="top_right_content pt-5">
 
                             <?php if ($row->status == 'Inactive') { ?>
                                 <a href="<?php echo base_url('member/dashboard/active_user') ?>" class="btn btn-success"
                                    style="float: right;">Active</a>
                             <?php } ?>
-                            <h1><b>Dashboard Statement</b></h1>
+                            <h5 class="main-title">Dashboard Statement</h5>
+                            <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;
+                            if ($message) {
+                                echo $message;
+                            } ?>
 
+                            <div class="row">
+                                <div class="col-lg-7 mt-5">
+                                    <div class="pinlist shadow">
+                                        <h6 style="font-weight: bold;">Latest Referrals</h6>
+                                        <table class=" table mt-4">
+                                            <tbody>
+                                            <tr>
+                                                <th>Username</th>
+                                                <th>Joining Date</th>
+                                            </tr>
+                                            <?php foreach ($query as $ref_info) { ?>
+                                                <tr>
+                                                    <td><?php echo get_username_by_id($ref_info->u_id); ?></td>
+                                                    <td><?php echo $ref_info->d_time; ?></td>
+                                                </tr>
+                                            <?php } ?>
 
-                            <hr/>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
-                            <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0; if ($message) { echo $message; } ?>
+                                <div class="col-lg-5 mt-5">
+                                    <div class="pinlist shadow">
+                                        <h6 style="font-weight: bold;"><?php print $u_name; ?></h6>
+                                        <div class="row pt-3">
+                                            <div class="col-lg-2">
+                                                <div class="icon-round" style="background-color: #3afff9;color: #ffffff;">
+                                                    <i class="bi bi-crop"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <h6 style="font-weight: bold; margin-bottom: -5px; font-size: 14px;">
+                                                    Pt.</h6>
+                                                <slmall class="st-font"><?php print (!empty($point))?$point:'0'; ?></slmall>
+                                            </div>
 
+                                            <div class="col-lg-2 pt-2">
+                                                <div class="icon-round" style="background-color: #db0013;color: #ffffff;">
+                                                    <i class="bi bi-cash"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-10 pt-2">
+                                                <h6 style="font-weight: bold; margin-bottom: -5px; font-size: 14px;"><?php print Tk_view(number_format(get_field_by_id_from_table('users', 'commission', 'ID', $ID), 2)); ?></h6>
+                                                <slmall class="st-font">Commission</slmall>
+                                            </div>
 
-                            <div class="dashboard_left_area">
-                                <h3>Latest Referrals</h3>
-                                <table class="table-bordered table-hover table">
-                                    <tbody>
-                                    <tr>
-                                        <th>Username</th>
-                                        <th>Joining Date</th>
-                                    </tr>
-                                    <?php foreach ($query as $ref_info) { ?>
-                                        <tr>
-                                            <td><?php echo get_username_by_id($ref_info->u_id); ?></td>
-                                            <td><?php echo $ref_info->d_time; ?></td>
-                                        </tr>
-                                    <?php } ?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="dashboard_right_area">
-                                <div class="user_information">
-                                    <h3>User Informations</h3>
-                                    <table class="table-bordered table-hover table">
-                                        <tbody>
-                                        <tr>
-                                            <td><strong>Name</strong></td>
-                                            <td><?php echo $row->username; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Profile Picture</strong></td>
-                                            <td><?php print view_user_image($ID, 90, 90); ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Mobile Number</strong></td>
-                                            <td><?php echo $row->phn_no; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Balance</strong></td>
-                                            <td><?php echo Tk_view($row->balance); ?></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
+                                            <div class="col-lg-2 pt-2">
+                                                <div class="icon-round" style="background-color: #571ae1;color: #ffffff;">
+                                                    <i class="bi bi-telephone"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-10 pt-2">
+                                                <h6 style="font-weight: bold; margin-bottom: -5px; font-size: 14px;"><?php echo get_field_by_id_from_table('users', 'phn_no', 'ID', $ID) ?></h6>
+                                                <slmall class="st-font">Phone number</slmall>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
