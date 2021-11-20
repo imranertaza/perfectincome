@@ -53,5 +53,10 @@
             <a href="<?php print base_url(); ?>/Member/general/sponser_report" class="nav-link px-0 align-middle">
                 <i class="bi bi-pip-fill"></i> <span class="ms-1">Sponsor Report</span></a>
         </li>
+
+        <li>
+            <a href="<?php print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
+                <i class="bi bi-youtube"></i> <span class="ms-1">Videos</span></a>
+        </li>
     </ul>
 </div>

@@ -260,6 +260,14 @@ function get_list_global_settings($title, $sel = 0)
     return $output;
 }
 
+function get_global_settings_value($title){
+
+    $table = DB()->table('global_settings');
+    $religion = $table->where('title',$title)->get();
+    $name_row = $religion->getRow()->value;
+    return $name_row;
+}
+
 
 function get_location($per_id, $sel = 0)
 {
@@ -918,4 +926,11 @@ function countryName($keys){
         }
     }
     return $name;
+}
+function already_shown($video_id){
+    $userId = new_session()->user_id_client;
+    $today = date('Y-m-d');
+    $table = DB()->table('video_view_count');
+    $count = $table->where('video_id',$video_id)->where('u_id',$userId)->where('date',$today)->countAllResults();
+    return $count;
 }

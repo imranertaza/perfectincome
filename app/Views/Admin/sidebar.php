@@ -234,6 +234,19 @@ $this->functionModel = new \App\Models\FunctionModel();
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-youtube-play"></i> Videos<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <?php if ($this->functionModel->hasPermission('download_list') == true) { ?>
+                            <li>
+                                <a href="<?php echo base_url(); ?>/Admin/Video"><i
+                                            class="fa fa-list fa-fw"></i> Video list</a>
+                            </li>
+                        <?php }  ?>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
             <?php } ?>
             <li>
                 <a href="#"><i class="fa fa-cogs fa-fw"></i> Settings<span class="fa arrow"></span></a>
