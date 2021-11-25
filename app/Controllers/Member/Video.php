@@ -418,6 +418,7 @@ class Video extends BaseController
             $viVewCoDel = DB()->table('video_view_count');
             $viVewCoDel->where('u_id',$userId)->where('date',$preDate)->delete();
         }
+
         $video = DB()->table('video');
         $query = $video->where('video_id',$videoId)->get()->getRow();
         $view = '<div class="modal-header">
