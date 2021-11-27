@@ -3,6 +3,7 @@
 	<?php if (empty($check_user)) { ?>
 	<div class="col-md-9">
             <h1>Login</h1>
+        <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0; if ($message) { echo $message; } ?>
             <hr />
             <div class="row">
             	<div class="col-md-6">
