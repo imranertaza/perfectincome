@@ -105,7 +105,7 @@
 
 function check_username(uname){
 	  $.ajax({
-			 url: '<?php print base_url(); ?>ajax.html/?check_username=yes',
+			 url: '<?php print base_url(); ?>/Ajax/?check_username=yes',
 			 type: "POST",
 			 dataType: "text",
 			 data: {username: uname},
@@ -138,6 +138,7 @@ function check_spon(uname){
 			 success: function(message){
 				if (message==0) {
 					$('#spon_bar').html('<span style="color:red">Invalid Username</span>');
+                    document.getElementById('sponsor').value = '';
 				}else {
 					$('#spon_bar').html('<span style="color:green">Valid Username</span>');
 				 }
@@ -160,6 +161,7 @@ function parent_check(uname){
 			 success: function(msg){
 				if (msg==0) {
 					$('#parent_check').html('<span style="color:red">Invalid Username</span>');
+                    document.getElementById('placement').value = '';
 				}else {
 				  	$('#parent_check').html('<span style="color:green">Valid Username</span>');
 					
@@ -199,7 +201,7 @@ function check_valid_username(uname){
 				  //$('#user_valid').html(msg);
                  if (msg == 1) {
                      $('#user_valid').html('<span style="color:red">Invalid Username</span>');
-                     document.getElementById('uname').value = '';
+                     document.getElementById('username').value = '';
                  }else {
                      $('#user_valid').html('<span style="color:green">Valid Username</span>');
                  }
