@@ -14,6 +14,7 @@
                             <?php echo $error; ?>
                         </div>
                     <?php } ?>
+                    <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0; if ($message) { echo $message; } ?>
                     <form id="regform" role="form" id="login" method="post" action="<?php print base_url(); ?>/member_form/login_action">
                         <div class="row">
                             <div class="col-lg-12">

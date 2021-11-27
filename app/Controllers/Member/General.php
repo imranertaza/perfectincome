@@ -526,6 +526,7 @@ class General extends BaseController
 
     public function pin_generat_action()
     {
+
         $user_id = $this->session->user_id_client;
         $num_pins = $this->request->getPost('amount');
         $packageId = $this->request->getPost('package_id');
@@ -581,7 +582,8 @@ class General extends BaseController
 
     public function generate()
     {
-        $pins = rand(1, 1000000);
+//        $pins = rand(1, 1000000);
+        $pins = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(20))), 0, 20);
         return $pins;
     }
 

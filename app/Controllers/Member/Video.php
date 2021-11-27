@@ -446,14 +446,14 @@ class Video extends BaseController
 
         //video earning
         $viVewCone = DB()->table('video_view_count');
-        $countRow = $viVewCone->where('u_id',$userId)->where('date',$today)->countAllResults();
-        $parDayView = get_global_settings_value('per_day_video_watch');
+        //$countRow = $viVewCone->where('u_id',$userId)->where('date',$today)->countAllResults();
+        //$parDayView = get_global_settings_value('per_day_video_watch');
         $parDayEarn = get_global_settings_value('per_day_video_watch_earning');
 
-        if ($countRow == $parDayView){
+//        if ($countRow == $parDayView){
             $oldBal = get_id_by_data('balance','users','ID',$userId);
-            $total = $parDayView * $parDayEarn;
-            $restBal = $oldBal + $total;
+            //$total = $parDayView * $parDayEarn;
+            $restBal = $oldBal + $parDayEarn;
             $usData = ['balance' => $restBal];
             $user = DB()->table('users');
             $user->where('ID',$userId)->update($usData);
@@ -461,10 +461,10 @@ class Video extends BaseController
 
 
             //commission video
-            $comData = ['u_id' => $userId,'purpose' => 'Video view Earning','amount'=> $total,'date' => $today ];
+            $comData = ['u_id' => $userId,'purpose' => 'Video view Earning','amount'=> $parDayEarn,'date' => $today ];
             $comVideo = DB()->table('comm_video');
             $comVideo->insert($comData);
-        }
+//        }
 
         return 1;
     }
