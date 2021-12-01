@@ -976,7 +976,7 @@ section {
   margin-bottom: 15px;
 }
 .sidebar .nav li {display: block;width: 100%;}
-.sidebar .nav a {color: #ED8089;display: block;}
+.sidebar .nav a {color: #ffffff;display: block;}
 .sidebar .nav a:hover {color: #FFF;}
 .point {
   border-radius: 5px;
@@ -1127,4 +1127,15 @@ right connector from last child*/
   border: 1px solid;
   border-radius: 15px;
   padding: 4px 25px 2px 5px;
+}
+.videoBtn{
+  width: 100%;
+  border: 1px solid #db0013;
+  background-color: #db0013;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
 }

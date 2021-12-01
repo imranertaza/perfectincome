@@ -53,10 +53,11 @@
             <a href="<?php print base_url(); ?>/Member/general/sponser_report" class="nav-link px-0 align-middle">
                 <i class="bi bi-pip-fill"></i> <span class="ms-1">Sponsor Report</span></a>
         </li>
-
+        <?php $packId = get_id_by_data('package_id','users','ID',new_session()->user_id_client); if (!empty($packId)){ ?>
         <li>
             <a href="<?php print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
-                <i class="bi bi-youtube"></i> <span class="ms-1">Videos</span></a>
+                <i class="bi bi-youtube"></i> <span class="ms-1">Watch Video</span></a>
         </li>
+        <?php } ?>
     </ul>
 </div>

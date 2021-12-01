@@ -434,6 +434,9 @@ class Video extends BaseController
     public function view_video_count(){
         $videoId = $this->request->getPost('id');
         $userId = $this->session->user_id_client;
+
+        $packId = get_id_by_data('package_id','users','ID',$userId);
+
         $today = date('Y-m-d');
 
         $data['date'] = $today;
@@ -445,14 +448,10 @@ class Video extends BaseController
 
 
         //video earning
-        $viVewCone = DB()->table('video_view_count');
-        //$countRow = $viVewCone->where('u_id',$userId)->where('date',$today)->countAllResults();
-        //$parDayView = get_global_settings_value('per_day_video_watch');
-        $parDayEarn = get_global_settings_value('per_day_video_watch_earning');
+        $parDayEarn = get_id_by_data('video_watch_earning','package','package_id',$packId);
 
-//        if ($countRow == $parDayView){
+
             $oldBal = get_id_by_data('balance','users','ID',$userId);
-            //$total = $parDayView * $parDayEarn;
             $restBal = $oldBal + $parDayEarn;
             $usData = ['balance' => $restBal];
             $user = DB()->table('users');
@@ -464,7 +463,6 @@ class Video extends BaseController
             $comData = ['u_id' => $userId,'purpose' => 'Video view Earning','amount'=> $parDayEarn,'date' => $today ];
             $comVideo = DB()->table('comm_video');
             $comVideo->insert($comData);
-//        }
 
         return 1;
     }
