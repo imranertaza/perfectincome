@@ -76,8 +76,25 @@
                                                 <h6 style="font-weight: bold; margin-bottom: -5px; font-size: 14px;"><?php echo get_field_by_id_from_table('users', 'phn_no', 'ID', $ID) ?></h6>
                                                 <slmall class="st-font">Phone number</slmall>
                                             </div>
+
+                                            <div class="col-lg-2 pt-2">
+                                                <div class="icon-round" style="padding-left: 8px;background-color: #3e3e3f;color: #ffffff;">
+                                                    <i class="bi bi-flower1"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-10 pt-2">
+                                                <?php $pacName = (!empty($row->package_id))?get_field_by_id_from_table('package', 'package_name', 'package_id', $row->package_id):''; ?>
+                                                <h6 style="font-weight: bold; margin-bottom: -5px; font-size: 14px;"><?php  echo $pacName; ?></h6>
+                                                <slmall class="st-font">Package</slmall>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <?php if (!empty($row->package_id)){ ?>
+                                    <div class="pinlist shadow mt-4">
+                                        <a href="<?php print base_url(); ?>/Member/Video" class="videoBtn btn"><i class="bi bi-youtube"></i> Watch Video</a>
+                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
 

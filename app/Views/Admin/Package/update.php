@@ -42,6 +42,11 @@
                                     <input class="form-control" name="point" value="<?php echo $package->point; ?>" required>
                                     <p class="help-block help_text">Please put the Point here.</p>
                                 </div>
+                                <div class="col-lg-6">
+                                    <label>Video Commission</label>
+                                    <input class="form-control" name="video_watch_earning" value="<?php echo $package->video_watch_earning; ?>" required>
+                                    <p class="help-block help_text">Please put the video commission here.</p>
+                                </div>
                                 <div class="col-lg-12">
                                     <br>
                                     <button type="submit" class="btn btn-default btn btn-primary">Update</button>

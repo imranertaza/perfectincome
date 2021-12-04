@@ -145,6 +145,7 @@ class Dashboard extends BaseController
 
     public function pin_active()
     {
+
         DB()->transStart();
         $userID = $this->session->user_id_client;
         $pinId = $this->request->getPost('pin');
@@ -403,7 +404,8 @@ class Dashboard extends BaseController
             }
 
             $uStatus = array(
-                'status' => 'Active'
+                'status' => 'Active',
+                'package_id' => $packageId
             );
             $stUser = DB()->table('users');
             $stUser->where('ID', $userID)->update($uStatus);
