@@ -62,6 +62,9 @@
 
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
 <body>

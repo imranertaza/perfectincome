@@ -357,14 +357,21 @@ class Dashboard extends BaseController
 
                 //Flash existing Point after 100
                 //$total_comm_taken = $com_taken_on_day + 1;
+
                 if ($com_taken_on_day >= $per_day_matching) {
 
-                    if ($old_lpoint <> $old_rpoint) {
-                        if ($old_lpoint > $old_rpoint) {
+                    $current_lpoint = get_field_by_id_from_table("users", "lpoint", "ID", $parent_id);
+                    $current_rpoint = get_field_by_id_from_table("users", "rpoint", "ID", $parent_id);
+
+                    if ($current_lpoint <> $current_rpoint) {
+                        if ($current_lpoint > $current_rpoint) {
                             $flash_hand = "rpoint";
+                            $flash_point = $old_rpoint;
                         } else {
                             $flash_hand = "lpoint";
+                            $flash_point = $old_lpoint;
                         }
+
 
                         $flashdata = array(
                             $flash_hand => 0
@@ -379,7 +386,7 @@ class Dashboard extends BaseController
                         $current_balance = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
                         $flushing_point_data = array(
                             'u_id' => $parent_id,
-                            $flash_hand => $min_matching_point,
+                            $flash_hand => $flash_point,
                             'current_left_point' => $current_lpoint,
                             'current_right_point' => $current_rpoint,
                             'current_commission' => $current_commission,
