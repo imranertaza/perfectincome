@@ -261,6 +261,7 @@ class General extends BaseController
             $data['rpoint'] = get_field_by_id_from_table('users', 'rpoint', 'ID', $user_id2);
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id2);
             $data['user_id'] = $user_id;
+            $data['session'] = $this->session;
 
             $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
             echo view('Front/Client_area/header', $data);
@@ -280,6 +281,109 @@ class General extends BaseController
 
             echo view('Front/Client_area/Member/withdraw_money', $data);
             echo view('Front/Client_area/footer', $data);
+        }
+    }
+
+
+    public function withdraw_action(){
+        $clientLogin = $this->session->isLoggedInClient;
+        if (!isset($clientLogin) || $clientLogin != TRUE) {
+            return redirect()->to(site_url("Member_form/login"));
+        } else {
+            $withdraw_amount = $this->request->getPost('withdraw_amount');
+            $Payee_Account = $this->request->getPost('payee_account');
+            //        $Payee_Account= 'U33655967';
+
+            $user_id = $this->session->user_id_client;
+            $today = date("Y-m-d");
+            $tomorrow = date("Y-m-d", strtotime('tomorrow'));
+            $historyWithdrawTable = DB()->table('history_withdraw_pm');
+            $totalWithdrawToday = $historyWithdrawTable->where(array("receiver_id" => $user_id, "createdDtm >=" => $today, "createdDtm <" => $tomorrow))->countAllResults();
+            //        $query = DB()->getLastQuery();
+            //        echo (string) $query;
+            //        exit();
+
+
+            $maxWithdrawPerDay = 5;
+            $minWithdrawPerTime = 10;
+            $maxWithdrawPerTime = 20;
+
+            $AccountID = '6395418';
+            $PassPhrase = 'J7204255';
+            $Payer_Account = 'U15536991';
+            $PAY_IN = 1;
+
+            if (($withdraw_amount > $minWithdrawPerTime) && ($withdraw_amount < $maxWithdrawPerTime) && ($maxWithdrawPerDay > $totalWithdrawToday)) {
+
+                // Deducting balance from user's account
+                $old_balance = get_field_by_id_from_table('users', 'balance', 'ID', $user_id);
+                $newBalance = $old_balance - $withdraw_amount;
+                $userTable = DB()->table('users');
+                $userTable->where('ID', $user_id)->update(['balance' => $newBalance]);
+
+
+                // Adding to history_withdraw_pm
+                $historyInsertData = [
+                    'receiver_id' => $user_id,
+                    'Payee_Account' => $Payee_Account,
+                    'Payer_Account' => $Payer_Account,
+                    'amount' => $withdraw_amount
+                ];
+                $historyWithdrawTable->insert($historyInsertData);
+                $PAYMENT_ID = $historyWithdrawTable->getInsertID();
+
+
+                //             $api_url = 'https://perfectmoney.com/acct/confirm.asp?AccountID='.$AccountID.'&PassPhrase='.$PassPhrase.'&Payer_Account='.$Payer_Account.'&Payee_Account='.$Payee_Account.'&Amount='.$withdraw_amount.'&PAY_IN='.$PAY_IN.'&PAYMENT_ID='.$PAYMENT_ID;
+                // trying to open URL to process PerfectMoney Spend request
+                $f = fopen('https://perfectmoney.com/acct/confirm.asp?AccountID=' . $AccountID . '&PassPhrase=' . $PassPhrase . '&Payer_Account=' . $Payer_Account . '&Payee_Account=' . $Payee_Account . '&Amount=' . $withdraw_amount . '&PAY_IN=' . $PAY_IN . '&PAYMENT_ID=' . $PAYMENT_ID, 'rb');
+
+                if ($f === false) {
+                    echo 'error openning url';
+                }
+
+                // getting data
+                $out = array();
+                $out = "";
+                while (!feof($f)) $out .= fgets($f);
+
+                fclose($f);
+
+                // searching for hidden fields
+                if (!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)) {
+                    echo 'Ivalid output';
+                    exit;
+                }
+
+                $ar = "";
+                foreach ($result as $item) {
+                    $key = $item[1];
+                    $ar[$key] = $item[2];
+                }
+
+
+                // Updating some information to history_withdraw_pm
+                $historyUpdateData = [
+                    'Payee_Account_Name' => $ar['Payee_Account_Name'],
+                    'batch_number' => $ar['PAYMENT_BATCH_NUM']
+                ];
+                $historyWithdrawTable->where('withdraw_id', $ar['PAYMENT_ID'])->update($historyUpdateData);
+
+
+                //            Payee_Account_Name	imranertaza
+                //            Payee_Account	U33655967
+                //            Payer_Account	U15536991
+                //            PAYMENT_AMOUNT	1
+                //            PAYMENT_BATCH_NUM	438827148
+                //            PAYMENT_ID	1285
+
+                //            echo '<pre>';
+                //            print_r($ar);
+                //            echo '</pre>';
+
+            } else {
+                $this->session->setFlashdata('withdraw_error', '<div class="alert alert-danger">Wrong input to withdraw.</div>');
+                return redirect()->to(site_url("Member/general/withdraw"));
+            }
         }
     }
 
@@ -332,8 +436,9 @@ class General extends BaseController
             $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
             echo view('Front/Client_area/header', $data);
 
-            $withw = DB()->table('withdrow_req_match');
-            $data['with_match'] = $withw->where('form', $user_id2)->get()->getResult();
+            $withw = DB()->table('history_withdraw_pm');
+            $data['with_match'] = $withw->where('receiver_id', $user_id2)->get()->getResult();
+//            print DB()->getLastQuery();
 
             echo view('Front/Client_area/Member/withdraw_report', $data);
             echo view('Front/Client_area/footer', $data);

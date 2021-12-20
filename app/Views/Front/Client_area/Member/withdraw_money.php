@@ -11,6 +11,31 @@
                         <div class="top_right_content pt-5">
                             <h5 class="main-title">Withdraw</h5>
                             <hr />
+                            <?php print $session->getFlashdata('withdraw_error'); ?>
+                            <div class="col-lg-5">
+                                <form action="<?php print base_url(); ?>/Member/general/withdraw_action" method="post">
+                                    <div class="form-group">
+                                        <label>Withdraw Amount(Min:$10, Mas:$20) <sup class="required">*</sup></label>
+                                        <input class="form-control" name="withdraw_amount" type="text" required placeholder="10">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Your Account <sup class="required">*</sup></label>
+                                        <input class="form-control" name="payee_account" type="text" required value="U33655967" placeholder="U15536991">
+                                    </div>
+                                    <input type="submit" class="btn btn-submit" value="Withdraw">
+                                </form>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
                             <?php //print $this->session->flashdata('msg'); ?>
 
 
@@ -155,8 +180,6 @@
                                 </div>
                             </div>
                         </div> -->
-
-                            <h2>Under Development </h2>
                         </div>
                     </div>
                 </div>

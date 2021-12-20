@@ -105,7 +105,7 @@ class Package extends BaseController
             echo view('Admin/header');
             echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('dashboard') == true) {
-                echo view('Admin/package/update', $data);
+                echo view('Admin/Package/update', $data);
             } else {
                 echo view('Admin/no_permission');
             }
