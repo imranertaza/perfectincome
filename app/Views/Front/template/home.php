@@ -87,6 +87,14 @@
                 <td>Matching Commission</td>
                 <td>$1</td>
               </tr>
+                <tr>
+                    <td>Earning ($0.20/Video)</td>
+                    <td>5x0.20=$1/day</td>
+                </tr>
+                <tr>
+                    <td>Reactive After</td>
+                    <td>40 days</td>
+                </tr>
             </table>
           </div>
           <div class="col-lg-4">
@@ -110,6 +118,14 @@
                 <td>Matching Commission</td>
                 <td>$5</td>
               </tr>
+                <tr>
+                    <td>Earning ($1/Video)</td>
+                    <td>5x1=$5/day</td>
+                </tr>
+                <tr>
+                    <td>Reactive After</td>
+                    <td>40 days</td>
+                </tr>
             </table>
           </div>
           <div class="col-lg-4">
@@ -133,6 +149,14 @@
                 <td>Matching Commission</td>
                 <td>$25</td>
               </tr>
+                <tr>
+                    <td>Earning ($5/Video)</td>
+                    <td>5x5 = $25/day</td>
+                </tr>
+                <tr>
+                    <td>Reactive After</td>
+                    <td>40 days</td>
+                </tr>
             </table>
           </div>
         </div>

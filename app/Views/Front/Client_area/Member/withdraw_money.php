@@ -11,7 +11,8 @@
                         <div class="top_right_content pt-5">
                             <h5 class="main-title">Withdraw</h5>
                             <hr />
-                            <?php print $session->getFlashdata('withdraw_error'); ?>
+                            <?php print $session->getFlashdata('withdraw_msg'); ?>
+                            <div class="alert alert-warning">Inactive member can not withdraw. Only active member can withdraw.</div>
                             <div class="col-lg-5">
                                 <form action="<?php print base_url(); ?>/Member/general/withdraw_action" method="post">
                                     <div class="form-group">
@@ -20,7 +21,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Your Account <sup class="required">*</sup></label>
-                                        <input class="form-control" name="payee_account" type="text" required value="U33655967" placeholder="U15536991">
+                                        <input class="form-control" name="payee_account" type="text" required value="U33956132" placeholder="U15536991">
                                     </div>
                                     <input type="submit" class="btn btn-submit" value="Withdraw">
                                 </form>

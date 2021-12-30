@@ -110,7 +110,7 @@ class Dashboard extends BaseController
                 $data['list_notice'] = 'No notice published';
             }
 
-
+            $data['payee_account'] = get_field_by_id_from_table('global_settings', 'value', 'title', 'PerfectMoney_Payer_Account');
             $data['package_list'] = DB()->table('package')->get()->getResult();
 
 

@@ -33,8 +33,8 @@
 
                 <div class="col-lg-4 col-md-4 footer-contact">
                     <h4><?php print $footer_widget2_title; ?></h4>
-                    <p><i class="bi bi-telephone"></i> <?php print $footer_widget2_description; ?></p>
-                    <p><i class="bi bi-envelope"></i> contact@perfectincome.com</p>
+                    <p><i class="bi bi-telephone"></i> <?php //print $footer_widget2_description; ?></p>
+                    <p><i class="bi bi-envelope"></i> contact@perfectincome.online</p>
                     <p><i class="bi bi-geo-alt-fill"></i> Avaynogor Noapara Jessore</p>
                 </div>
             </div>

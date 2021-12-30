@@ -290,39 +290,35 @@ class General extends BaseController
         if (!isset($clientLogin) || $clientLogin != TRUE) {
             return redirect()->to(site_url("Member_form/login"));
         } else {
+            $user_id = $this->session->user_id_client;
+            $user_status = get_field_by_id_from_table('users', 'status', 'ID', $user_id);
+
             $withdraw_amount = $this->request->getPost('withdraw_amount');
             $Payee_Account = $this->request->getPost('payee_account');
-            //        $Payee_Account= 'U33655967';
 
-            $user_id = $this->session->user_id_client;
+            $maxWithdrawPerDay = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerDay');
+            $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
+            $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
+            $AccountID = get_field_by_id_from_table('global_settings', 'value', 'title', 'PerfectMoney_Account_ID');
+            $PassPhrase = get_field_by_id_from_table('global_settings', 'value', 'title', 'PerfectMoney_Password');
+            $Payer_Account = get_field_by_id_from_table('global_settings', 'value', 'title', 'PerfectMoney_Payer_Account');
+            $PAY_IN = 1;
+
+
+
+            // Finding total withdraw this day from history_withdraw_pm table (Start)
             $today = date("Y-m-d");
             $tomorrow = date("Y-m-d", strtotime('tomorrow'));
             $historyWithdrawTable = DB()->table('history_withdraw_pm');
             $totalWithdrawToday = $historyWithdrawTable->where(array("receiver_id" => $user_id, "createdDtm >=" => $today, "createdDtm <" => $tomorrow))->countAllResults();
-            //        $query = DB()->getLastQuery();
-            //        echo (string) $query;
-            //        exit();
+            // Finding total withdraw this day from history_withdraw_pm table (End)
 
 
-            $maxWithdrawPerDay = 5;
-            $minWithdrawPerTime = 10;
-            $maxWithdrawPerTime = 20;
 
-            $AccountID = '6395418';
-            $PassPhrase = 'J7204255';
-            $Payer_Account = 'U15536991';
-            $PAY_IN = 1;
-
-            if (($withdraw_amount > $minWithdrawPerTime) && ($withdraw_amount < $maxWithdrawPerTime) && ($maxWithdrawPerDay > $totalWithdrawToday)) {
-
-                // Deducting balance from user's account
-                $old_balance = get_field_by_id_from_table('users', 'balance', 'ID', $user_id);
-                $newBalance = $old_balance - $withdraw_amount;
-                $userTable = DB()->table('users');
-                $userTable->where('ID', $user_id)->update(['balance' => $newBalance]);
+            if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active')) {
 
 
-                // Adding to history_withdraw_pm
+                // Adding to history_withdraw_pm (Start)
                 $historyInsertData = [
                     'receiver_id' => $user_id,
                     'Payee_Account' => $Payee_Account,
@@ -330,7 +326,8 @@ class General extends BaseController
                     'amount' => $withdraw_amount
                 ];
                 $historyWithdrawTable->insert($historyInsertData);
-                $PAYMENT_ID = $historyWithdrawTable->getInsertID();
+                $PAYMENT_ID = DB()->insertID();
+                // Adding to history_withdraw_pm (End)
 
 
                 //             $api_url = 'https://perfectmoney.com/acct/confirm.asp?AccountID='.$AccountID.'&PassPhrase='.$PassPhrase.'&Payer_Account='.$Payer_Account.'&Payee_Account='.$Payee_Account.'&Amount='.$withdraw_amount.'&PAY_IN='.$PAY_IN.'&PAYMENT_ID='.$PAYMENT_ID;
@@ -338,36 +335,78 @@ class General extends BaseController
                 $f = fopen('https://perfectmoney.com/acct/confirm.asp?AccountID=' . $AccountID . '&PassPhrase=' . $PassPhrase . '&Payer_Account=' . $Payer_Account . '&Payee_Account=' . $Payee_Account . '&Amount=' . $withdraw_amount . '&PAY_IN=' . $PAY_IN . '&PAYMENT_ID=' . $PAYMENT_ID, 'rb');
 
                 if ($f === false) {
-                    echo 'error openning url';
+//                    echo 'error openning url';
+                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Error Openning URL</div>');
+                    return redirect()->to(site_url("Member/general/withdraw"));
                 }
 
                 // getting data
                 $out = array();
                 $out = "";
                 while (!feof($f)) $out .= fgets($f);
-
                 fclose($f);
 
-                // searching for hidden fields
+
+
+                // searching for hidden fields (Start)
                 if (!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)) {
-                    echo 'Ivalid output';
+//                    echo 'Ivalid output';
+                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Ivalid output</div>');
+                    return redirect()->to(site_url("Member/general/withdraw"));
                     exit;
                 }
+                // searching for hidden fields (End)
 
-                $ar = "";
-                foreach ($result as $item) {
-                    $key = $item[1];
-                    $ar[$key] = $item[2];
+
+
+                // Message if payment fails because of not enough money (Start)
+                if ($result[0][1] === 'ERROR'){
+                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">'.$result[0][2].'</div>');
+                    return redirect()->to(site_url("Member/general/withdraw"));
+                    exit;
                 }
+                // Message if payment fails because of not enough money (End)
 
 
-                // Updating some information to history_withdraw_pm
+
+                // Updating some information to history_withdraw_pm Start
+                $historyWithdrawTable = DB()->table('history_withdraw_pm');
                 $historyUpdateData = [
-                    'Payee_Account_Name' => $ar['Payee_Account_Name'],
-                    'batch_number' => $ar['PAYMENT_BATCH_NUM']
+                    'Payee_Account_Name' => $result[0][2],
+                    'batch_number' => $result[4][2],
+                    'status' => 'Success',
                 ];
-                $historyWithdrawTable->where('withdraw_id', $ar['PAYMENT_ID'])->update($historyUpdateData);
+                $historyWithdrawTable->where('withdraw_id', $PAYMENT_ID)->update($historyUpdateData);
+                // Updating some information to history_withdraw_pm End
 
+
+
+                // Deducting balance from user's account Start
+                $old_balance = get_field_by_id_from_table('users', 'balance', 'ID', $user_id);
+                $newBalance = $old_balance - $withdraw_amount;
+                $userTable = DB()->table('users');
+                $userTable->where('ID', $user_id)->update(['balance' => $newBalance]);
+                // Deducting balance from user's account End
+
+
+
+                $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-success">Your withdraw is successful.</div>');
+                return redirect()->to(site_url("Member/general/withdraw"));
+
+
+
+
+
+
+//                $ar = "";
+//                print_r($result);
+//                foreach ($result as $row) {
+//                    print_r($row);
+//                    foreach ($row as $item){
+//                        $key = $item[1];
+//                        $ar[$key] = $item[2];
+//                    }
+//                }
 
                 //            Payee_Account_Name	imranertaza
                 //            Payee_Account	U33655967
@@ -376,12 +415,8 @@ class General extends BaseController
                 //            PAYMENT_BATCH_NUM	438827148
                 //            PAYMENT_ID	1285
 
-                //            echo '<pre>';
-                //            print_r($ar);
-                //            echo '</pre>';
-
             } else {
-                $this->session->setFlashdata('withdraw_error', '<div class="alert alert-danger">Wrong input to withdraw.</div>');
+                $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Wrong input to withdraw.</div>');
                 return redirect()->to(site_url("Member/general/withdraw"));
             }
         }

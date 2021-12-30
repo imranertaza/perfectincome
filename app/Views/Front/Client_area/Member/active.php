@@ -45,7 +45,7 @@
                                                     </label>
                                                 </div>
                                                 <?php } ?>
-                                                <input type="hidden" name="PAYEE_ACCOUNT" value="U15536991">
+                                                <input type="hidden" name="PAYEE_ACCOUNT" value="<?php print $payee_account; ?>">
                                                 <input type="hidden" name="PAYEE_NAME" value="PerfectIncome LTD">
                                                 <input type="hidden" name="PAYMENT_AMOUNT" id="payment_amount">
                                                 <input type="hidden" name="PAYMENT_ID" value="<?php print encrypt_decrypt($user_id, "encrypt"); ?>">
