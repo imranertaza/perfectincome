@@ -9,8 +9,7 @@
                         <img src="<?php echo base_url(); ?>/assets/img/logo-footer.png" class="img-fluid" alt="">
                     </div>
                     <div class="footer-info">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magn</p>
+                        <p>Get connected with us here on social media. We always like to hear your comment.</p>
                         <div class="social-links mt-3">
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -35,7 +34,7 @@
                     <h4><?php print $footer_widget2_title; ?></h4>
                     <p><i class="bi bi-telephone"></i> <?php //print $footer_widget2_description; ?></p>
                     <p><i class="bi bi-envelope"></i> contact@perfectincome.online</p>
-                    <p><i class="bi bi-geo-alt-fill"></i> Avaynogor Noapara Jessore</p>
+                    <p><i class="bi bi-geo-alt-fill"></i> Street: 3682 Leisure Lane<br>City: Thousand Oaks<br/>State: California</p>
                 </div>
             </div>
         </div>

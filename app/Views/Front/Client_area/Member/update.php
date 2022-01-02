@@ -110,7 +110,7 @@
                                                             <label>User Name <sup class="required">*</sup></label>
                                                             <input class="form-control" name="uname" type="text"
                                                                    value="<?php echo $value->username; ?>"
-                                                                   onchange="check_valid_username(this.value)" required>
+                                                                   onchange="check_valid_username(this.value)" readonly required>
                                                             <p class="help-block" id="user_valid"></p>
                                                         </div>
                                                         <div class="form-group">
@@ -119,7 +119,7 @@
                                                                    id="email"
                                                                    value="<?php echo $value->email; ?>"
                                                                    onchange="validate()"
-                                                                   required>
+                                                                   required readonly>
                                                             <p class="help-block" id="result"></p>
                                                         </div>
                                                     </div>

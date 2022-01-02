@@ -4,7 +4,7 @@
       <div class="row" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-4 col-lg-4">
           <h1><?php print \App\Models\Settings\Global_settings::get_each_setting_value("site_title")?></h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+          <p>Perfect Income helps you generate more income efficiently and easily.</p>
           <p><a class="btn btn-primary" href="#">Contact Us <i class="bi bi-arrow-right-short"></i></a></p>
         </div>
       </div>
@@ -39,21 +39,23 @@
 
         <div class="row">
           <div class="col-lg-3">
+            <img src="assets/img/offer3.png" class="img-fluid" alt="">
+            <p class="text-center">15,000 Matching = $3,000</p>
+              <h3 class="text-center">Standard</h3>
+          </div>
+          <div class="col-lg-3">
             <img src="assets/img/offer1.png" class="img-fluid" alt="">
-            <p class="text-center">5 Star will get Motorcycle</p>
+            <p class="text-center">30,000 Matching = $10,000</p>
+              <h3 class="text-center">Bronze</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer2.png" class="img-fluid" alt="">
-            <p class="text-center">6 Star will get Car</p>
-          </div>
-          <div class="col-lg-3">
-            <img src="assets/img/offer3.png" class="img-fluid" alt="">
-            <p class="text-center">4 Star will get Laptop</p>
-            <h3 class="text-center">Standard</h3>
+            <p class="text-center">50,000 Matching = $20,000</p>
+            <h3 class="text-center">Golden</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer4.png" class="img-fluid" alt="">
-            <p class="text-center">7 Star will get Car</p>
+            <p class="text-center">100,000 Matching = $50,000</p>
             <h3 class="text-center">Premium</h3>
           </div>
         </div>
@@ -95,6 +97,10 @@
                     <td>Reactive After</td>
                     <td>40 days</td>
                 </tr>
+                <tr>
+                    <td>Daily Matching (Max)</td>
+                    <td>120 days</td>
+                </tr>
             </table>
           </div>
           <div class="col-lg-4">
@@ -126,6 +132,10 @@
                     <td>Reactive After</td>
                     <td>40 days</td>
                 </tr>
+                <tr>
+                    <td>Daily Matching (Max)</td>
+                    <td>120 days</td>
+                </tr>
             </table>
           </div>
           <div class="col-lg-4">
@@ -156,6 +166,10 @@
                 <tr>
                     <td>Reactive After</td>
                     <td>40 days</td>
+                </tr>
+                <tr>
+                    <td>Daily Matching (Max)</td>
+                    <td>120 days</td>
                 </tr>
             </table>
           </div>

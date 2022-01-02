@@ -8,8 +8,7 @@
                         <img src="<?php echo base_url(); ?>/assets/img/logo-footer.png" class="img-fluid" alt="">
                     </div>
                     <div class="footer-info">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magn</p>
+                        <p>Get connected with us here on social media. We always like to hear your comment.</p>
                         <div class="social-links mt-3">
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
