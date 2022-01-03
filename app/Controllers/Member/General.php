@@ -317,75 +317,88 @@ class General extends BaseController
 
             if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active')) {
 
+                // update user balance
+                $oldBal = get_data_by_id('balance','users','ID',$user_id);
+                $newBal = $oldBal - $withdraw_amount;
+                $userTabl = DB()->table('users');
+                $uData = [
+                    'balance' => $newBal,
+                ];
+                $userTabl->where('ID',$user_id)->update($uData);
+
+
 
                 // Adding to history_withdraw_pm (Start)
                 $historyInsertData = [
                     'receiver_id' => $user_id,
                     'Payee_Account' => $Payee_Account,
-                    'Payer_Account' => $Payer_Account,
-                    'amount' => $withdraw_amount
+                    'status' => 'Pending',
+                    'amount' => $withdraw_amount,
+                    'rest_balance' => $newBal,
                 ];
                 $historyWithdrawTable->insert($historyInsertData);
-                $PAYMENT_ID = DB()->insertID();
+                //$PAYMENT_ID = DB()->insertID();
                 // Adding to history_withdraw_pm (End)
+
+
 
 
                 //             $api_url = 'https://perfectmoney.com/acct/confirm.asp?AccountID='.$AccountID.'&PassPhrase='.$PassPhrase.'&Payer_Account='.$Payer_Account.'&Payee_Account='.$Payee_Account.'&Amount='.$withdraw_amount.'&PAY_IN='.$PAY_IN.'&PAYMENT_ID='.$PAYMENT_ID;
                 // trying to open URL to process PerfectMoney Spend request
-                $f = fopen('https://perfectmoney.com/acct/confirm.asp?AccountID=' . $AccountID . '&PassPhrase=' . $PassPhrase . '&Payer_Account=' . $Payer_Account . '&Payee_Account=' . $Payee_Account . '&Amount=' . $withdraw_amount . '&PAY_IN=' . $PAY_IN . '&PAYMENT_ID=' . $PAYMENT_ID, 'rb');
-
-                if ($f === false) {
-//                    echo 'error openning url';
-                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Error Openning URL</div>');
-                    return redirect()->to(site_url("Member/general/withdraw"));
-                }
+//                $f = fopen('https://perfectmoney.com/acct/confirm.asp?AccountID=' . $AccountID . '&PassPhrase=' . $PassPhrase . '&Payer_Account=' . $Payer_Account . '&Payee_Account=' . $Payee_Account . '&Amount=' . $withdraw_amount . '&PAY_IN=' . $PAY_IN . '&PAYMENT_ID=' . $PAYMENT_ID, 'rb');
+//
+//                if ($f === false) {
+////                    echo 'error openning url';
+//                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Error Openning URL</div>');
+//                    return redirect()->to(site_url("Member/general/withdraw"));
+//                }
 
                 // getting data
-                $out = array();
-                $out = "";
-                while (!feof($f)) $out .= fgets($f);
-                fclose($f);
-
-
-
-                // searching for hidden fields (Start)
-                if (!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)) {
-//                    echo 'Ivalid output';
-                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Ivalid output</div>');
-                    return redirect()->to(site_url("Member/general/withdraw"));
-                    exit;
-                }
+//                $out = array();
+//                $out = "";
+//                while (!feof($f)) $out .= fgets($f);
+//                fclose($f);
+//
+//
+//
+//                // searching for hidden fields (Start)
+//                if (!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)) {
+////                    echo 'Ivalid output';
+//                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Ivalid output</div>');
+//                    return redirect()->to(site_url("Member/general/withdraw"));
+//                    exit;
+//                }
                 // searching for hidden fields (End)
 
 
 
                 // Message if payment fails because of not enough money (Start)
-                if ($result[0][1] === 'ERROR'){
-                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">'.$result[0][2].'</div>');
-                    return redirect()->to(site_url("Member/general/withdraw"));
-                    exit;
-                }
+//                if ($result[0][1] === 'ERROR'){
+//                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">'.$result[0][2].'</div>');
+//                    return redirect()->to(site_url("Member/general/withdraw"));
+//                    exit;
+//                }
                 // Message if payment fails because of not enough money (End)
 
 
 
                 // Updating some information to history_withdraw_pm Start
-                $historyWithdrawTable = DB()->table('history_withdraw_pm');
-                $historyUpdateData = [
-                    'Payee_Account_Name' => $result[0][2],
-                    'batch_number' => $result[4][2],
-                    'status' => 'Success',
-                ];
-                $historyWithdrawTable->where('withdraw_id', $PAYMENT_ID)->update($historyUpdateData);
-                // Updating some information to history_withdraw_pm End
-
-
-
-                // Deducting balance from user's account Start
-                $old_balance = get_field_by_id_from_table('users', 'balance', 'ID', $user_id);
-                $newBalance = $old_balance - $withdraw_amount;
-                $userTable = DB()->table('users');
-                $userTable->where('ID', $user_id)->update(['balance' => $newBalance]);
+//                $historyWithdrawTable = DB()->table('history_withdraw_pm');
+//                $historyUpdateData = [
+//                    'Payee_Account_Name' => $result[0][2],
+//                    'batch_number' => $result[4][2],
+//                    'status' => 'Success',
+//                ];
+//                $historyWithdrawTable->where('withdraw_id', $PAYMENT_ID)->update($historyUpdateData);
+//                // Updating some information to history_withdraw_pm End
+//
+//
+//
+//                // Deducting balance from user's account Start
+//                $old_balance = get_field_by_id_from_table('users', 'balance', 'ID', $user_id);
+//                $newBalance = $old_balance - $withdraw_amount;
+//                $userTable = DB()->table('users');
+//                $userTable->where('ID', $user_id)->update(['balance' => $newBalance]);
                 // Deducting balance from user's account End
 
 

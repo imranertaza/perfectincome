@@ -16,12 +16,12 @@
                             <div class="col-lg-5">
                                 <form action="<?php print base_url(); ?>/Member/general/withdraw_action" method="post">
                                     <div class="form-group">
-                                        <label>Withdraw Amount(Min:$10, Mas:$20) <sup class="required">*</sup></label>
-                                        <input class="form-control" name="withdraw_amount" type="text" required placeholder="10">
+                                        <label>Withdraw Amount(Min:$10, Max:$20) <sup class="required">*</sup></label>
+                                        <input class="form-control" name="withdraw_amount" type="number" min="10" max="20" required placeholder="10">
                                     </div>
                                     <div class="form-group">
                                         <label>Your Account <sup class="required">*</sup></label>
-                                        <input class="form-control" name="payee_account" type="text" required value="U33956132" placeholder="U15536991">
+                                        <input class="form-control" name="payee_account" type="text" required value="" placeholder="U_ _ _ _ _ _ _ _">
                                     </div>
                                     <input type="submit" class="btn btn-submit" value="Withdraw">
                                 </form>

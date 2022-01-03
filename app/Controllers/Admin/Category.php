@@ -45,7 +45,6 @@ class Category extends BaseController
             echo view('Admin/header');
             echo view('Admin/sidebar');
             if ($this->functionModel->hasPermission('page_list') == true) {
-
                 echo view('Admin/Category/category_list',$data);
             } else {
                 echo view('Admin/no_permission');

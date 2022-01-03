@@ -14,16 +14,18 @@
                                   <table class=" table-hover table">
                                     <tbody>
                                       <tr class="strong">
-                                        <td>Payee Account Name</td>
+                                        <td>Sl</td>
                                         <td>Amount</td>
                                         <td>Batch Number</td>
+                                        <td>Status</td>
                                         <td>Date</td>
                                       </tr>
-                                      <?php foreach($with_match as $row) { ?>
+                                      <?php $i=1; foreach($with_match as $row) { ?>
                                       <tr>
-                                        <td><?php echo $row->Payee_Account_Name;?></td>
-                                        <td><?php echo $row->amount;?></td>
-                                        <td><?php echo $row->batch_number;?></td>
+                                        <td><?php echo $i++;?></td>
+                                        <td><?php echo Tk_view($row->amount);?></td>
+                                        <td><?php echo (!empty($row->batch_number))?$row->batch_number:'------';;?></td>
+                                        <td><?php echo $row->status;?></td>
                                         <td><?php echo $row->createdDtm;?></td>
                                       </tr>
                                       <?php } ?>

@@ -219,6 +219,9 @@ $this->functionModel = new \App\Models\FunctionModel();
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Withdraw/"><i class="fa fa-fw"></i> Withdraw request</a>
+                </li>
 
             <?php }
             if ($this->functionModel->hasPermission('download_list') == true) { ?>
