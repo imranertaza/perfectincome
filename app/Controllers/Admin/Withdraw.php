@@ -60,6 +60,7 @@ class Withdraw extends BaseController
         $sta = $this->request->getPost('sta');
         $withdraw_id = $this->request->getPost('withdraw_id');
 
+
         if ($sta == 'Cancel'){
             $userId = get_data_by_id('receiver_id','history_withdraw_pm','withdraw_id',$withdraw_id);
             $withdraw_amount = get_data_by_id('amount','history_withdraw_pm','withdraw_id',$withdraw_id);

@@ -69,11 +69,11 @@ class Deposit extends BaseController
 
         //Sponsor commision will be added to main Commission
         $spon_id = get_field_by_id_from_table("tree", "spon_id", "u_id", $userID);
-        $spons_previous_bal = get_field_by_id_from_table("users", "commission", "ID", $spon_id);
+        $spons_previous_bal = get_field_by_id_from_table("users", "balance", "ID", $spon_id);
 //        $sponsor_com = get_field_by_id_from_table("global_settings", "value", "title", "sponsor_commission");
         $sponsor_com = get_id_by_data('sponsor_commission', 'package', 'package_id', $packageId);
         $sponsor_commision = array(
-            'commission' => $spons_previous_bal + $sponsor_com,
+            'balance' => $spons_previous_bal + $sponsor_com,
         );
 
         $userCom = DB()->table('users');
@@ -148,7 +148,7 @@ class Deposit extends BaseController
             //Adding history of points
             $current_lpoint = get_field_by_id_from_table("users", "lpoint", "ID", $parent_id);
             $current_rpoint = get_field_by_id_from_table("users", "rpoint", "ID", $parent_id);
-            $current_commission = get_field_by_id_from_table("users", "commission", "ID", $parent_id);
+            $current_commission = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
             $current_balance = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
             $history_point_data = array(
                 'u_id' => $parent_id,
@@ -184,11 +184,11 @@ class Deposit extends BaseController
 
                     if (($lpoint >= $min_matching_point) && ($rpoint >= $min_matching_point) && !empty($hand->l_t) && !empty($hand->r_t)) {
 
-                        $existing_com = get_field_by_id_from_table("users", "commission", "ID", $parent_id);
+                        $existing_com = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
 
                         // Updating commission on user table
                         $data = array(
-                            'commission' => $existing_com + $matching_commission
+                            'balance' => $existing_com + $matching_commission
                         );
                         $userMetCom = DB()->table('users');
                         $userMetCom->where('ID', $parent_id)->update($data);
@@ -237,7 +237,7 @@ class Deposit extends BaseController
                         //Deducting history of points
                         $current_lpoint = get_field_by_id_from_table("users", "lpoint", "ID", $parent_id);
                         $current_rpoint = get_field_by_id_from_table("users", "rpoint", "ID", $parent_id);
-                        $current_commission = get_field_by_id_from_table("users", "commission", "ID", $parent_id);
+                        $current_commission = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
                         $current_balance = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
                         $deducting_point_data = array(
                             'u_id' => $parent_id,
@@ -288,7 +288,7 @@ class Deposit extends BaseController
                     //Flushing history of points
                     $current_lpoint = get_field_by_id_from_table("users", "lpoint", "ID", $parent_id);
                     $current_rpoint = get_field_by_id_from_table("users", "rpoint", "ID", $parent_id);
-                    $current_commission = get_field_by_id_from_table("users", "commission", "ID", $parent_id);
+                    $current_commission = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
                     $current_balance = get_field_by_id_from_table("users", "balance", "ID", $parent_id);
                     $flushing_point_data = array(
                         'u_id' => $parent_id,

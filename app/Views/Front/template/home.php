@@ -4,7 +4,7 @@
       <div class="row" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-4 col-lg-4">
           <h1><?php print \App\Models\Settings\Global_settings::get_each_setting_value("site_title")?></h1>
-          <p>Perfect Income helps you generate more income efficiently and easily.</p>
+          <p>Perfect Income Life helps you generate more income efficiently and easily.</p>
           <p><a class="btn btn-primary" href="#">Contact Us <i class="bi bi-arrow-right-short"></i></a></p>
         </div>
       </div>
@@ -68,40 +68,76 @@
           <h2 class="title">Package</h2>
         </div>
         <div class="row">
-          <div class="col-lg-4">
-            <table class="table-responsive" width="100%">
-              <tr>
-                <th colspan="2">Basic</th>
-              </tr>
-              <tr>
-                <td>Price</td>
-                <td>$22</td>
-              </tr>
-              <tr>
-                <td>Sponsor Commission</td>
-                <td>$4</td>
-              </tr>
-              <tr>
-                <td>Point</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>Matching Commission</td>
-                <td>$1</td>
-              </tr>
-                <tr>
-                    <td>Earning ($0.20/Video)</td>
-                    <td>5x0.20=$1/day</td>
-                </tr>
-                <tr>
-                    <td>Reactive After</td>
-                    <td>40 days</td>
-                </tr>
-                <tr>
-                    <td>Daily Matching (Max)</td>
-                    <td>120 days</td>
-                </tr>
-            </table>
+            <div class="col-lg-4">
+                <table class="table-responsive" width="100%">
+                  <tr>
+                      <th colspan="2">Mini Package</th>
+                  </tr>
+                  <tr>
+                      <td>Price</td>
+                      <td>$11</td>
+                  </tr>
+                  <tr>
+                      <td>Sponsor Commission</td>
+                      <td>$3</td>
+                  </tr>
+                  <tr>
+                      <td>Point</td>
+                      <td>50</td>
+                  </tr>
+                  <tr>
+                      <td>Matching Commission</td>
+                      <td>$0.5</td>
+                  </tr>
+                  <tr>
+                      <td>Earning ($0.2/Video)</td>
+                      <td>5x0.2 = $1/day</td>
+                  </tr>
+                  <tr>
+                      <td>Reactive After</td>
+                      <td>40 days</td>
+                  </tr>
+                  <tr>
+                      <td>Daily Matching (Max)</td>
+                      <td>120</td>
+                  </tr>
+                </table>
+              </div>
+
+            <div class="col-lg-4">
+                <table class="table-responsive" width="100%">
+                  <tr>
+                    <th colspan="2">Basic</th>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>$22</td>
+                  </tr>
+                  <tr>
+                    <td>Sponsor Commission</td>
+                    <td>$6</td>
+                  </tr>
+                  <tr>
+                    <td>Point</td>
+                    <td>100</td>
+                  </tr>
+                  <tr>
+                    <td>Matching Commission</td>
+                    <td>$1</td>
+                  </tr>
+                    <tr>
+                        <td>Earning ($0.40/Video)</td>
+                        <td>5x0.40=$2/day</td>
+                    </tr>
+                    <tr>
+                        <td>Reactive After</td>
+                        <td>40 days</td>
+                    </tr>
+                    <tr>
+                        <td>Daily Matching (Max)</td>
+                        <td>120</td>
+                    </tr>
+                </table>
           </div>
           <div class="col-lg-4">
             <table class="table-responsive" width="100%">
@@ -114,7 +150,7 @@
               </tr>
               <tr>
                 <td>Sponsor Commission</td>
-                <td>$20</td>
+                <td>$30</td>
               </tr>
               <tr>
                 <td>Point</td>
@@ -125,8 +161,8 @@
                 <td>$5</td>
               </tr>
                 <tr>
-                    <td>Earning ($1/Video)</td>
-                    <td>5x1=$5/day</td>
+                    <td>Earning ($2/Video)</td>
+                    <td>5x2=$10/day</td>
                 </tr>
                 <tr>
                     <td>Reactive After</td>
@@ -134,42 +170,7 @@
                 </tr>
                 <tr>
                     <td>Daily Matching (Max)</td>
-                    <td>120 days</td>
-                </tr>
-            </table>
-          </div>
-          <div class="col-lg-4">
-            <table class="table-responsive" width="100%">
-              <tr>
-                <th colspan="2">Premium</th>
-              </tr>
-              <tr>
-                <td>Price</td>
-                <td>$550</td>
-              </tr>
-              <tr>
-                <td>Sponsor Commission</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>Point</td>
-                <td>2500</td>
-              </tr>
-              <tr>
-                <td>Matching Commission</td>
-                <td>$25</td>
-              </tr>
-                <tr>
-                    <td>Earning ($5/Video)</td>
-                    <td>5x5 = $25/day</td>
-                </tr>
-                <tr>
-                    <td>Reactive After</td>
-                    <td>40 days</td>
-                </tr>
-                <tr>
-                    <td>Daily Matching (Max)</td>
-                    <td>120 days</td>
+                    <td>120</td>
                 </tr>
             </table>
           </div>
@@ -183,7 +184,7 @@
               <div class="row">
                   <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                       <h2>About Us</h2>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                      <p>Perfect Income has started this business with new business module that helps generating more money.</p>
                   </div>
               </div>
           </div>
