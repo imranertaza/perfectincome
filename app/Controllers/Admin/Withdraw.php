@@ -60,15 +60,16 @@ class Withdraw extends BaseController
         $sta = $this->request->getPost('sta');
         $withdraw_id = $this->request->getPost('withdraw_id');
 
+
         if ($sta == 'Cancel'){
             $userId = get_data_by_id('receiver_id','history_withdraw_pm','withdraw_id',$withdraw_id);
             $withdraw_amount = get_data_by_id('amount','history_withdraw_pm','withdraw_id',$withdraw_id);
 
-            $oldBal = get_data_by_id('balance','users','ID',$userId);
+            $oldBal = get_data_by_id('commission','users','ID',$userId);
             $newBal = $oldBal + $withdraw_amount;
             $userTabl = DB()->table('users');
             $uData = [
-                'balance' => $newBal,
+                'commission' => $newBal,
             ];
             $userTabl->where('ID',$userId)->update($uData);
 //            $uD = [ 'rest_balance' => $newBal, ];

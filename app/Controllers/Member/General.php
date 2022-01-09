@@ -314,11 +314,10 @@ class General extends BaseController
             // Finding total withdraw this day from history_withdraw_pm table (End)
 
 
-
-            if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active')) {
+            $oldBal = get_data_by_id('balance','users','ID',$user_id);
+            if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active') && ($oldBal >= $withdraw_amount)) {
 
                 // update user balance
-                $oldBal = get_data_by_id('balance','users','ID',$user_id);
                 $newBal = $oldBal - $withdraw_amount;
                 $userTabl = DB()->table('users');
                 $uData = [
