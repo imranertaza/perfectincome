@@ -14,6 +14,7 @@
                             if ($message) {
                                 echo $message;
                             } ?>
+                            <div id="message"></div>
                             <hr/>
                             <div class="dashboard_left_area">
                                 <div class="row">
@@ -36,10 +37,10 @@
                                     <div class="col-md-6">
                                         <div style="border: 1px solid;padding: 20px;">
                                             <h4>Perfect Money Active</h4>
-                                            <form action="https://perfectmoney.com/api/step1.asp" method="POST">
+<!--                                            <form action="https://perfectmoney.com/api/step1.asp" method="POST">-->
                                                 <?php foreach($package_list as $row) { ?>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="PACKAGEID" onchange="setPackagePrice(<?php print $row->price; ?>);" id="<?php print $row->package_id; ?>" value="<?php print $row->package_id; ?>">
+                                                    <input class="form-check-input" type="radio" name="PACKAGEID" onchange="setPackagePrice('<?php print $row->price; ?>','<?php print $row->package_id; ?>');" id="<?php print $row->package_id; ?>" value="<?php print $row->package_id; ?>">
                                                     <label class="form-check-label" for="<?php print $row->package_id; ?>">
                                                         <?php print $row->package_name. '( $'.$row->price.' )'; ?>
                                                     </label>
@@ -58,11 +59,12 @@
                                                 <input type="hidden" name="SUGGESTED_MEMO" value="<?php print $memo_number; ?>">
                                                 <input type="hidden" name="BAGGAGE_FIELDS" value="USER_ID PAYEE_NAME PACKAGEID">
                                                 <input type="hidden" name="USER_ID" value="<?php print encrypt_decrypt($user_id, "encrypt"); ?>">
-                                                <div class="input" style="padding-top: 20px;">
-                                                    <button type="submit" name="PAYMENT_METHOD" class="btn btn-primary">Active</button>
-                                                </div>
+
+<!--                                                <div class="input" style="padding-top: 20px;">-->
+<!--                                                    <button type="submit" name="PAYMENT_METHOD" class="btn btn-primary">Active</button>-->
+<!--                                                </div>-->
 <!--                                                <input type="submit" class="btn btn-sm btn-warning" style="margin-top:10px;" name="PAYMENT_METHOD" value="Deposit Now!">-->
-                                            </form>
+<!--                                            </form>-->
                                         </div>
                                     </div>
                                 </div>
@@ -77,8 +79,72 @@
 
 </main><!-- End #main -->
 
+<div class="modal fade" id="hourModal" tabindex="-1">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Object Times</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">  </button>
+            </div>
+            <form id="userActive" >
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label" >Payee Account *</label>
+                        <input type="text" name="payee_account" class="form-control" placeholder="Please input" value="<?php echo get_global_settings_value('PM_ID');?>" readonly>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label" >Amount *</label>
+                        <input type="text" name="amount" id="amount" class="form-control" placeholder="Please input" readonly>
+                        <input type="hidden" name="packId" id="packId" class="form-control" placeholder="Please input" readonly>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label" >Payer Account *</label>
+                        <input type="text" name="payer_account" class="form-control" placeholder="U_ _ _ _ _" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label" >Batch Number</label>
+                        <input type="text" name="payment_batch_num" class="form-control" placeholder="U_ _ _ _ _" >
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" name="pay" class="btn btn-primary" id="acBtnAc">Active</button>
+            </form>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
-    function setPackagePrice(setprice){
-        $("#payment_amount").attr("value",setprice);
+    function setPackagePrice(setprice,packId){
+
+        // alert(packId);
+        $('#hourModal').modal('show');
+        $("#amount").val(setprice);
+        $("#packId").val(packId);
+
+        $("#userActive").submit(function(e) {
+            e.preventDefault();
+            $("#acBtnAc").attr("disabled", true);
+            var dataString = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: "<?php  echo base_url('Member/Dashboard/deposit')?>",
+                data: dataString,
+                success: function (data) {
+                    $('#message').html(data);
+                    $('#hourModal').modal('hide');
+                    $("#acBtnAc").attr("disabled", false);
+                }
+            });
+        });
     }
 </script>

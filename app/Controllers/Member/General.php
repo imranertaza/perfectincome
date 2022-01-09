@@ -285,7 +285,8 @@ class General extends BaseController
     }
 
 
-    public function withdraw_action(){
+    public function withdraw_action()
+    {
         $clientLogin = $this->session->isLoggedInClient;
         if (!isset($clientLogin) || $clientLogin != TRUE) {
             return redirect()->to(site_url("Member_form/login"));
@@ -305,7 +306,6 @@ class General extends BaseController
             $PAY_IN = 1;
 
 
-
             // Finding total withdraw this day from history_withdraw_pm table (Start)
             $today = date("Y-m-d");
             $tomorrow = date("Y-m-d", strtotime('tomorrow'));
@@ -314,18 +314,17 @@ class General extends BaseController
             // Finding total withdraw this day from history_withdraw_pm table (End)
 
 
-
             if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active')) {
 
                 // update user balance
-                $oldBal = get_data_by_id('balance','users','ID',$user_id);
+                $oldBal = get_data_by_id('balance', 'users', 'ID', $user_id);
                 $newBal = $oldBal - $withdraw_amount;
+
                 $userTabl = DB()->table('users');
                 $uData = [
                     'balance' => $newBal,
                 ];
-                $userTabl->where('ID',$user_id)->update($uData);
-
+                $userTabl->where('ID', $user_id)->update($uData);
 
 
                 // Adding to history_withdraw_pm (Start)
@@ -337,10 +336,9 @@ class General extends BaseController
                     'rest_balance' => $newBal,
                 ];
                 $historyWithdrawTable->insert($historyInsertData);
+
                 //$PAYMENT_ID = DB()->insertID();
                 // Adding to history_withdraw_pm (End)
-
-
 
 
                 //             $api_url = 'https://perfectmoney.com/acct/confirm.asp?AccountID='.$AccountID.'&PassPhrase='.$PassPhrase.'&Payer_Account='.$Payer_Account.'&Payee_Account='.$Payee_Account.'&Amount='.$withdraw_amount.'&PAY_IN='.$PAY_IN.'&PAYMENT_ID='.$PAYMENT_ID;
@@ -371,7 +369,6 @@ class General extends BaseController
                 // searching for hidden fields (End)
 
 
-
                 // Message if payment fails because of not enough money (Start)
 //                if ($result[0][1] === 'ERROR'){
 //                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">'.$result[0][2].'</div>');
@@ -379,7 +376,6 @@ class General extends BaseController
 //                    exit;
 //                }
                 // Message if payment fails because of not enough money (End)
-
 
 
                 // Updating some information to history_withdraw_pm Start
@@ -402,14 +398,8 @@ class General extends BaseController
                 // Deducting balance from user's account End
 
 
-
                 $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-success">Your withdraw is successful.</div>');
                 return redirect()->to(site_url("Member/general/withdraw"));
-
-
-
-
-
 
 //                $ar = "";
 //                print_r($result);
@@ -711,7 +701,6 @@ class General extends BaseController
             $newBalUser = $balance - $totalPrice;
             $tUser = DB()->table('users');
             $tUser->where('ID', $user_id)->update(['balance' => $newBalUser]);
-
 
 
             //user balance history update

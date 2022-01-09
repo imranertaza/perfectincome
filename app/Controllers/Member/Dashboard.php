@@ -78,6 +78,16 @@ class Dashboard extends BaseController
                 $sqlTre = $tree->where('spon_id', $user_id)->get();
                 $data['query'] = $sqlTre->getResult();
 
+                $acDepo = DB()->table('history_manual_deposit_pm');
+                $acDpCount = $acDepo->where('user_id',$user_id)->where('status','pending')->get()->getRow();
+
+
+                if (!empty($acDpCount)){
+                    $data['acDepoStatus'] = 1;
+                }else{
+                    $data['acDepoStatus'] = 0;
+                }
+
                 $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
                 echo view('Front/Client_area/header', $data);
                 echo view('Front/Client_area/Member/dashboard', $data);
@@ -154,6 +164,7 @@ class Dashboard extends BaseController
 
         DB()->transStart();
         $userID = $this->session->user_id_client;
+
 //        $pinId = $this->request->getPost('pin');
 //        $check = get_id_by_data('status', 'pins', 'pin', $pinId);
 //        if ($check == 'unused') {
@@ -698,6 +709,27 @@ class Dashboard extends BaseController
             $this->session->setFlashdata('message', '<div class="alert alert-danger alert-dismissable text-center ">Inputted pin already use!</div>');
             return redirect()->to(site_url("Member/Dashboard/active_user"));
         }
+    }
+
+    public function deposit(){
+        $userID = $this->session->user_id_client;
+        $payee_account = $this->request->getPost('payee_account');
+        $packId = $this->request->getPost('packId');
+        $payer_account = $this->request->getPost('payer_account');
+        $amount = $this->request->getPost('amount');
+
+        $data = [
+            'user_id' => $userID,
+            'package_id' => $packId,
+            'payee_account' => $payee_account,
+            'payer_account' => $payer_account,
+            'amount' => $amount,
+        ];
+
+        $deposit = DB()->table('history_manual_deposit_pm');
+        $deposit->insert($data);
+
+        print '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Your request was successfully submitted</div>';
     }
 
 

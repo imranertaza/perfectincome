@@ -223,6 +223,10 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <a href="<?php echo base_url(); ?>/Admin/Withdraw/"><i class="fa fa-fw"></i> Withdraw request</a>
                 </li>
 
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Deposit/"><i class="fa fa-fw"></i> Deposit request</a>
+                </li>
+
             <?php }
             if ($this->functionModel->hasPermission('download_list') == true) { ?>
                 <li>

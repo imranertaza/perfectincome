@@ -9,18 +9,24 @@
                 <div class="col-lg-9">
                     <div class="right_contant dashboard_right">
                         <div class="top_right_content pt-5">
-
-                            <?php if ($row->status == 'Inactive') { ?>
+                            <div class="row">
+                            <div class="col-lg-12 mt-5">
+                            <?php if ($acDepoStatus == 1){ ?>
+                                <a href="#>" class="btn btn-success"
+                                   style="float: right;">Your request is pending approval</a>
+                            <?php }else{ if ($row->status == 'Inactive') { ?>
                                 <a href="<?php echo base_url('member/dashboard/active_user') ?>" class="btn btn-success"
                                    style="float: right;">Active</a>
-                            <?php } ?>
+                            <?php } } ?>
+
                             <h5 class="main-title">Dashboard Statement</h5>
+                            </div>
                             <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;
                             if ($message) {
                                 echo $message;
                             } ?>
 
-                            <div class="row">
+
                                 <div class="col-lg-7 mt-5">
                                     <div class="pinlist shadow">
                                         <h6 style="font-weight: bold;">Latest Referrals</h6>
