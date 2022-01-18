@@ -410,23 +410,30 @@ class Video extends BaseController
 
         //previous data delete
         $today = date('Y-m-d');
-        $preDate = date('Y-m-d', strtotime($today . ' -1 day'));
         $viVewCo = DB()->table('video_view_count');
-        $countRow = $viVewCo->where('u_id',$userId)->where('date',$preDate)->countAllResults();
+        $countRow = $viVewCo->where('u_id',$userId)->where('date <',$today)->countAllResults();
 
         if(!empty($countRow)){
             $viVewCoDel = DB()->table('video_view_count');
-            $viVewCoDel->where('u_id',$userId)->where('date',$preDate)->delete();
+            $viVewCoDel->where('u_id',$userId);
+            $viVewCoDel->where('date <',$today);
+            $viVewCoDel->delete();
         }
 
-        $video = DB()->table('video');
-        $query = $video->where('video_id',$videoId)->get()->getRow();
-        $view = '<div class="modal-header">
-                <h4 class="modal-title">'.$query->title .'</h4>
+        $checkVideo = $this->isTheVideoSeen($videoId);
+        if ($checkVideo == 0) {
+            $video = DB()->table('video');
+            $query = $video->where('video_id', $videoId)->get()->getRow();
+            $view = '<div class="modal-header">
+                <h4 class="modal-title">' . $query->title . '</h4>
                 <p id="minCount" style="text-align: right;"></p>
-                <button type="button" class="btn btn-success btn-sm" id="closeBtn" onclick="closeModal('.$query->video_id.')" style="display: none;">Close</button>
+                <button type="button" class="btn btn-success btn-sm" id="closeBtn" onclick="closeModal(' . $query->video_id . ')" style="display: none;">Close</button>
             </div>';
-        $view .= '<div class="modal-body text-center" >'.$query->vi_url .'</div>';
+            $view .= '<div class="modal-body text-center" >' . $query->vi_url . '</div>';
+
+        }else{
+            $view = '<div class="modal-body text-center" >The Video has been already Seen!</div>';
+        }
 
         print $view;
     }
@@ -435,36 +442,67 @@ class Video extends BaseController
         $videoId = $this->request->getPost('id');
         $userId = $this->session->user_id_client;
 
-        $packId = get_id_by_data('package_id','users','ID',$userId);
+        if (($this->isTheVideoSeen($videoId) == 0) && ($this->totalVideoSeenToday() <= 5)) {
+            DB()->transStart();
+            $packId = get_id_by_data('package_id', 'users', 'ID', $userId);
+            $today = date('Y-m-d');
 
-        $today = date('Y-m-d');
+            //Inserting into video view count table (start)
+            $data['date'] = $today;
+            $data['video_id'] = $videoId;
+            $data['u_id'] = $userId;
+            $viVewCo = DB()->table('video_view_count');
+            $viVewCo->insert($data);
+            //Inserting into video view count table (end)
 
-        $data['date'] = $today;
-        $data['video_id'] = $videoId;
-        $data['u_id'] = $userId;
-
-        $viVewCo = DB()->table('video_view_count');
-        $viVewCo->insert($data);
-
-
-        //video earning
-        $parDayEarn = get_id_by_data('video_watch_earning','package','package_id',$packId);
-
-
-            $oldBal = get_id_by_data('balance','users','ID',$userId);
+            //video earning
+            $parDayEarn = get_id_by_data('video_watch_earning', 'package', 'package_id', $packId);
+            $oldBal = get_id_by_data('balance', 'users', 'ID', $userId);
             $restBal = $oldBal + $parDayEarn;
             $usData = ['balance' => $restBal];
             $user = DB()->table('users');
-            $user->where('ID',$userId)->update($usData);
-
+            $user->where('ID', $userId)->update($usData);
 
 
             //commission video
-            $comData = ['u_id' => $userId,'purpose' => 'Video view Earning','amount'=> $parDayEarn,'date' => $today ];
+            $comData = ['u_id' => $userId, 'purpose' => 'Video view Earning', 'amount' => $parDayEarn, 'date' => $today];
             $comVideo = DB()->table('comm_video');
             $comVideo->insert($comData);
+            DB()->transComplete();
+            return 1;
+        }else {
+            return 0;
+        }
 
-        return 1;
+    }
+
+    private function totalVideoSeenToday(){
+        $userId = $this->session->user_id_client;
+        $today = date('Y-m-d');
+        $vewVideo = DB()->table('video_view_count');
+        $vewVideo->where('u_id',$userId);
+        $vewVideo->where('date',$today);
+        $count = $vewVideo->countAllResults();
+
+        return $count;
+    }
+
+    private function isTheVideoSeen($video_id){
+        $userId = $this->session->user_id_client;
+        $today = date('Y-m-d');
+
+        $vewVideo = DB()->table('video_view_count');
+        $vewVideo->where('u_id',$userId);
+        $vewVideo->where('video_id',$video_id);
+        $vewVideo->where('date',$today);
+        $count = $vewVideo->countAllResults();
+
+        if(!empty($count)){
+            return 1;
+        }else{
+            return 0;
+        }
+
     }
 
 

@@ -97,7 +97,6 @@
             },
             success: function (data) {
                 $('#viewVideo').html(data);
-
                 var countTime = 10;
                 display = document.querySelector('#minCount');
                 startTimer(countTime, display);
@@ -107,6 +106,9 @@
     }
 
     function closeModal(id) {
+        $("#closeBtn").attr("disabled", true);
+        document.getElementById("closeBtn").onclick = null;
+
         $.ajax({
             url: "<?php echo base_url('Member/Video/view_video_count')?>",
             data: {id: id},
@@ -119,7 +121,9 @@
                 $('#myModal').hide();
                 $("#tabRelode").load(location.href + " #tabRelode");
                 $("#balUp").load(location.href + " #balUp");
-                // alert(data);
+                if (data == 0) {
+                    $('#errorMes').html("This video might be seen already today or your process is wrong!");
+                }
             }
         });
     }

@@ -9,6 +9,7 @@
                     <div class="right_contant dashboard_right">
                         <div class="top_right_content pt-5">
                             <h5 class="main-title">Videos</h5>
+                            <p id="errorMes">Videos</p>
                             <div class="top_right_content mt-5 border-con">
                                 <h6 style="font-weight: bold;">All Video</h6>
                                 <table class="table-hover table pt-2" id="tabRelode">
