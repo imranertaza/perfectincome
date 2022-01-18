@@ -53,7 +53,8 @@ class Deposit extends BaseController
         }
     }
 
-    public function active($id){
+    public function active(){
+        $id = $this->request->getPost('id');
 
         DB()->transStart();
 

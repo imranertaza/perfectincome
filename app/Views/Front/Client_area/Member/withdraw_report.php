@@ -16,7 +16,6 @@
                                       <tr class="strong">
                                         <td>Sl</td>
                                         <td>Amount</td>
-                                        <td>Batch Number</td>
                                         <td>Status</td>
                                         <td>Date</td>
                                       </tr>
@@ -24,7 +23,6 @@
                                       <tr>
                                         <td><?php echo $i++;?></td>
                                         <td><?php echo Tk_view($row->amount);?></td>
-                                        <td><?php echo (!empty($row->batch_number))?$row->batch_number:'------';;?></td>
                                         <td><?php echo $row->status;?></td>
                                         <td><?php echo $row->createdDtm;?></td>
                                       </tr>

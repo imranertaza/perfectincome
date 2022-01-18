@@ -15,13 +15,17 @@
                             <div class="alert alert-warning">Inactive member can not withdraw. Only active member can withdraw.</div>
                             <div class="col-lg-5">
                                 <form action="<?php print base_url(); ?>/Member/general/withdraw_action" method="post">
+                                    <?php
+                                        $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
+                                        $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
+                                    ?>
                                     <div class="form-group">
-                                        <label>Withdraw Amount(Min:$10, Max:$20) <sup class="required">*</sup></label>
-                                        <input class="form-control" name="withdraw_amount" type="number" min="10" max="20" required placeholder="10">
+                                        <label>Withdraw Amount(Min:<?php echo Tk_view($minWithdrawPerTime);?>, Max:<?php echo Tk_view($maxWithdrawPerTime);?>) <sup class="required">*</sup></label>
+                                        <input class="form-control" name="withdraw_amount" type="number" min="<?php echo $minWithdrawPerTime;?>" max="<?php echo $maxWithdrawPerTime;?>" required placeholder="<?php echo $minWithdrawPerTime;?>">
                                     </div>
                                     <div class="form-group">
-                                        <label>Your Account <sup class="required">*</sup></label>
-                                        <input class="form-control" name="payee_account" type="text" required value="" placeholder="U_ _ _ _ _ _ _ _">
+                                        <label>Your Nagad Account <sup class="required">*</sup></label>
+                                        <input type="number" min="11" max="11" class="form-control" name="payee_account" type="text" required value="" >
                                     </div>
                                     <input type="submit" class="btn btn-submit" value="Withdraw">
                                 </form>

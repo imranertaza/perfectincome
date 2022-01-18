@@ -10,6 +10,21 @@ CKEDITOR.replace( 'ckeditor', {
 	filebrowserWindowWidth: '860',
 	filebrowserWindowHeight: '660'
 });
+
+function activeUser(u_id){
+    if (confirm('Are you sure?')) {
+        $("#activeBtn").attr("disabled", true);
+        document.getElementById("activeBtn").onclick = null;
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url('Admin/Deposit/active')?>",
+            data: {id: u_id},
+            success: function (result) {
+                $("#dataTables-example").load(location.href + " #dataTables-example");
+            }
+        });
+    }
+}
 </script>
 
 </body>
