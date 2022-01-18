@@ -31,6 +31,35 @@
                                 
                                 <label>Contact page email</label>
                                 <input type="text" name="contact_email" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'contact_email'); ?>" /><br />
+
+
+
+                                <label>Perday matching</label>
+                                <input type="text" name="per_day_matching" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'per_day_matching'); ?>" /><br />
+
+                                <label>Min matching point</label>
+                                <input type="text" name="min_matching_point" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'min_matching_point'); ?>" /><br />
+
+                                <label>PM ID</label>
+                                <input type="text" name="PM_ID" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'PM_ID'); ?>" /><br />
+
+                                <label>Perday video watch</label>
+                                <input type="text" name="per_day_video_watch" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'per_day_video_watch'); ?>" /><br />
+
+                                <label>Perday video watch earning</label>
+                                <input type="text" name="per_day_video_watch_earning" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'per_day_video_watch_earning'); ?>" /><br />
+
+                                <label>Max Withdraw PerDay</label>
+                                <input type="text" name="maxWithdrawPerDay" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'maxWithdrawPerDay'); ?>" /><br />
+
+                                <label>Min Withdraw PerTime</label>
+                                <input type="text" name="minWithdrawPerTime" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'minWithdrawPerTime'); ?>" /><br />
+
+
+
+                                <label>Max Withdraw PerTime</label>
+                                <input type="text" name="maxWithdrawPerTime" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'maxWithdrawPerTime'); ?>" /><br />
+
                                 
                                 <input type="submit" name="save_settings" class="btn btn-default btn btn-primary" value="Save Settings" />
                              </form>
