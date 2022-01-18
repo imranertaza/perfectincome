@@ -21,10 +21,10 @@
             <a href="<?php print base_url(); ?>/Member/general/tree" class="nav-link px-0 align-middle">
                 <i class="bi bi-diagram-3-fill"></i> <span class="ms-1">My Tree</span></a>
         </li>
-        <li>
-            <a href="<?php print base_url(); ?>/Member/General/pin_generate" class="nav-link px-0 align-middle">
-                <i class="bi bi-pin-angle-fill"></i> <span class="ms-1">Pin Genarate</span></a>
-        </li>
+<!--        <li>-->
+<!--            <a href="--><?php //print base_url(); ?><!--/Member/General/pin_generate" class="nav-link px-0 align-middle">-->
+<!--                <i class="bi bi-pin-angle-fill"></i> <span class="ms-1">Pin Genarate</span></a>-->
+<!--        </li>-->
         <li>
             <a href="<?php print base_url(); ?>/Member/profile" class="nav-link px-0 align-middle">
                 <i class="bi bi-person-fill"></i> <span class="ms-1">Profile</span></a>
