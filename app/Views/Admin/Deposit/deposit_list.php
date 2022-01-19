@@ -37,13 +37,14 @@
                                 <td><?php print Tk_view($rows->amount); ?></td>
                                 <td>
                                     <?php if ($rows->status != 'confirm'){ if ($rows->status != 'cancel'){ ?>
-<!--                                        <a href="--><?php //print base_url(); ?><!--/Admin/Deposit/active/--><?php //print $rows->hist_manual_with_pm_id; ?><!--" class="btn btn-primary " title="Active" onclick="return confirm('Are you sure？')">Active</a>-->
-                                        <a href="" class="btn btn-primary " title="Active" onclick="activeUser(<?php print $rows->hist_manual_with_pm_id; ?>)" id="activeBtn" >Active</a>
+                                        <a href="<?php print base_url(); ?>/Admin/Deposit/active/<?php print $rows->hist_manual_with_pm_id; ?>" class="btn btn-primary " title="Active" onclick="return confirm('Are you sure？')">Active</a>
+<!--                                        <a href="" class="btn btn-primary " title="Active" onclick="activeUser(<?php //print $rows->hist_manual_with_pm_id; ?>)" id="activeBtn" >Active</a>-->
                                         <a href="<?php print base_url(); ?>/Admin/Deposit/cancel/<?php print $rows->hist_manual_with_pm_id; ?>" class="btn btn-danger " title="cancel" onclick="return confirm('Are you sure？')">Cancel</a>
                                         <?php } else{ ?>
 
                                         <button class="btn btn-secondary" style="background-color: gray; color: white;" title="cancel">Canceled</button>
-                                        <a href="" class="btn btn-primary " title="Active" onclick="activeUser(<?php print $rows->hist_manual_with_pm_id; ?>)" id="activeBtn" >Active</a>
+<!--                                        <a href="" class="btn btn-primary " title="Active" onclick="activeUser(<?php //print $rows->hist_manual_with_pm_id; ?>)" id="activeBtn" >Active</a>-->
+                                        <a href="<?php print base_url(); ?>/Admin/Deposit/active/<?php print $rows->hist_manual_with_pm_id; ?>" class="btn btn-primary " title="Active" onclick="return confirm('Are you sure？')">Active</a>
                                     <?php } }else{ ?>
                                         <button class="btn btn-success " title="success">Activated</button>
                                     <?php } ?>

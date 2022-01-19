@@ -53,8 +53,8 @@ class Deposit extends BaseController
         }
     }
 
-    public function active(){
-        $id = $this->request->getPost('id');
+    public function active($id){
+//        $id = $this->request->getPost('id');
 
         DB()->transStart();
 
@@ -311,6 +311,7 @@ class Deposit extends BaseController
 
         $uStatus = array(
             'status' => 'Active',
+            'activation_date' => date("Y-m-d h:i:s"),
             'package_id' => $packageId
         );
         $stUser = DB()->table('users');
