@@ -697,7 +697,8 @@ class Dashboard extends BaseController
 
             $uStatus = array(
                 'status' => 'Active',
-                'package_id' => $packageId
+                'package_id' => $packageId,
+                'activation_date' => date("Y-m-d"),
             );
             $stUser = DB()->table('users');
             $stUser->where('ID', $userID)->update($uStatus);

@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
 
-                                    <?php if (!empty($row->package_id)){ ?>
+                                    <?php if ((!empty($row->package_id)) && ($row->status == 'Active')) { ?>
                                     <div class="pinlist shadow mt-4">
                                         <a href="<?php print base_url(); ?>/Member/Video" class="videoBtn btn"><i class="bi bi-youtube"></i> Watch Video</a>
                                     </div>

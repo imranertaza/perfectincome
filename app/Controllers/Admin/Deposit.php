@@ -311,7 +311,7 @@ class Deposit extends BaseController
 
         $uStatus = array(
             'status' => 'Active',
-            'activation_date' => date("Y-m-d h:i:s"),
+            'activation_date' => date("Y-m-d"),
             'package_id' => $packageId
         );
         $stUser = DB()->table('users');

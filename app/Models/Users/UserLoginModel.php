@@ -49,8 +49,13 @@ class UserLoginModel extends Model {
 
 
         if($numRow === 1){
+            //expiry date count
+
+            $this->check_expiry($user->ID);
+
+            //login session generate
             $user_roles = DB()->table('user_roles');
-            $sql = $user_roles->where('userID',$user->ID)->get();
+            $sql = $user_roles->where('userID', $user->ID)->get();
             $rolRow = $sql->getRow();
 
             $sessionArray = array(
@@ -60,10 +65,31 @@ class UserLoginModel extends Model {
                 'isLoggedInClient' => TRUE
             );
             $new_session->set($sessionArray);
-
             return TRUE;
+
+
         }else{
             return FALSE;
+        }
+    }
+
+    function check_expiry($userId){
+        $db = \Config\Database::connect();
+        $userActive = $db->table('users');
+        $active = $userActive->where('ID',$userId)->get()->getRow();
+        $activeDate = strtotime($active->activation_date);
+        $todayDate = strtotime(date("Y-m-d"));
+        $diff = $todayDate - $activeDate;
+        $expiryDay = round($diff / 86400);
+        $user_expiry_day = get_field_by_id_from_table("global_settings", "value", "title", "user_expiry_day");
+
+        if ($user_expiry_day < $expiryDay){
+            $userDactiveData = [
+                'package_id' => NULL,
+                'status' => 'Inactive',
+            ];
+            $userDactive = $db->table('users');
+            $userDactive->where('ID',$userId)->update($userDactiveData);
         }
     }
 	

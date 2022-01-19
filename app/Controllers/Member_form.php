@@ -204,7 +204,7 @@ class Member_form extends BaseController
 
         if ($result == TRUE) {
             return redirect()->to(site_url("Member/dashboard"));
-        } else {
+        }else{
             $this->session->setFlashdata('error', 'Email or password mismatch');
             $this->login();
         }

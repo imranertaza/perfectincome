@@ -60,6 +60,9 @@
                                 <label>Max Withdraw PerTime</label>
                                 <input type="text" name="maxWithdrawPerTime" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'maxWithdrawPerTime'); ?>" /><br />
 
+                                <label>User expiry day</label>
+                                <input type="text" name="user_expiry_day" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'user_expiry_day'); ?>" /><br />
+
                                 
                                 <input type="submit" name="save_settings" class="btn btn-default btn btn-primary" value="Save Settings" />
                              </form>
