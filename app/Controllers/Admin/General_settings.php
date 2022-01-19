@@ -50,6 +50,14 @@ class General_settings extends BaseController
         $title['gen_email'] = $this->request->getPost('gen_email');
         $title['form_email'] = $this->request->getPost('form_email');
         $title['contact_email'] = $this->request->getPost('contact_email');
+        $title['per_day_matching'] = $this->request->getPost('per_day_matching');
+        $title['min_matching_point'] = $this->request->getPost('min_matching_point');
+        $title['PM_ID'] = $this->request->getPost('PM_ID');
+        $title['per_day_video_watch'] = $this->request->getPost('per_day_video_watch');
+        $title['per_day_video_watch_earning'] = $this->request->getPost('per_day_video_watch_earning');
+        $title['maxWithdrawPerDay'] = $this->request->getPost('maxWithdrawPerDay');
+        $title['minWithdrawPerTime'] = $this->request->getPost('minWithdrawPerTime');
+        $title['maxWithdrawPerTime'] = $this->request->getPost('maxWithdrawPerTime');
 
         foreach ($title as $key => $item) {
             $table = DB()->table('global_settings');

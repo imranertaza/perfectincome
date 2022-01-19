@@ -8,7 +8,7 @@
     </div>
     <div class="user-data">
         <p>Point <span class="float-end"><strong><?php print $point; ?> PT</strong></span></p>
-        <p>Commission <span class="float-end"><strong><?php print Tk_view(number_format(get_field_by_id_from_table('users', 'commission', 'ID', $ID), 2)); ?></strong></span></p>
+<!--        <p>Commission <span class="float-end"><strong>--><?php //print Tk_view(number_format(get_field_by_id_from_table('users', 'commission', 'ID', $ID), 2)); ?><!--</strong></span></p>-->
         <p id="balUp">Balance <span class="float-end"><strong><?php print Tk_view(number_format($balance, 2)); ?></strong></span></p>
     </div>
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
