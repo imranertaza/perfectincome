@@ -49,8 +49,8 @@ class UserLoginModel extends Model {
 
 
         if($numRow === 1){
-            //expiry date count
 
+            //expiry date count
             $this->check_expiry($user->ID);
 
             //login session generate

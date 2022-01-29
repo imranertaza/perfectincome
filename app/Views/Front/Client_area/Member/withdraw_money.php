@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Your Nagad Account <sup class="required">*</sup></label>
-                                        <input type="number" min="11" max="11" class="form-control" name="payee_account" type="text" required value="" >
+                                        <input type="number" class="form-control" name="payee_account" type="text" required value="" >
                                     </div>
                                     <input type="submit" class="btn btn-submit" value="Withdraw">
                                 </form>
