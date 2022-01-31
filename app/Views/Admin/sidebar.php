@@ -224,7 +224,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url(); ?>/Admin/Deposit/"><i class="fa fa-fw"></i> Deposit request</a>
+                    <a href="<?php echo base_url(); ?>/Admin/Deposit/active_list"><i class="fa fa-fw"></i> Deposit request</a>
                 </li>
 
             <?php }
