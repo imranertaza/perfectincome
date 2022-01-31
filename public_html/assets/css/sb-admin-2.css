@@ -413,3 +413,6 @@ tr iframe{
     width: 250px;
     height: 150px;
 }
+.dataTables_filter , .dataTables_paginate {
+    float: right !important;
+}
