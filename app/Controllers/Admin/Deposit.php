@@ -40,6 +40,7 @@ class Deposit extends BaseController
             $data = [
                 'functionModel' => $this->functionModel,
                 'deposit' => $deposit,
+                'btnAc' => 'all',
             ];
 
             echo view('Admin/header');
@@ -52,6 +53,86 @@ class Deposit extends BaseController
             echo view('Admin/footer');
         }
     }
+
+    public function active_list(){
+        $adminLogin = $this->session->isLoggedInAdmin;
+        if (!isset($adminLogin) || $adminLogin != TRUE) {
+            echo view('Admin/login');
+        } else {
+
+            $table = DB()->table('history_manual_deposit_pm');
+            $query = $table->where('status','confirm')->orderBy('hist_manual_with_pm_id','DESC')->get();
+            $deposit = $query->getResult();
+            $data = [
+                'functionModel' => $this->functionModel,
+                'deposit' => $deposit,
+                'btnAc' => 'active',
+            ];
+
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
+            if ($this->functionModel->hasPermission('page_list') == true) {
+                echo view('Admin/Deposit/deposit_list',$data);
+            } else {
+                echo view('Admin/no_permission');
+            }
+            echo view('Admin/footer');
+        }
+    }
+
+    public function inactive_list(){
+        $adminLogin = $this->session->isLoggedInAdmin;
+        if (!isset($adminLogin) || $adminLogin != TRUE) {
+            echo view('Admin/login');
+        } else {
+
+            $table = DB()->table('history_manual_deposit_pm');
+            $query = $table->where('status','pending')->orderBy('hist_manual_with_pm_id','DESC')->get();
+            $deposit = $query->getResult();
+            $data = [
+                'functionModel' => $this->functionModel,
+                'deposit' => $deposit,
+                'btnAc' => 'inactive',
+            ];
+
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
+            if ($this->functionModel->hasPermission('page_list') == true) {
+                echo view('Admin/Deposit/deposit_list',$data);
+            } else {
+                echo view('Admin/no_permission');
+            }
+            echo view('Admin/footer');
+        }
+    }
+
+    public function cancel_list(){
+        $adminLogin = $this->session->isLoggedInAdmin;
+        if (!isset($adminLogin) || $adminLogin != TRUE) {
+            echo view('Admin/login');
+        } else {
+
+            $table = DB()->table('history_manual_deposit_pm');
+            $query = $table->where('status','cancel')->orderBy('hist_manual_with_pm_id','DESC')->get();
+            $deposit = $query->getResult();
+            $data = [
+                'functionModel' => $this->functionModel,
+                'deposit' => $deposit,
+                'btnAc' => 'cancel',
+            ];
+
+            echo view('Admin/header');
+            echo view('Admin/sidebar');
+            if ($this->functionModel->hasPermission('page_list') == true) {
+                echo view('Admin/Deposit/deposit_list',$data);
+            } else {
+                echo view('Admin/no_permission');
+            }
+            echo view('Admin/footer');
+        }
+    }
+
+
 
     public function active($id){
 //        $id = $this->request->getPost('id');

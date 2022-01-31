@@ -8,6 +8,13 @@
     <!-- /.row -->
 
     <div class="row">
+        <div class="col-lg-12  " style="margin-bottom: 20px;" >
+
+            <a href="<?php echo base_url('Admin/Deposit/active_list')?>"  class="btn  <?php echo ($btnAc == 'active')?'btn-primary':'btn-default';?> ">Active</a>
+            <a href="<?php echo base_url('Admin/Deposit/inactive_list')?>" class="btn <?php echo ($btnAc == 'inactive')?'btn-primary':'btn-default';?>">Inactive</a>
+            <a href="<?php echo base_url('Admin/Deposit/cancel_list')?>" class="btn <?php echo ($btnAc == 'cancel')?'btn-primary':'btn-default';?>">Cancel</a>
+            <a href="<?php echo base_url('Admin/Deposit')?>"  class="btn <?php echo ($btnAc == 'all')?'btn-primary':'btn-default';?>">All</a>
+        </div>
         <div class="col-lg-12" id="message">
             <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;if($message){  echo $message; } ?>
         </div>
