@@ -87,7 +87,7 @@ $this->session = \Config\Services::session();
             </div>
             <!-- /.navbar-header -->
             
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right" id="balance">
                 <li class="username" style="margin-right: 50px;" ><b>Balance :</b> <?php print Tk_view(get_balance_by_id($this->session->user_id));?></li>
 
             	<li class="username"><?php print 'Hi! '. $this->session->username;?></li>

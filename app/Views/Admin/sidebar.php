@@ -220,6 +220,12 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Agent/"><i class="fa fa-fw"></i> Agent</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Agent/withdraw_request"><i class="fa fa-fw"></i> Agent Withdraw request</a>
+                </li>
+                <li>
                     <a href="<?php echo base_url(); ?>/Admin/Withdraw/"><i class="fa fa-fw"></i> Withdraw request</a>
                 </li>
 

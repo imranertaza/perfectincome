@@ -45,6 +45,17 @@
             <a href="<?php print base_url(); ?>/Member/general/withdraw_report" class="nav-link px-0 align-middle">
                 <i class="bi bi-receipt"></i> <span class="ms-1">Withdraw Report</span></a>
         </li>
+
+        <li>
+            <a href="<?php print base_url(); ?>/Member/WithdrawbyAgent" class="nav-link px-0 align-middle">
+                <i class="bi bi-layer-forward"></i> <span class="ms-1">Withdraw by Agent</span></a>
+        </li>
+
+        <li>
+            <a href="<?php print base_url(); ?>/Member/WithdrawbyAgent/list" class="nav-link px-0 align-middle">
+                <i class="bi bi-layer-forward"></i> <span class="ms-1">Agent Withdraw List</span></a>
+        </li>
+
         <li>
             <a href="<?php print base_url(); ?>/Member/general/matching_report" class="nav-link px-0 align-middle">
                 <i class="bi bi-subtract"></i> <span class="ms-1">Matching Report</span></a>
