@@ -87,9 +87,13 @@
       </nav><!-- .navbar -->
 
       <div class="header-right">
-        <?php $clientLogin = new_session()->isLoggedInClient;
-        if (isset($clientLogin) || $clientLogin == TRUE) { ?>
-            <a href="<?php print base_url($log_url); ?>"> Dashboard</a>
+        <?php $agentLogin = new_session()->isLoggedInAgent;
+        $clientLogin = new_session()->isLoggedInClient;
+        if (isset($agentLogin) || $agentLogin == TRUE) { ?>
+            <a href="<?php print base_url('Agent/dashboard'); ?>"> Dashboard</a>
+            <a href="<?php print base_url('Agent/Login/logout'); ?>"> Logout</a>
+        <?php }elseif (isset($clientLogin) || $clientLogin == TRUE){ ?>
+            <a href="<?php print base_url('Member/dashboard'); ?>"> Dashboard</a>
             <a href="<?php print base_url('Member_form/logout'); ?>"> Logout</a>
         <?php } else { ?>
             <a href="<?php print base_url(); ?>/member_form/register" class="scrollto">Register</a>

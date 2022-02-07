@@ -9,12 +9,12 @@
                 <div class="col-md-9">
                     <div class="right_contant dashboard_right">
                         <div class="top_right_content pt-5">
-                            <h5 class="main-title">Withdraw</h5>
+                            <h5 class="main-title">Withdraw By Agent</h5>
                             <hr />
                             <?php print $session->getFlashdata('withdraw_msg'); ?>
                             <div class="alert alert-warning">Inactive member can not withdraw. Only active member can withdraw.</div>
                             <div class="col-lg-5">
-                                <form action="<?php print base_url(); ?>/Member/general/withdraw_action" method="post">
+                                <form action="<?php print base_url(); ?>/Member/WithdrawbyAgent/withdraw_action" method="post">
                                     <?php
                                         $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
                                         $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
@@ -24,9 +24,15 @@
                                         <input class="form-control" name="withdraw_amount" type="number" min="<?php echo $minWithdrawPerTime;?>" max="<?php echo $maxWithdrawPerTime;?>" required placeholder="<?php echo $minWithdrawPerTime;?>">
                                     </div>
                                     <div class="form-group">
-                                        <label>Your Nagad Account <sup class="required">*</sup></label>
-                                        <input type="number" min="11" max="11" class="form-control" name="payee_account" type="text" required value="" >
+                                        <label>Agent Username <sup class="required">*</sup></label>
+                                        <input type="text"  class="form-control" name="username" id="username"  required onchange="check_valid_agent(this.value)" >
+                                        <b id="user_valid"></b>
                                     </div>
+
+<!--                                    <div class="form-group">-->
+<!--                                        <label>Your Nagad Account <sup class="required">*</sup></label>-->
+<!--                                        <input type="number" min="11" max="11" class="form-control" name="payee_account" type="text" required value="" >-->
+<!--                                    </div>-->
                                     <input type="submit" class="btn btn-submit" value="Withdraw">
                                 </form>
                             </div>
@@ -39,6 +45,33 @@
     </section>
 
 </main><!-- End #main -->
+
+
+
+<script>
+    function check_valid_agent(uname){
+
+        $.ajax({
+            url: '<?php print base_url(); ?>/Ajax/check_valid_agent',
+            type: "POST",
+            dataType: "text",
+            data: {username: uname},
+            beforeSend: function(){
+                $('#user_valid').css( 'color','#238A09');
+                $('#user_valid').html('<img src="<?php print base_url(); ?>/assets/images/loading.gif" width="20" alt="loading"/> Progressing...');
+            },
+            success: function(msg){
+                //$('#user_valid').html(msg);
+                if (msg == 1) {
+                    $('#user_valid').html('<span style="color:red">Invalid Agent Username</span>');
+                    document.getElementById('username').value = '';
+                }else {
+                    $('#user_valid').html('<span style="color:green">Valid Agent Username</span>');
+                }
+            }
+        });
+    }
+</script>
 
 
 

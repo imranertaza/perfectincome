@@ -6,7 +6,7 @@
 
             <div class="row">
                 <div class="col-lg-5">
-                    <h1>Login</h1>
+                    <h1>Agent Login</h1>
                     <?php $error = isset($_SESSION['error']) ? $_SESSION['error'] : 0;
                     if ($error) { ?>
                         <div class="alert alert-danger alert-dismissable">
@@ -15,7 +15,7 @@
                         </div>
                     <?php } ?>
                     <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0; if ($message) { echo $message; } ?>
-                    <form id="regform" role="form" id="login" method="post" action="<?php print base_url(); ?>/member_form/login_action">
+                    <form id="regform" role="form" id="login" method="post" action="<?php print base_url(); ?>/Agent/Login/login_action">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
@@ -35,8 +35,8 @@
                             <div class="col-lg-12">
                                 <input type="submit" name="login" class="btn btn-submit" value="Login">
                             </div>
-                            <div class="col-lg-12" style="margin-top: 15px;text-align: center; font-size: 14px">
-                                Agent member? <a href="<?php echo base_url('Agent/Login')?>" style="color: #189937;">login here</a>
+                            <div class="col-lg-12" style="margin-top: 15px;text-align: center; font-size: 14px;">
+                               General Member? <a href="<?php echo base_url('member_form/login')?>" style="color: #189937;">login here</a>
                             </div>
                         </div>
                     </form>

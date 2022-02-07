@@ -40,22 +40,22 @@
         <div class="row">
           <div class="col-lg-3">
             <img src="assets/img/offer3.png" class="img-fluid" alt="">
-            <p class="text-center">15,000 Matching = $3,000</p>
+            <p class="text-center">15,000 Matching = <?php echo Tk_view('50,000')?></p>
               <h3 class="text-center">Standard</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer1.png" class="img-fluid" alt="">
-            <p class="text-center">30,000 Matching = $10,000</p>
+            <p class="text-center">30,000 Matching = <?php echo Tk_view('2,00,000')?></p>
               <h3 class="text-center">Bronze</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer2.png" class="img-fluid" alt="">
-            <p class="text-center">50,000 Matching = $20,000</p>
+            <p class="text-center">50,000 Matching = <?php echo Tk_view('5,00,000')?></p>
             <h3 class="text-center">Golden</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer4.png" class="img-fluid" alt="">
-            <p class="text-center">100,000 Matching = $50,000</p>
+            <p class="text-center">100,000 Matching = <?php echo Tk_view('10,00,000')?></p>
             <h3 class="text-center">Premium</h3>
           </div>
         </div>

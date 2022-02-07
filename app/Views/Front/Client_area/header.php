@@ -88,14 +88,17 @@
       </nav><!-- .navbar -->
 
       <div class="header-right">
-        <?php $clientLogin = new_session()->isLoggedInClient;
-        if (isset($clientLogin) || $clientLogin == TRUE) { ?>
-            <a href="<?php print base_url(); ?>/member/dashboard"> Dashboard</a>
-            <a href="<?php print base_url('Member_form/logout'); ?>"> Logout</a>
-        <?php } else { ?>
-            <a href="<?php print base_url(); ?>/member_form/register" class="scrollto">Register</a>
-            <a href="<?php print base_url($log_url); ?>" class="scrollto"><?php print $log_title; ?></a>
-        <?php } ?>
+
+          <?php $agentLogin = new_session()->isLoggedInAgent;
+          if (isset($agentLogin) || $agentLogin == TRUE) { ?>
+              <a href="<?php print base_url('Agent/dashboard'); ?>"> Dashboard</a>
+              <a href="<?php print base_url('Agent/Login/logout'); ?>"> Logout</a>
+          <?php }
+          $clientLogin = new_session()->isLoggedInClient;
+          if (isset($clientLogin) || $clientLogin == TRUE) { ?>
+              <a href="<?php print base_url('Member/dashboard'); ?>"> Dashboard</a>
+              <a href="<?php print base_url('Member_form/logout'); ?>"> Logout</a>
+          <?php } ?>
         <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#search">
           <i class="bi bi-search"></i>
         </button>
