@@ -159,7 +159,7 @@ class Withdraw extends BaseController
             $data['user_id'] = $user_id;
 
             $withdraw = DB()->table('history_transection_agent');
-            $query = $withdraw->where('receiver_id',$user_id)->get();
+            $query = $withdraw->where('receiver_id',$user_id)->orderBy('history_agent_tran_id','DESC')->get();
             $data['withdrawData'] = $query->getResult();
 
 
@@ -175,47 +175,53 @@ class Withdraw extends BaseController
     public function withdraw_action(){
         $user_id = $this->session->agent_id;
         $withdraw_amount = $this->request->getPost('withdraw_amount');
-
-        $user_status = get_field_by_id_from_table('users', 'status', 'ID', $user_id);
-        $maxWithdrawPerDay = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerDay');
-        $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
-        $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
-
-
-        $today = date("Y-m-d");
-        $tomorrow = date("Y-m-d", strtotime('tomorrow'));
-        $historyWithdrawTable = DB()->table('history_transection_admin');
-        $totalWithdrawToday = $historyWithdrawTable->where(array("sender_id" => $user_id, "createdDtm >=" => $today, "createdDtm <" => $tomorrow))->countAllResults();
+        $number = $this->request->getPost('nagad_number');
+        if (!empty($number)) {
+            $user_status = get_field_by_id_from_table('users', 'status', 'ID', $user_id);
+            $maxWithdrawPerDay = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerDay');
+            $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
+            $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
 
 
-        $oldBal = get_data_by_id('balance','users','ID',$user_id);
-        if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active') && ($oldBal >= $withdraw_amount)) {
-            DB()->transStart();
-
-            $transData = [
-                'sender_id' => $user_id,
-                'receiver_id ' => ADMIN_ID,
-                'purpose' => 'Money Withdraw by Admin',
-                'amount' => $withdraw_amount,
-            ];
-            $transectionTable = DB()->table('history_transection_admin');
-            $transectionTable->insert($transData);
+            $today = date("Y-m-d");
+            $tomorrow = date("Y-m-d", strtotime('tomorrow'));
+            $historyWithdrawTable = DB()->table('history_transection_admin');
+            $totalWithdrawToday = $historyWithdrawTable->where(array("sender_id" => $user_id, "createdDtm >=" => $today, "createdDtm <" => $tomorrow))->countAllResults();
 
 
-            //balance update
-            $newBal = $oldBal - $withdraw_amount;
-            $userBalUpdate = [
-                'balance' => $newBal,
-            ];
-            $userTable = DB()->table('users');
-            $userTable->where('ID',$user_id)->update($userBalUpdate);
+            $oldBal = get_data_by_id('balance', 'users', 'ID', $user_id);
+            if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active') && ($oldBal >= $withdraw_amount)) {
+                DB()->transStart();
 
-            DB()->transComplete();
+                $transData = [
+                    'sender_id' => $user_id,
+                    'receiver_id' => ADMIN_ID,
+                    'nagad_number' => $number,
+                    'purpose' => 'Money Withdraw by Admin',
+                    'amount' => $withdraw_amount,
+                ];
+                $transectionTable = DB()->table('history_transection_admin');
+                $transectionTable->insert($transData);
 
-            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-success">Your withdraw is successful.</div>');
-            return redirect()->to(site_url("Agent/Withdraw"));
+
+                //balance update
+                $newBal = $oldBal - $withdraw_amount;
+                $userBalUpdate = [
+                    'balance' => $newBal,
+                ];
+                $userTable = DB()->table('users');
+                $userTable->where('ID', $user_id)->update($userBalUpdate);
+
+                DB()->transComplete();
+
+                $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-success">Your withdraw is successful.</div>');
+                return redirect()->to(site_url("Agent/Withdraw"));
+            } else {
+                $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">something went wrong please try again.</div>');
+                return redirect()->to(site_url("Agent/Withdraw"));
+            }
         }else{
-            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">something went wrong please try again.</div>');
+            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">all field required!</div>');
             return redirect()->to(site_url("Agent/Withdraw"));
         }
     }

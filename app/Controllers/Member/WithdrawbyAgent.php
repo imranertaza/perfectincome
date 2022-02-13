@@ -89,51 +89,86 @@ class WithdrawbyAgent extends BaseController
 
     public function withdraw_action(){
         $user_id = $this->session->user_id_client;
-        $withdraw_amount = $this->request->getPost('withdraw_amount');
         $agent = $this->request->getPost('username');
-        $agent_id = get_field_by_id_from_table('users', 'ID', 'username', $agent);
+        $number = $this->request->getPost('nagad_number');
+        if ((!empty($agent)) && (!empty($number))) {
+            $checkAgent = $this->check_valid_agent($agent);
+            if ($checkAgent == TRUE) {
+                $withdraw_amount = $this->request->getPost('withdraw_amount');
+                $agent_id = get_field_by_id_from_table('users', 'ID', 'username', $agent);
 
-        $user_status = get_field_by_id_from_table('users', 'status', 'ID', $user_id);
-        $maxWithdrawPerDay = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerDay');
-        $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
-        $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
-
-
-        $today = date("Y-m-d");
-        $tomorrow = date("Y-m-d", strtotime('tomorrow'));
-        $historyWithdrawTable = DB()->table('history_transection_agent');
-        $totalWithdrawToday = $historyWithdrawTable->where(array("sender_id" => $user_id, "createdDtm >=" => $today, "createdDtm <" => $tomorrow))->countAllResults();
-
-
-        $oldBal = get_data_by_id('balance','users','ID',$user_id);
-        if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active') && ($oldBal >= $withdraw_amount)) {
-            DB()->transStart();
-
-                $transData = [
-                    'sender_id' => $user_id,
-                    'receiver_id ' => $agent_id,
-                    'purpose' => 'Money Withdraw by Agent',
-                    'amount' => $withdraw_amount,
-                ];
-                $transectionTable = DB()->table('history_transection_agent');
-                $transectionTable->insert($transData);
+                $user_status = get_field_by_id_from_table('users', 'status', 'ID', $user_id);
+                $maxWithdrawPerDay = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerDay');
+                $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
+                $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
 
 
-                //balance update
-                $newBal = $oldBal - $withdraw_amount;
-                $userBalUpdate = [
-                    'balance' => $newBal,
-                ];
-                $userTable = DB()->table('users');
-                $userTable->where('ID',$user_id)->update($userBalUpdate);
+                $today = date("Y-m-d");
+                $tomorrow = date("Y-m-d", strtotime('tomorrow'));
+                $historyWithdrawTable = DB()->table('history_transection_agent');
+                $totalWithdrawToday = $historyWithdrawTable->where(array("sender_id" => $user_id, "createdDtm >=" => $today, "createdDtm <" => $tomorrow))->countAllResults();
 
-            DB()->transComplete();
 
-            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-success">Your withdraw is successful.</div>');
-            return redirect()->to(site_url("Member/WithdrawbyAgent"));
+                $oldBal = get_data_by_id('balance', 'users', 'ID', $user_id);
+                if (($withdraw_amount >= $minWithdrawPerTime) && ($withdraw_amount <= $maxWithdrawPerTime) && ($maxWithdrawPerDay >= $totalWithdrawToday) && ($user_status === 'Active') && ($oldBal >= $withdraw_amount)) {
+
+                    DB()->transStart();
+
+                    $transData = [
+                        'sender_id' => $user_id,
+                        'receiver_id ' => $agent_id,
+                        'nagad_number' => $number,
+                        'purpose' => 'Money Withdraw by Agent',
+                        'amount' => $withdraw_amount,
+                    ];
+                    $transectionTable = DB()->table('history_transection_agent');
+                    $transectionTable->insert($transData);
+
+
+                    //balance update
+                    $newBal = $oldBal - $withdraw_amount;
+                    $userBalUpdate = [
+                        'balance' => $newBal,
+                    ];
+                    $userTable = DB()->table('users');
+                    $userTable->where('ID', $user_id)->update($userBalUpdate);
+
+                    DB()->transComplete();
+
+                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-success">Your withdraw is successful.</div>');
+                    return redirect()->to(site_url("Member/WithdrawbyAgent"));
+                } else {
+                    $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">something went wrong please try again.</div>');
+                    return redirect()->to(site_url("Member/WithdrawbyAgent"));
+                }
+            }else{
+                $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Agent user name not valid!</div>');
+                return redirect()->to(site_url("Member/WithdrawbyAgent"));
+            }
         }else{
-            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">something went wrong please try again.</div>');
+            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">All field required! </div>');
             return redirect()->to(site_url("Member/WithdrawbyAgent"));
+        }
+    }
+
+    public function check_valid_agent($username){
+
+        $table = DB()->table('users');
+        $query = $table->where('username',$username)->countAllResults();
+        if(!empty($query)){
+            $tableus = DB()->table('users');
+            $user = $tableus->where('username',$username)->get()->getRow();
+
+            $userRole = DB()->table('user_roles');
+            $role = $userRole->where('userID',$user->ID)->get()->getRow();
+
+            if ($role->roleID == '4'){
+                return TRUE;
+            }else{
+                return FALSE;
+            }
+        }else {
+            return FALSE;
         }
     }
 

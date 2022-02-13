@@ -21,6 +21,7 @@
                             <th width="135">ID</th>
                             <th>Date</th>
                             <th>User Name</th>
+                            <th>Nagad number</th>
                             <th>Amount</th>
                             <th>Status</th>
                         </tr>
@@ -31,6 +32,7 @@
                                 <td><?php print $i++; ?></td>
                                 <td><?php print $rows->date; ?></td>
                                 <td><?php print get_field_by_id_from_table('users', 'username', 'ID', $rows->sender_id); ?></td>
+                                <td><?php print $rows->nagad_number; ?></td>
                                 <td><?php print Tk_view($rows->amount); ?></td>
                                 <td>
                                     <?php if (($rows->status == 'pending')){?>

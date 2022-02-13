@@ -146,7 +146,7 @@ class UserLoginModel extends Model
         $expiryDay = round($diff / 86400);
         $user_expiry_day = get_field_by_id_from_table("global_settings", "value", "title", "user_expiry_day");
 
-        if ($user_expiry_day < $expiryDay) {
+        if ($user_expiry_day <= $expiryDay) {
             $userDactiveData = [
                 'package_id' => NULL,
                 'status' => 'Inactive',
