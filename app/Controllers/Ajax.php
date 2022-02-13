@@ -38,7 +38,7 @@ class Ajax extends BaseController
     public function check_valid_agent(){
         $username = $this->request->getPost('username');
         $table = DB()->table('users');
-        $query = $table->where('username',$username)->countAllResults();
+        $query = $table->where('username',$username)->where('status','Active')->countAllResults();
         if(!empty($query)){
             $tableus = DB()->table('users');
             $user = $tableus->where('username',$username)->get()->getRow();
