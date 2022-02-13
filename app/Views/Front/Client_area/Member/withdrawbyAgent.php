@@ -29,11 +29,11 @@
                                         <b id="user_valid"></b>
                                     </div>
 
-<!--                                    <div class="form-group">-->
-<!--                                        <label>Your Nagad Account <sup class="required">*</sup></label>-->
-<!--                                        <input type="number" min="11" max="11" class="form-control" name="payee_account" type="text" required value="" >-->
-<!--                                    </div>-->
-                                    <input type="submit" class="btn btn-submit" value="Withdraw">
+                                    <div class="form-group">
+                                        <label>Your Nagad Account <sup class="required">*</sup></label>
+                                        <input type="number" min="10" class="form-control" name="nagad_number" required >
+                                    </div>
+                                    <input type="submit" class="btn btn-submit" id="btn-withdraw" value="Withdraw" >
                                 </form>
                             </div>
 
@@ -59,15 +59,18 @@
             beforeSend: function(){
                 $('#user_valid').css( 'color','#238A09');
                 $('#user_valid').html('<img src="<?php print base_url(); ?>/assets/images/loading.gif" width="20" alt="loading"/> Progressing...');
+
+                $("#btn-withdraw").prop('disabled', true);
+
             },
             success: function(msg){
-                //$('#user_valid').html(msg);
                 if (msg == 1) {
                     $('#user_valid').html('<span style="color:red">Invalid Agent Username</span>');
                     document.getElementById('username').value = '';
                 }else {
                     $('#user_valid').html('<span style="color:green">Valid Agent Username</span>');
                 }
+                $("#btn-withdraw").prop('disabled', false);
             }
         });
     }

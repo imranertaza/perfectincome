@@ -81,40 +81,55 @@ class Agent extends BaseController
         $table = DB()->table('users');
         $check = $table->where('username',$userName)->countAllResults();
 
-        if (empty($check)) {
+        $data['username'] = $this->request->getPost('username');
+        $data['email'] = $this->request->getPost('email');
+        $data['f_name'] = $this->request->getPost('f_name');
+        $data['password'] = $this->request->getPost('password');
 
-            DB()->transStart();
-            $data_personal = array(
-                'email' => $this->request->getPost('email'),
-                'username' => $this->request->getPost('username'),
-                'password' => md5($this->request->getPost('password')),
-                'f_name' => $this->request->getPost('f_name'),
-                'balance' => '0',
-                'Point' => '0',
-                'status' => 'Active'
-            );
+        $this->validation->setRules([
+            'username' => ['label' => 'Name', 'rules' => 'required|max_length[155]'],
+            'email' => ['label' => 'Email', 'rules' => 'required|max_length[155]'],
+            'f_name' => ['label' => 'First Name', 'rules' => 'required|max_length[155]'],
+            'password' => ['label' => 'Password', 'rules' => 'required'],
+        ]);
 
-            $users = DB()->table('users');
-            $users->insert($data_personal);
-            $userID = DB()->insertID();
-
-
-            // Insert into user_role
-            $current_time = date('Y-m-d h:m:s');
-            $data_role = array(
-                'userID' => $userID,
-                'roleID' => 4,
-                'addDate' => $current_time
-            );
-            $user_roles = DB()->table('user_roles');
-            $user_roles->insert($data_role);
-            DB()->transComplete();
-
-            $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Data insert successfully</div>');
-            return redirect()->to(site_url("Admin/Agent"));
-        }else{
-            $this->session->setFlashdata('message', '<div class="alert alert-danger alert-dismissable text-center"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> User name already exists!.</div>');
+        if ($this->validation->run($data) == false) {
+            $this->session->setFlashdata('message', '<div class="alert alert-danger alert-dismissable text-center"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> all fields required!.</div>');
             return redirect()->back();
+        }else {
+            if (empty($check)) {
+                DB()->transStart();
+                $data_personal = array(
+                    'email' => $this->request->getPost('email'),
+                    'username' => $this->request->getPost('username'),
+                    'password' => md5($this->request->getPost('password')),
+                    'f_name' => $this->request->getPost('f_name'),
+                    'balance' => '0',
+                    'Point' => '0',
+                    'status' => 'Active'
+                );
+                $users = DB()->table('users');
+                $users->insert($data_personal);
+                $userID = DB()->insertID();
+
+
+                // Insert into user_role
+                $current_time = date('Y-m-d h:m:s');
+                $data_role = array(
+                    'userID' => $userID,
+                    'roleID' => 4,
+                    'addDate' => $current_time
+                );
+                $user_roles = DB()->table('user_roles');
+                $user_roles->insert($data_role);
+                DB()->transComplete();
+
+                $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Data insert successfully</div>');
+                return redirect()->to(site_url("Admin/Agent"));
+            } else {
+                $this->session->setFlashdata('message', '<div class="alert alert-danger alert-dismissable text-center"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> User name already exists!.</div>');
+                return redirect()->back();
+            }
         }
     }
 
@@ -175,7 +190,7 @@ class Agent extends BaseController
         } else {
 
             $table = DB()->table('history_transection_admin');
-            $query = $table->get();
+            $query = $table->orderBy('history_admin_tran_id','DESC')->get();
             $agentWith = $query->getResult();
             $data = [
                 'functionModel' => $this->functionModel,
