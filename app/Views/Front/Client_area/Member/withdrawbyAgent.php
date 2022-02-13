@@ -33,7 +33,7 @@
                                         <label>Your Nagad Account <sup class="required">*</sup></label>
                                         <input type="number" min="10" class="form-control" name="nagad_number" required >
                                     </div>
-                                    <input type="submit" class="btn btn-submit" id="btn-withdraw" value="Withdraw" >
+                                    <input type="submit" class="btn btn-submit" id="btn-withdraw" onclick="return confirm('Are you sure?');" value="Withdraw" >
                                 </form>
                             </div>
 

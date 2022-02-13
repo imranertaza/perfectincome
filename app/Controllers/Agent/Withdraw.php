@@ -176,11 +176,13 @@ class Withdraw extends BaseController
         $user_id = $this->session->agent_id;
         $withdraw_amount = $this->request->getPost('withdraw_amount');
         $number = $this->request->getPost('nagad_number');
-        if (!empty($number)) {
+        $countNum =  strlen($number);
+
+        if ((!empty($number)) && ($countNum == 11)){
             $user_status = get_field_by_id_from_table('users', 'status', 'ID', $user_id);
-            $maxWithdrawPerDay = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerDay');
-            $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
-            $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
+            $maxWithdrawPerDay = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerDayAgent');
+            $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTimeAgent');
+            $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTimeAgent');
 
 
             $today = date("Y-m-d");
@@ -221,7 +223,7 @@ class Withdraw extends BaseController
                 return redirect()->to(site_url("Agent/Withdraw"));
             }
         }else{
-            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">all field required!</div>');
+            $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Please input correct nagad account number!</div>');
             return redirect()->to(site_url("Agent/Withdraw"));
         }
     }
