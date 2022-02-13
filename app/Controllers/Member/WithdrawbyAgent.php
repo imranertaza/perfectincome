@@ -91,9 +91,11 @@ class WithdrawbyAgent extends BaseController
         $user_id = $this->session->user_id_client;
         $agent = $this->request->getPost('username');
         $number = $this->request->getPost('nagad_number');
-        if ((!empty($agent)) && (!empty($number))) {
+        $countNum =  strlen($number);
+        if ((!empty($agent)) && (!empty($number)) && ($countNum == 11)) {
             $checkAgent = $this->check_valid_agent($agent);
             if ($checkAgent == TRUE) {
+
                 $withdraw_amount = $this->request->getPost('withdraw_amount');
                 $agent_id = get_field_by_id_from_table('users', 'ID', 'username', $agent);
 
@@ -141,6 +143,10 @@ class WithdrawbyAgent extends BaseController
                     $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">something went wrong please try again.</div>');
                     return redirect()->to(site_url("Member/WithdrawbyAgent"));
                 }
+
+
+
+
             }else{
                 $this->session->setFlashdata('withdraw_msg', '<div class="alert alert-danger">Agent user name not valid!</div>');
                 return redirect()->to(site_url("Member/WithdrawbyAgent"));
