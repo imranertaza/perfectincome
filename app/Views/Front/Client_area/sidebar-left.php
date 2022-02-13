@@ -37,10 +37,10 @@
             <a href="<?php print base_url(); ?>/Member/general/referrals" class="nav-link px-0 align-middle">
                 <i class="bi bi-link-45deg"></i> <span class="ms-1">Referral</span></a>
         </li>
-        <li>
-            <a href="<?php print base_url(); ?>/Member/general/withdraw" class="nav-link px-0 align-middle">
-                <i class="bi bi-layer-forward"></i> <span class="ms-1">Withdraw</span></a>
-        </li>
+<!--        <li>-->
+<!--            <a href="--><?php //print base_url(); ?><!--/Member/general/withdraw" class="nav-link px-0 align-middle">-->
+<!--                <i class="bi bi-layer-forward"></i> <span class="ms-1">Withdraw</span></a>-->
+<!--        </li>-->
         <li>
             <a href="<?php print base_url(); ?>/Member/general/withdraw_report" class="nav-link px-0 align-middle">
                 <i class="bi bi-receipt"></i> <span class="ms-1">Withdraw Report</span></a>
