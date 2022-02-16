@@ -220,6 +220,9 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Users/"><i class="fa fa-fw"></i> Users</a>
+                </li>
+                <li>
                     <a href="<?php echo base_url(); ?>/Admin/Agent/"><i class="fa fa-fw"></i> Agent</a>
                 </li>
                 <li>
