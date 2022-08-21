@@ -60,6 +60,10 @@ class General_settings extends BaseController
         $title['maxWithdrawPerTime'] = $this->request->getPost('maxWithdrawPerTime');
         $title['user_expiry_day'] = $this->request->getPost('user_expiry_day');
 
+        $title['maxWithdrawPerDayAgent'] = $this->request->getPost('maxWithdrawPerDayAgent');
+        $title['minWithdrawPerTimeAgent'] = $this->request->getPost('minWithdrawPerTimeAgent');
+        $title['maxWithdrawPerTimeAgent'] = $this->request->getPost('maxWithdrawPerTimeAgent');
+
         foreach ($title as $key => $item) {
             $table = DB()->table('global_settings');
             $table->set('value', $item);
