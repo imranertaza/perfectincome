@@ -68,112 +68,35 @@
           <h2 class="title">Package</h2>
         </div>
         <div class="row">
+            <?php foreach ($package as $item) { ?>
             <div class="col-lg-4">
                 <table class="table-responsive" width="100%">
                   <tr>
-                      <th colspan="2">Mini Package</th>
+                      <th colspan="2"><?php echo $item->package_name;?></th>
                   </tr>
                   <tr>
                       <td>Price</td>
-                      <td>$11</td>
+                      <td>$<?php echo $item->price;?></td>
                   </tr>
                   <tr>
                       <td>Sponsor Commission</td>
-                      <td>$3</td>
+                      <td>$<?php echo $item->sponsor_commission;?></td>
                   </tr>
                   <tr>
                       <td>Point</td>
-                      <td>50</td>
+                      <td><?php echo $item->point;?></td>
                   </tr>
                   <tr>
                       <td>Matching Commission</td>
-                      <td>$0.5</td>
+                      <td>$<?php echo $item->matching_commission;?></td>
                   </tr>
-                  <tr>
-                      <td>Earning ($0.2/Video)</td>
-                      <td>5x0.2 = $1/day</td>
-                  </tr>
-                  <tr>
-                      <td>Reactive After</td>
-                      <td>40 days</td>
-                  </tr>
-                  <tr>
-                      <td>Daily Matching (Max)</td>
-                      <td>120</td>
-                  </tr>
+
+
                 </table>
               </div>
+            <?php } ?>
 
-            <div class="col-lg-4">
-                <table class="table-responsive" width="100%">
-                  <tr>
-                    <th colspan="2">Basic</th>
-                  </tr>
-                  <tr>
-                    <td>Price</td>
-                    <td>$22</td>
-                  </tr>
-                  <tr>
-                    <td>Sponsor Commission</td>
-                    <td>$6</td>
-                  </tr>
-                  <tr>
-                    <td>Point</td>
-                    <td>100</td>
-                  </tr>
-                  <tr>
-                    <td>Matching Commission</td>
-                    <td>$1</td>
-                  </tr>
-                    <tr>
-                        <td>Earning ($0.40/Video)</td>
-                        <td>5x0.40=$2/day</td>
-                    </tr>
-                    <tr>
-                        <td>Reactive After</td>
-                        <td>40 days</td>
-                    </tr>
-                    <tr>
-                        <td>Daily Matching (Max)</td>
-                        <td>120</td>
-                    </tr>
-                </table>
-          </div>
-          <div class="col-lg-4">
-            <table class="table-responsive" width="100%">
-              <tr>
-                <th colspan="2">Standard</th>
-              </tr>
-              <tr>
-                <td>Price</td>
-                <td>$110</td>
-              </tr>
-              <tr>
-                <td>Sponsor Commission</td>
-                <td>$30</td>
-              </tr>
-              <tr>
-                <td>Point</td>
-                <td>500</td>
-              </tr>
-              <tr>
-                <td>Matching Commission</td>
-                <td>$5</td>
-              </tr>
-                <tr>
-                    <td>Earning ($2/Video)</td>
-                    <td>5x2=$10/day</td>
-                </tr>
-                <tr>
-                    <td>Reactive After</td>
-                    <td>40 days</td>
-                </tr>
-                <tr>
-                    <td>Daily Matching (Max)</td>
-                    <td>120</td>
-                </tr>
-            </table>
-          </div>
+
         </div>
 
       </div>

@@ -48,6 +48,10 @@
                                     <p class="help-block help_text">Please put the video commission here.</p>
                                 </div>
                                 <div class="col-lg-12">
+                                    <label>Description</label>
+                                    <textarea name="description" id="ckeditor" class="ckeditor"><?php echo $package->description; ?></textarea>
+                                </div>
+                                <div class="col-lg-12">
                                     <br>
                                     <button type="submit" class="btn btn-default btn btn-primary">Update</button>
                                 </div>
