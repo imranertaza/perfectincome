@@ -15,7 +15,7 @@ $this->session = \Config\Services::session();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Perfect Income - Admin Panel</title>
+    <title>Friends World - Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/assets/css/bootstrap.css" rel="stylesheet">
@@ -83,7 +83,7 @@ $this->session = \Config\Services::session();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php print base_url(); ?>/Admin/Dashboard">Perfect Income - Admin Panel<sup>(v1)</sup></a>
+                <a class="navbar-brand" href="<?php print base_url(); ?>/Admin/Dashboard">Friends World - Admin Panel<sup>(v1)</sup></a>
             </div>
             <!-- /.navbar-header -->
             
