@@ -23,7 +23,11 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://perfectincome.dns/';
+
+    // public $baseURL = 'http://localhost/perfect_income/public_html/';
+
+   public $baseURL = 'http://perfectincome.dns/';
+
 
     /**
      * --------------------------------------------------------------------------

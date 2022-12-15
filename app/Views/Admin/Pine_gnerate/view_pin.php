@@ -13,7 +13,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th width="100">User Name</th>
+                                            <th width="100">Package Name</th>
                                             <th width="200">Pin</th>
                                             <th width="200">Status</th>
                                         </tr>
@@ -25,7 +25,7 @@
                                         {
                                         ?>
                                         <tr class="odd gradeX" id="download_<?php print $rows->pin_id; ?>">
-                                            <td><?php print get_username_by_id($rows->user_id); ?></td>
+                                            <td><?php print get_id_by_data('package_name','package','package_id',$rows->package_id); ?></td>
                                             <td><?php print $rows->pin; ?></td>
                                             <td><?php if ($rows->status =='unused') {
                                                     echo "<b style='color: green'>unused</b>";

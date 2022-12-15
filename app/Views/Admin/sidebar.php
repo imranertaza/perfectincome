@@ -11,7 +11,7 @@ $this->functionModel = new \App\Models\FunctionModel();
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li>
-                <a class="active" href="<?php echo base_url(); ?>/dashboard"><i class="fa fa-dashboard fa-fw"></i>
+                <a class="active" href="<?php echo base_url(); ?>/Admin/Dashboard"><i class="fa fa-dashboard fa-fw"></i>
                     Mainboard</a>
             </li>
             <?php if ($this->functionModel->hasPermission('page_list') == true) { ?>
@@ -20,13 +20,13 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <ul class="nav nav-second-level">
                         <?php if ($this->functionModel->hasPermission('page_list') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Pages/page_list"><i class="fa fa-list fa-fw"></i> All
+                                <a href="<?php echo base_url(); ?>/Admin/Pages/page_list"><i class="fa fa-list fa-fw"></i> All
                                     Pages</a>
                             </li>
                         <?php }
                         if ($this->functionModel->hasPermission('add_page') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Pages/add_new_page"><i
+                                <a href="<?php echo base_url(); ?>/Admin/Pages/add_new_page"><i
                                             class="fa fa-plus-square fa-fw"></i> Add Page</a>
                             </li>
                         <?php } ?>
@@ -34,7 +34,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
             <?php }
-
+            /*
             if ($this->functionModel->hasPermission('std_list') == true) { ?>
                 <li>
                     <a href="#"><i class="fa fa-list-ol" aria-hidden="true"></i> Products <span class="fa arrow"></span></a>
@@ -112,20 +112,20 @@ $this->functionModel = new \App\Models\FunctionModel();
                         <?php } ?>
                     </ul>
                 </li>
-            <?php }
+            <?php } */
             if ($this->functionModel->hasPermission('category_list') == true) { ?>
                 <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> Catagory<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <?php if ($this->functionModel->hasPermission('category_list') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Category/category_list"><i
+                                <a href="<?php echo base_url(); ?>/Admin/Category/category_list"><i
                                             class="fa fa-list fa-fw"></i> All Categories</a>
                             </li>
                         <?php }
                         if ($this->functionModel->hasPermission('add_category') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Category/add_category"><i
+                                <a href="<?php echo base_url(); ?>/Admin/Category/add_category"><i
                                             class="fa fa-plus-square fa-fw"></i> Add Catagory</a>
                             </li>
                         <?php } ?>
@@ -138,13 +138,13 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <ul class="nav nav-second-level">
                         <?php if ($this->functionModel->hasPermission('post_list') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Widgets/widgets_list"><i
+                                <a href="<?php echo base_url(); ?>/Admin/Widgets/widgets_list"><i
                                             class="fa fa-list fa-fw"></i> Block List</a>
                             </li>
                         <?php }
                         if ($this->functionModel->hasPermission('add_post') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Widgets/add"><i class="fa fa-plus-square fa-fw"></i>
+                                <a href="<?php echo base_url(); ?>/Admin/Widgets/add"><i class="fa fa-plus-square fa-fw"></i>
                                     Add Block</a>
                             </li>
 
@@ -156,47 +156,8 @@ $this->functionModel = new \App\Models\FunctionModel();
 
 
                 <li>
-                    <a href="#"><i class="fa fa-puzzle-piece fa-fw"></i> Location<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/add_division"><i
-                                        class="fa fa-plus-square fa-fw"></i> Add Division</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/list_division"><i class="fa fa-list fa-fw"></i>
-                                List Division </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/add_district"><i
-                                        class="fa fa-plus-square fa-fw"></i> Add District</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/district_list"><i class="fa fa-list fa-fw"></i>
-                                List District</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/add_thana"><i
-                                        class="fa fa-plus-square fa-fw"></i> Add Thana/Upazila</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/thana_list"><i class="fa fa-list fa-fw"></i>
-                                List Thana/Upazila</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/add_word"><i
-                                        class="fa fa-plus-square fa-fw"></i> Add Union/Ward</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>/Location/word_list"><i class="fa fa-list fa-fw"></i> List
-                                Union/Ward</a>
-                        </li>
-                    </ul>
-                </li>
-
-
-                <li>
                     <?php if ($this->functionModel->hasPermission('post_list') == true) { ?>
-                        <a href="<?php echo base_url(); ?>/Admin_area/tree"><i class="fa fa-puzzle-piece fa-fw"></i>
+                        <a href="<?php echo base_url(); ?>/Admin/Tree"><i class="fa fa-puzzle-piece fa-fw"></i>
                             Tree</a>
                     <?php } ?>
                 </li>
@@ -207,13 +168,13 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <ul class="nav nav-second-level">
                         <?php if ($this->functionModel->hasPermission('download_list') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Download"><i
+                                <a href="<?php echo base_url(); ?>/Admin/Download"><i
                                             class="fa fa-list fa-fw"></i> Notice List</a>
                             </li>
                         <?php }
                         if ($this->functionModel->hasPermission('add_download') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Download/add"><i
+                                <a href="<?php echo base_url(); ?>/Admin/Download/add"><i
                                             class="fa fa-plus-square fa-fw"></i> Add Notice</a>
                             </li>
                         <?php } ?>
@@ -221,17 +182,20 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
 
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Package"><i class="fa fa-fw"></i> Package</a>
+                </li>
 
                 <li>
                     <a href="#"><i class="fa fa-fw"></i> Pin Gnerate<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
 
                         <li>
-                            <a href="<?php echo base_url(); ?>/Pin_generat"><i
+                            <a href="<?php echo base_url(); ?>/Admin/Pin_generat"><i
                                         class="fa fa-list fa-fw"></i> Pin Generat List</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>/Pin_generat/add"><i
+                            <a href="<?php echo base_url(); ?>/Admin/Pin_generat/add"><i
                                         class="fa fa-plus-square fa-fw"></i> Pin Generat</a>
                         </li>
 
@@ -243,17 +207,33 @@ $this->functionModel = new \App\Models\FunctionModel();
             <?php }
             if ($this->functionModel->hasPermission('download_list') == true) { ?>
                 <li>
-                    <a href="#"><i class="fa fa-fw"></i> Deposit/Withdraw<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-fw"></i> Deposit <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <?php
                         if ($this->functionModel->hasPermission('add_download') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Admin_ut/Balance_history/"><i
-                                            class="fa fa-plus-square fa-fw"></i> Load Agent Balance</a>
+                                <a href="<?php echo base_url(); ?>/Admin/Balance_history/"><i
+                                            class="fa fa-plus-square fa-fw"></i> User Load Balance</a>
                             </li>
                         <?php } ?>
                     </ul>
                     <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Users/"><i class="fa fa-fw"></i> Users</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Agent/"><i class="fa fa-fw"></i> Agent</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Agent/withdraw_request"><i class="fa fa-fw"></i> Agent Withdraw request</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Withdraw/"><i class="fa fa-fw"></i> Withdraw request</a>
+                </li>
+
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Deposit/active_list"><i class="fa fa-fw"></i> Deposit request</a>
                 </li>
 
             <?php }
@@ -263,8 +243,21 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <ul class="nav nav-second-level">
                         <?php if ($this->functionModel->hasPermission('download_list') == true) { ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>/Admin_ut/Point_history"><i
+                                <a href="<?php echo base_url(); ?>/Admin/Point_history"><i
                                             class="fa fa-list fa-fw"></i> Point History</a>
+                            </li>
+                        <?php }  ?>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-youtube-play"></i> Videos<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <?php if ($this->functionModel->hasPermission('download_list') == true) { ?>
+                            <li>
+                                <a href="<?php echo base_url(); ?>/Admin/Video"><i
+                                            class="fa fa-list fa-fw"></i> Video list</a>
                             </li>
                         <?php }  ?>
                     </ul>
@@ -276,17 +269,17 @@ $this->functionModel = new \App\Models\FunctionModel();
                 <ul class="nav nav-second-level">
                     <?php if ($this->functionModel->hasPermission('general_settings') == true) { ?>
                         <li>
-                            <a href="<?php echo base_url(); ?>/General_settings">General Settings</a>
+                            <a href="<?php echo base_url(); ?>/Admin/General_settings">General Settings</a>
                         </li>
                     <?php }
                     if ($this->functionModel->hasPermission('slider') == true) { ?>
                         <li>
-                            <a href="<?php echo base_url(); ?>/General_settings/slider">Slider</a>
+                            <a href="<?php echo base_url(); ?>/Admin/General_settings/slider">Slider</a>
                         </li>
                     <?php }
                     if ($this->functionModel->hasPermission('gallery') == true) { ?>
                         <li>
-                            <a href="<?php echo base_url(); ?>/General_settings/gallery">Gallery</a>
+                            <a href="<?php echo base_url(); ?>/Admin/General_settings/gallery">Gallery</a>
                         </li>
                     <?php } ?>
                 </ul>

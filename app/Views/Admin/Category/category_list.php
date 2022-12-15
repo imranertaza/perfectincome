@@ -31,10 +31,10 @@
                                                 <td></td>
                                                 <td class="center">
                                                     <?php if ($functionModel->hasPermission('edit_category') == true) { ?>
-                                                        <a href="<?php print base_url(); ?>/Category/edit_category/<?php print $cat_id; ?>" class="btn btn-primary take_margin" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                                        <a href="<?php print base_url(); ?>/Admin/Category/edit_category/<?php print $cat_id; ?>" class="btn btn-primary take_margin" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
                                                     <?php } ?>
                                                     <?php if ($functionModel->hasPermission('delete_category') == true) { ?>
-                                                        <a href="<?php print base_url(); ?>/Category/delete/<?php print $cat_id; ?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                        <a href="<?php print base_url(); ?>/Admin/Category/delete/<?php print $cat_id; ?>" class="btn btn-danger take_margin" title="Delete"><i class="fa fa-trash-o"></i></a>
                                                     <?php } ?>
                                                 </td>
                                             </tr>

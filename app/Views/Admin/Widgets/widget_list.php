@@ -32,12 +32,12 @@
                                 <td><?php print $rows->b_code; ?></td>
                                 <td class="center">
                                     <?php if ($functionModel->hasPermission('edit_post') == true) { ?>
-                                        <a href="<?php print base_url(); ?>/Widgets/edit_widget/<?php print $w_id; ?>"
+                                        <a href="<?php print base_url(); ?>/Admin/Widgets/edit_widget/<?php print $w_id; ?>"
                                            class="btn btn-primary take_margin" title="Edit"><i
                                                     class="fa fa-pencil-square-o"></i></a>
                                     <?php } ?>
                                     <?php if ($functionModel->hasPermission('delete_post') == true) { ?>
-                                        <a href="<?php print base_url(); ?>/Widgets/delete/<?php print $w_id; ?>"
+                                        <a href="<?php print base_url(); ?>/Admin/Widgets/delete/<?php print $w_id; ?>"
                                            class="btn btn-danger take_margin" title="Delete"><i
                                                     class="fa fa-trash-o"></i></a>
                                     <?php } ?>

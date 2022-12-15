@@ -73,6 +73,12 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 
 #-------------------------
+# System cache files
+#-------------------------
+public_html/assets/cache/*
+
+
+#-------------------------
 # Test Files
 #-------------------------
 tests/coverage*

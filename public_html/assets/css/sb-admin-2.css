@@ -408,3 +408,11 @@ table.dataTable thead .sorting:after {
 .indivisual_result { margin-bottom:20px; }
 
 .required { color:#F00; }
+
+tr iframe{
+    width: 250px;
+    height: 150px;
+}
+.dataTables_filter , .dataTables_paginate {
+    float: right !important;
+}

@@ -53,7 +53,7 @@ class Profile extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id = $this->session->user_id;
+            $user_id = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -110,7 +110,7 @@ class Profile extends BaseController
             $data['page_title'] = 'home';
             $data['slider'] = '';
 
-            $user_id = $this->session->user_id;
+            $user_id = $this->session->user_id_client;
             $data['log_url'] = 'member_form/logout';
             $data['log_title'] = 'Logout';
             $data['check_user'] = $clientLogin;
@@ -138,15 +138,13 @@ class Profile extends BaseController
     }
 
     public function general_action(){
-        $id = $this->session->user_id;
+        $id = $this->session->user_id_client;
         $data['f_name'] = $this->request->getPost('fname');
         $data['l_name'] = $this->request->getPost('lname');
         $data['address1'] = $this->request->getPost('addr');
         $data['address2'] = $this->request->getPost('per_addr');
         $data['phn_no'] = $this->request->getPost('phone');
-        $data['nid'] = $this->request->getPost('nid');
-        $data['father'] = $this->request->getPost('father');
-        $data['mother'] = $this->request->getPost('mother');
+        $data['country'] = $this->request->getPost('country');
 
         $tab = DB()->table('users');
         $tab->where('ID', $id)->update($data);
@@ -155,34 +153,11 @@ class Profile extends BaseController
         return redirect()->to(site_url("Member/profile/profile_update"));
     }
 
-    public function personal_action()
-    {
-        $id = $this->session->user_id;
-        $data['blood'] = $this->request->getPost('b_group');
-        $data['division'] = $this->request->getPost('division');
-        $data['district'] = $this->request->getPost('district');
-        $data['nominee'] = $this->request->getPost('non');
-        $data['relationship'] = $this->request->getPost('relation');
-        $data['nominee'] = $this->request->getPost('nodob');
-        $data['sex'] = $this->request->getPost('sex');
-        $data['bank_name'] = $this->request->getPost('banks');
-        $data['account_no'] = $this->request->getPost('account_no');
-        $data['upozila'] = $this->request->getPost('upozila');
-        $data['union'] = $this->request->getPost('union');
-        $data['post'] = $this->request->getPost('post_code');
-        $data['religion'] = $this->request->getPost('religion');
 
-        $tab = DB()->table('users');
-        $tab->where('ID', $id)->update($data);
 
-        $this->session->setFlashdata('message', '<div class="alert alert-success alert-dismissable text-center "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Update successfully</div>');
-        return redirect()->to(site_url("Member/profile/profile_update"));
+    public function account_action(){
 
-    }
-
-    public function account_action()
-    {
-        $id = $this->session->user_id;
+        $id = $this->session->user_id_client;
         $data['username'] = $this->request->getPost('uname');
         $data['email'] = $this->request->getPost('email');
         $pass = $this->request->getPost('pass');
@@ -198,7 +173,7 @@ class Profile extends BaseController
     }
 
     public function photo_action(){
-        $id = $this->session->user_id;
+        $id = $this->session->user_id_client;
         if (!empty($_FILES['photo']['name'])) {
             $image = $this->request->getFile('photo');
             $name = $image->getRandomName();

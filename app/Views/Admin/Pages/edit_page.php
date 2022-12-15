@@ -20,7 +20,7 @@
 
                                 <div class="col-lg-12">
 
-                                    <form method="post" action="<?php echo base_url('Pages/update')?>">
+                                    <form method="post" action="<?php echo base_url('Admin/Pages/update')?>">
                                         <div class="form-group col-lg-8">
                                             <label>Page Title</label>
                                             <input class="form-control" name="page_tilte" value="<?php print $pageData->page_title; ?>">

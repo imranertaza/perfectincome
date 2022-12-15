@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="<?php echo base_url(); ?>/assets/img/favicon.png" rel="icon">
+    <link href="<?php echo base_url(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <title>Stars Fair BD - Admin Panel</title>
+    <title>PerfectIncome - Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +54,7 @@
                                 <?php echo $error; ?>
                             </div>
                         <?php } ?>
-                        <form role="form" action="<?php print base_url(); ?>/Admin/loginMe" method="post">
+                        <form role="form" action="<?php print base_url(); ?>/Admin/Admin/loginMe" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail"  name="email" type="email" required>

@@ -14,6 +14,7 @@
  | existing namespaces of App\* namespaced-classes.
  */
 defined('APP_NAMESPACE') || define('APP_NAMESPACE', 'App');
+defined('ADMIN_ID') || define('ADMIN_ID', '1');
 
 /*
  | --------------------------------------------------------------------------

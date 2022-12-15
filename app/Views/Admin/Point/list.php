@@ -6,7 +6,6 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            
             <div class="row">
                 <div class="col-lg-12">
                         <div class="panel-body no_padding">
@@ -20,7 +19,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    	<form method="POST" action="<?php print base_url(); ?>/Admin_ut/Point_history">
+                                    	<form method="POST" action="<?php print base_url(); ?>/Admin/Point_history">
                                     	<tr>
                                             <td width="120">
 											<input type="text" name="username" class="form-control" value="<?php echo $username;?>" />

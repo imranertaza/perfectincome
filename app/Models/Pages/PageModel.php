@@ -34,7 +34,7 @@ class PageModel extends Model {
         }
 
         $template = '';
-        $dir = FCPATH.'../app/views/Front/template/';
+        $dir = FCPATH.'../app/Views/Front/template/';
         $files = scandir($dir);
         foreach($files as $key=>$file) {
             if (($file != '.') && ($file != '..')) {

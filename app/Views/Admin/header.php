@@ -15,7 +15,7 @@ $this->session = \Config\Services::session();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stars Fair - Admin Panel</title>
+    <title>Perfect Income - Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/assets/css/bootstrap.css" rel="stylesheet">
@@ -41,6 +41,8 @@ $this->session = \Config\Services::session();
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/dataTables.bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="<?php echo base_url(); ?>/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
@@ -81,11 +83,11 @@ $this->session = \Config\Services::session();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php print base_url(); ?>/dashboard">Stars Fair - Admin Panel<sup>(v1)</sup></a>
+                <a class="navbar-brand" href="<?php print base_url(); ?>/Admin/Dashboard">Perfect Income - Admin Panel<sup>(v1)</sup></a>
             </div>
             <!-- /.navbar-header -->
             
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right" id="balance">
                 <li class="username" style="margin-right: 50px;" ><b>Balance :</b> <?php print Tk_view(get_balance_by_id($this->session->user_id));?></li>
 
             	<li class="username"><?php print 'Hi! '. $this->session->username;?></li>
@@ -100,7 +102,7 @@ $this->session = \Config\Services::session();
                         <li><a href="<?php print base_url(); ?>general_settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url(); ?>/Admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url(); ?>/Admin/Admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

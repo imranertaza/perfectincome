@@ -61,6 +61,11 @@ class Details extends BaseController
         }
         $data['slider'] = view('Front/slider', $data);
 
+        $pack = DB()->table('package');
+        $packag = $pack->get();
+        $data['package'] = $packag->getResult();
+
+
         $data['check_user'] = '';
         $data['log_url'] = 'member_form/login';
         $data['log_title'] = 'Login';

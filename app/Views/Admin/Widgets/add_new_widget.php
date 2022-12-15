@@ -13,7 +13,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form method="post" action="<?php echo base_url('Widgets/action')?>" enctype="multipart/form-data">
+                                    <form method="post" action="<?php echo base_url('Admin/Widgets/action')?>" enctype="multipart/form-data">
                                 	<div class="col-lg-8">
                                         <label>Title</label>
                                         <input class="form-control" name="title">

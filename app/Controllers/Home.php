@@ -61,6 +61,9 @@ class Home extends BaseController
         $data['page_title'] = 'home';
         $data['sidebar_left'] = view('Front/sidebar-left',$data);
 
+        $pack = DB()->table('package');
+        $packag = $pack->get();
+        $data['package'] = $packag->getResult();
 
 //        if ($this->m_logged_in == true) {
 //            redirect("member/dashboard/");
