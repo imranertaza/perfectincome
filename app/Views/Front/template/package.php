@@ -14,7 +14,7 @@
 
   <main id="main">
 
-      <?php foreach ($package as $item) { ?>
+      <?php /* foreach ($package as $item) { ?>
     <section id="packages" class="packages">
       <div class="container" data-aos="fade-up">
         <div class="row">
@@ -48,7 +48,7 @@
 
       </div>
     </section>
-      <?php } ?>
+      <?php }  */?>
 <!--    <section id="packages" class="packages bg-gray">-->
 <!--      <div class="container" data-aos="fade-up">-->
 <!---->

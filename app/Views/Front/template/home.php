@@ -62,7 +62,7 @@
       </div>
     </section>
 
-    <section id="packages" class="packages">
+    <!-- <section id="packages" class="packages">
       <div class="container" data-aos="fade-up">
         <div class="text-center">
           <h2 class="title">Package</h2>
@@ -100,7 +100,7 @@
         </div>
 
       </div>
-    </section>
+    </section> -->
 
       <section id="about" class="about">
           <div class="container" data-aos="fade-up">
