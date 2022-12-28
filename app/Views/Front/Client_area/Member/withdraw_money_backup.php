@@ -16,8 +16,8 @@
                             <div class="col-lg-5">
                                 <form action="<?php print base_url(); ?>/Member/general/withdraw_action" method="post">
                                     <?php
-                                    $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
-                                    $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
+                                        $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
+                                        $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
                                     ?>
                                     <div class="form-group">
                                         <label>Withdraw Amount(Min:<?php echo Tk_view($minWithdrawPerTime);?>, Max:<?php echo Tk_view($maxWithdrawPerTime);?>) <sup class="required">*</sup></label>
@@ -25,7 +25,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Your Nagad Account <sup class="required">*</sup></label>
+<<<<<<< HEAD
+                                        <input type="number" class="form-control" name="payee_account" type="text" required value="" >
+=======
                                         <input type="number"  class="form-control" name="payee_account" type="text" required value="" >
+>>>>>>> 91f8286769a55d29718b2c5faa05948fa3f9e4d9
                                     </div>
                                     <input type="submit" class="btn btn-submit" value="Withdraw">
                                 </form>
@@ -39,3 +43,7 @@
     </section>
 
 </main><!-- End #main -->
+
+
+
+

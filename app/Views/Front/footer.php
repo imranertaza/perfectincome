@@ -32,7 +32,7 @@
                 <div class="col-lg-4 col-md-4 footer-contact">
                     <h4><?php print $footer_widget2_title; ?></h4>
 <!--                    <p><i class="bi bi-telephone"></i> --><?php //print $footer_widget2_description; ?><!--</p>-->
-                    <p><i class="bi bi-envelope"></i> contact@perfectincome.online</p>
+                    <p><i class="bi bi-envelope"></i> contact@friendsworld.online</p>
                     <p><i class="bi bi-geo-alt-fill"></i> Street: 3682 Leisure Lane<br>City: Thousand Oaks<br/>State: California</p>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 
     <div class="container">
         <div class="copyright">
-            Copyright © 2021 PerfectIncome | All rights reserved
+            Copyright © 2021 FriendsWorld | All rights reserved
         </div>
     </div>
 </footer><!-- End Footer -->

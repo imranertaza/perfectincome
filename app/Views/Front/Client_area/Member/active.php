@@ -18,22 +18,22 @@
                             <hr/>
                             <div class="dashboard_left_area">
                                 <div class="row">
-<!--                                    <div class="col-md-6">-->
-<!--                                        <div style="border: 1px solid;padding: 20px;">-->
-<!--                                            <center><h4>Pin Active</h4></center>-->
-<!--                                            <form action="--><?php //echo base_url('member/dashboard/pin_active')?><!--" method="post" >-->
-<!--                                                <div class="input">-->
-<!--                                                    <label>Pin</label>-->
-<!--                                                    <input type="text" id="myInput" class="form-control" name="pin" placeholder="pin" onchange="pin_check(this.value)" required >-->
-<!--                                                    <b id="pin_bar"></b>-->
-<!--                                                </div>-->
-<!--                                                <div class="input" style="padding-top: 20px;">-->
-<!--                                                    <button type="submit" class="btn btn-primary">Active</button>-->
-<!--                                                </div>-->
-<!--                                            </form>-->
-<!--                                        </div>-->
-<!---->
-<!--                                    </div>-->
+                                    <div class="col-md-6">
+                                        <div style="border: 1px solid;padding: 20px;">
+                                            <center><h4>Pin Active</h4></center>
+                                            <form action="<?php echo base_url('member/dashboard/pin_active')?>" method="post" >
+                                                <div class="input">
+                                                    <label>Pin</label>
+                                                    <input type="text" id="myInput" class="form-control" name="pin" placeholder="pin" onchange="pin_check(this.value)" required >
+                                                    <b id="pin_bar"></b>
+                                                </div>
+                                                <div class="input" style="padding-top: 20px;">
+                                                    <button type="submit" class="btn btn-primary">Active</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
                                     <div class="col-md-6">
                                         <div style="border: 1px solid;padding: 20px;">
                                             <h4>Active with Nagad</h4>
@@ -47,7 +47,7 @@
                                                 </div>
                                                 <?php } ?>
 <!--                                                <input type="hidden" name="PAYEE_ACCOUNT" value="--><?php //print $payee_account; ?><!--">-->
-<!--                                                <input type="hidden" name="PAYEE_NAME" value="PerfectIncome LTD">-->
+<!--                                                <input type="hidden" name="PAYEE_NAME" value="FriendsWorld LTD">-->
 <!--                                                <input type="hidden" name="PAYMENT_AMOUNT" id="payment_amount">-->
 <!--                                                <input type="hidden" name="PAYMENT_ID" value="--><?php //print encrypt_decrypt($user_id, "encrypt"); ?><!--">-->
 <!--                                                <input type="hidden" name="PAYMENT_UNITS" value="USD">-->

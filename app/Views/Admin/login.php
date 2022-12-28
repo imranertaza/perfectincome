@@ -11,7 +11,7 @@
     <link href="<?php echo base_url(); ?>/assets/img/favicon.png" rel="icon">
     <link href="<?php echo base_url(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <title>PerfectIncome - Admin Panel</title>
+    <title>FriendsWorld - Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css" rel="stylesheet">
