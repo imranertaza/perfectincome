@@ -31,8 +31,8 @@ h2 {font-size: 3rem;}
   height: 50px;
 }
 .btn.btn-primary {
-    background-color: #DB0013;
-    border-color: #DB0013;
+    background-color: #AF25E8;
+    border-color: #AF25E8;
     border-radius: 0;
     font-weight: 700;
     padding: 15px 40px;
@@ -41,8 +41,8 @@ h2 {font-size: 3rem;}
 .btn:focus {box-shadow: none;}
 .btn.btn-submit {
   color: #FFF;
-  background-color: #DB0013;
-  border-color: #DB0013;
+  background-color: #AF25E8;
+  border-color: #AF25E8;
   width: 100%;
   padding: 15px;
   font-size: 20px;
@@ -57,7 +57,7 @@ h2 {font-size: 3rem;}
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #E5181C;
+  background: #AF25E8;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -72,7 +72,7 @@ h2 {font-size: 3rem;}
   background: #151515;
 }
 .back-to-top:hover i {
-  color: #E5181C;
+  color: #AF25E8;
 }
 .back-to-top.active {
   visibility: visible;
@@ -100,7 +100,7 @@ h2 {font-size: 3rem;}
   position: fixed;
   top: calc(50% - 0px);
   left: calc(50% - 30px);
-  border: 6px solid #E5181C;
+  border: 6px solid #AF25E8;
   border-top-color: #151515;
   border-bottom-color: #151515;
   border-radius: 50%;
@@ -162,7 +162,7 @@ h2 {font-size: 3rem;}
   color: #fff;
 }
 #header .logo a span {
-  color: #E5181C;
+  color: #AF25E8;
 }
 #header .logo img {
   max-height: 105px;
@@ -181,7 +181,7 @@ h2 {font-size: 3rem;}
   min-width: 255px;
 }
 .search-box {
-  background-color: #E5181C;
+  background-color: #AF25E8;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -195,8 +195,8 @@ h2 {font-size: 3rem;}
 @media only screen and (max-width: 479px) {
   .header-right {display: inline-flex;}
   .btn.btn-primary {
-    background-color: #DB0013;
-    border-color: #DB0013;
+    background-color: #AF25E8;
+    border-color: #AF25E8;
     border-radius: 0;
     font-weight: 700;
     padding: 10px 30px;
@@ -240,7 +240,7 @@ h2 {font-size: 3rem;}
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #DB0013;border-bottom: 1px solid;
+  color: #AF25E8;border-bottom: 1px solid;
 }
 .navbar .dropdown ul {
   display: block;
@@ -306,7 +306,7 @@ h2 {font-size: 3rem;}
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #E5181C;
+  color: #AF25E8;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -358,7 +358,7 @@ h2 {font-size: 3rem;}
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
   color: #FFF;
-  background-color: #E5181C;
+  background-color: #AF25E8;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -555,7 +555,7 @@ section {
 .title {
   border-bottom: 2px solid;
   display: inline-block;
-  color: #E5181C;padding-bottom: 10px;
+  color: #AF25E8;padding-bottom: 10px;
 }
 
 /*--------------------------------------------------------------
@@ -572,14 +572,14 @@ section {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
-  background: #DB0013;
+  background: #AF25E8;
 }
 
 /*--------------------------------------------------------------
 # Offers
 --------------------------------------------------------------*/
 .offers {
-  background-color: #DB0013;
+  background-color: #AF25E8;
   color: #FFF;
   margin: 50px 0;
 }
@@ -623,7 +623,7 @@ section {
   border: 1px solid #EDEDED;
 }
 .packages .table-responsive th {
-  background-color: #DB0013;
+  background-color: #AF25E8;
   color: #FFF;
   text-align: center;
   font-size: 30px;
@@ -666,7 +666,7 @@ section {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
-  background: #DB0013;
+  background: #AF25E8;
 }
 .notice h2 {
   margin-bottom: 50px;
@@ -676,14 +676,14 @@ section {
   padding: 0;
 }
 .notice ul li {
-   background-color: #DB0013;
+   background-color: #AF25E8;
    color: #FFF;
    padding: 25px;
    margin-bottom: 28px;
    font-size: 20px;
 }
 .notice .bi {
-  color: #DB0013;
+  color: #AF25E8;
   font-size: 50px;
   top: 35%;
   position: relative;
@@ -908,7 +908,7 @@ section {
   transition: 0.3s;
 }
 #footer .footer-top .social-links a:hover {
-  color: #DB0013;
+  color: #AF25E8;
   text-decoration: none;
 }
 #footer .footer-top h4 {
@@ -927,7 +927,7 @@ section {
 }
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #E5181C;
+  color: #AF25E8;
   font-size: 18px;
   line-height: 1;
 }
@@ -946,7 +946,7 @@ section {
   line-height: 1;
 }
 #footer .footer-top .footer-links ul a:hover {
-  color: #E5181C;
+  color: #AF25E8;
 }
 
 #footer .copyright {
@@ -959,7 +959,7 @@ section {
 --------------------------------------------------------------*/
 .my-account h1 {margin-bottom: 50px;}
 .sidebar {
-  background-color: #DB0013;
+  background-color: #AF25E8;
   color: #FFF;
   padding: 30px;font-size: 14px;margin-bottom: 50px;
 }
@@ -1108,7 +1108,7 @@ right connector from last child*/
 }
 
 .main-title{
-  color: #DB0013;
+  color: #AF25E8;
 }
 .border-con{
   border: 1px solid #dee2e6;
@@ -1127,8 +1127,8 @@ right connector from last child*/
 }
 .videoBtn{
   width: 100%;
-  border: 1px solid #db0013;
-  background-color: #db0013;
+  border: 1px solid #AF25E8;
+  background-color: #AF25E8;
   color: #ffffff;
   padding-top: 20px;
   padding-bottom: 20px;

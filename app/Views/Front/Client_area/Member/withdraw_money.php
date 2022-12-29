@@ -9,7 +9,7 @@
                 <div class="col-md-9">
                     <div class="right_contant dashboard_right">
                         <div class="top_right_content pt-5">
-                            <h5 class="main-title">Withdraw</h5>
+                            <h5 class="main-title">Cashout</h5>
                             <hr />
                             <?php print $session->getFlashdata('withdraw_msg'); ?>
                             <div class="alert alert-warning">Inactive member can not withdraw. Only active member can withdraw.</div>

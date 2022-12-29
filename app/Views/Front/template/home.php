@@ -4,7 +4,7 @@
       <div class="row" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-4 col-lg-4">
           <h1><?php print \App\Models\Settings\Global_settings::get_each_setting_value("site_title")?></h1>
-          <p>Friends World Life helps you generate more income efficiently and easily.</p>
+          <p>Friends World helps you generate more income efficiently and easily.</p>
           <p><a class="btn btn-primary" href="#">Contact Us <i class="bi bi-arrow-right-short"></i></a></p>
         </div>
       </div>
@@ -40,22 +40,22 @@
         <div class="row">
           <div class="col-lg-3">
             <img src="assets/img/offer.png" class="img-fluid" alt="">
-            <p class="text-center">15,000 Matching = <?php echo Tk_view('50,000')?></p>
+            <!-- <p class="text-center">15,000 Matching = <?php // echo Tk_view('50,000')?></p> -->
               <h3 class="text-center">Standard</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer.png" class="img-fluid" alt="">
-            <p class="text-center">30,000 Matching = <?php echo Tk_view('2,00,000')?></p>
+            <!-- <p class="text-center">30,000 Matching = <?php // echo Tk_view('2,00,000')?></p> -->
               <h3 class="text-center">Bronze</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer.png" class="img-fluid" alt="">
-            <p class="text-center">50,000 Matching = <?php echo Tk_view('5,00,000')?></p>
+            <!-- <p class="text-center">50,000 Matching = <?php // echo Tk_view('5,00,000')?></p> -->
             <h3 class="text-center">Golden</h3>
           </div>
           <div class="col-lg-3">
             <img src="assets/img/offer.png" class="img-fluid" alt="">
-            <p class="text-center">100,000 Matching = <?php echo Tk_view('10,00,000')?></p>
+            <!-- <p class="text-center">100,000 Matching = <?php // echo Tk_view('10,00,000')?></p> -->
             <h3 class="text-center">Premium</h3>
           </div>
         </div>
@@ -107,7 +107,7 @@
               <div class="row">
                   <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                       <h2>About Us</h2>
-                      <p>Perfect Income has started this business with new business module that helps generating more money.</p>
+                      <p>Friends World has started this business with new business module that helps generating more money.</p>
                   </div>
               </div>
           </div>

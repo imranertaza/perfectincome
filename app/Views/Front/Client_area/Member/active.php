@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div style="border: 1px solid;padding: 20px;">
-                                            <h4>Active with Nagad</h4>
+                                            <h4>Active with Bkash</h4>
 <!--                                            <form action="https://perfectmoney.com/api/step1.asp" method="POST">-->
                                                 <?php foreach($package_list as $row) { ?>
                                                 <div class="form-check">
@@ -83,14 +83,14 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Active with Nagad</h5>
+                <h5 class="modal-title">Active with Bkash</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">  </button>
             </div>
             <form id="userActive" >
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <label class="form-label" >Payee Nagad Account *</label>
+                        <label class="form-label" >Payee Bkash Account *</label>
                         <input type="text" name="payee_account" class="form-control" placeholder="Please input" value="<?php echo get_global_settings_value('PM_ID');?>" readonly>
                     </div>
 
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label" >Payer Nagad Account *</label>
+                        <label class="form-label" >Payer Bkash Account *</label>
                         <input type="text" name="payer_account" class="form-control" placeholder="" required>
                     </div>
 

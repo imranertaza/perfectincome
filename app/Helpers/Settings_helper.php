@@ -585,10 +585,10 @@ function view_user_image($user_id, $w, $h)
     }
 
     if (!empty($user_info[0]->photo)) {
-        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/' . $user_info[0]->photo . ' &amp;w=' . $w . '&amp;h=' . $h . '&amp;zc=1" class=" level" style="border:1px solid;" />';
+        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/' . $user_info[0]->photo . ' &w=' . $w . '&h=' . $h . '&zc=1" class=" level" style="border:1px solid;" />';
 
     } else {
-        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/images.png&amp;w=' . $w . '&amp;h=' . $h . '&amp;zc=1" class=" level" style="border:1px solid;" />';
+        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/thumb.png&w=' . $w . '&h=' . $h . '&zc=1" class=" level" style="border:1px solid;" />';
     }
 
 }

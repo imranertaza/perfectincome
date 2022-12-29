@@ -7,7 +7,7 @@
                     <?php print $sidebar_left; ?>
                 </div>
                 <div class="col-lg-9 pt-4">
-                    <h5 class="main-title">My Tree</h5>
+                    <h5 class="main-title">My Team</h5>
 
                     <div class="row">
                         <div class="col-md-12 mt-5">

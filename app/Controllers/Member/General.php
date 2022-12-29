@@ -152,7 +152,7 @@ class General extends BaseController
             $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
 
             echo view('Front/Client_area/header', $data);
-            echo view('Front/Client_area/Member/tree', $data);
+            echo view('Front/Client_area/Member/team', $data);
             echo view('Front/Client_area/footer', $data);
 
         }

@@ -19,7 +19,7 @@
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/tree" class="nav-link px-0 align-middle">
-                <i class="bi bi-diagram-3-fill"></i> <span class="ms-1">My Tree</span></a>
+                <i class="bi bi-diagram-3-fill"></i> <span class="ms-1">My Team</span></a>
         </li>
 <!--        <li>-->
 <!--            <a href="--><?php //print base_url(); ?><!--/Member/General/pin_generate" class="nav-link px-0 align-middle">-->
@@ -39,11 +39,11 @@
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/withdraw" class="nav-link px-0 align-middle">
-                <i class="bi bi-layer-forward"></i> <span class="ms-1">Withdraw</span></a>
+                <i class="bi bi-layer-forward"></i> <span class="ms-1">Cashout</span></a>
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/withdraw_report" class="nav-link px-0 align-middle">
-                <i class="bi bi-receipt"></i> <span class="ms-1">Withdraw Report</span></a>
+                <i class="bi bi-receipt"></i> <span class="ms-1">Cashout Report</span></a>
         </li>
 
         <li>
@@ -69,10 +69,10 @@
             $status = get_id_by_data('status','users','ID',new_session()->user_id_client);
             if ((!empty($packId)) && ($status == 'Active')){
         ?>
-        <li>
-            <a href="<?php print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
+        <!-- <li>
+            <a href="<?php // print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
                 <i class="bi bi-youtube"></i> <span class="ms-1">Watch Video</span></a>
-        </li>
+        </li> -->
         <?php } ?>
     </ul>
 </div>

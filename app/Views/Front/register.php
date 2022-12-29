@@ -54,7 +54,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="sponsor">Sponsor ID</label>
+                                    <label for="sponsor">Refer ID</label>
                                     <input type="text" name="spon_id" id="sponsor" class="form-control" onchange="check_spon(this.value)" required>
                                     <b id="spon_bar"></b>
                                 </div>
