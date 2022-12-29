@@ -9,15 +9,15 @@
                 <div class="col-md-9">
                     <div class="right_contant dashboard_right">
                         <div class="top_right_content pt-5">
-                            <h5 class="main-title">Cashout</h5>
+                            <h5 class="main-title">Withdraw</h5>
                             <hr />
                             <?php print $session->getFlashdata('withdraw_msg'); ?>
                             <div class="alert alert-warning">Inactive member can not withdraw. Only active member can withdraw.</div>
                             <div class="col-lg-5">
                                 <form action="<?php print base_url(); ?>/Member/general/withdraw_action" method="post">
                                     <?php
-                                    $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
-                                    $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
+                                        $minWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'minWithdrawPerTime');
+                                        $maxWithdrawPerTime = get_field_by_id_from_table('global_settings', 'value', 'title', 'maxWithdrawPerTime');
                                     ?>
                                     <div class="form-group">
                                         <label>Withdraw Amount(Min:<?php echo Tk_view($minWithdrawPerTime);?>, Max:<?php echo Tk_view($maxWithdrawPerTime);?>) <sup class="required">*</sup></label>
@@ -25,7 +25,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Your Nagad Account <sup class="required">*</sup></label>
+<<<<<<< HEAD
+                                        <input type="number" class="form-control" name="payee_account" type="text" required value="" >
+=======
                                         <input type="number"  class="form-control" name="payee_account" type="text" required value="" >
+>>>>>>> 91f8286769a55d29718b2c5faa05948fa3f9e4d9
                                     </div>
                                     <input type="submit" class="btn btn-submit" value="Withdraw">
                                 </form>
@@ -39,3 +43,7 @@
     </section>
 
 </main><!-- End #main -->
+
+
+
+
