@@ -103,5 +103,18 @@ class FunctionModel extends Model {
         return $result;
     }
 
+    public function modulePermission($key){
+        $module_key = $this->db->table('modules')->where('module_key',$key)->get()->getRow()->status;
+
+        // print_r($module_key);
+        // exit();
+
+        if ($module_key == '1') {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 
 }

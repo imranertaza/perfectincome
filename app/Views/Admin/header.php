@@ -17,6 +17,10 @@ $this->session = \Config\Services::session();
 
     <title>Friends World - Admin Panel</title>
 
+      <!-- Favicons -->
+  <link href="<?php echo base_url(); ?>/assets/img/favicon.png" rel="icon">
+  <link href="<?php echo base_url(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/assets/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>/assets/css/tree.css" rel="stylesheet">
