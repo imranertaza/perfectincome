@@ -421,6 +421,7 @@ class Video extends BaseController
         }
 
         $checkVideo = $this->isTheVideoSeen($videoId);
+
         if ($checkVideo == 0) {
             $video = DB()->table('video');
             $query = $video->where('video_id', $videoId)->get()->getRow();
@@ -434,6 +435,7 @@ class Video extends BaseController
         }else{
             $view = '<div class="modal-body text-center" >The Video has been already Seen!</div>';
         }
+
 
         print $view;
     }

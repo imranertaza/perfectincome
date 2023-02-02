@@ -35,6 +35,39 @@
                                             </td>
                                         </tr>
                                     <?php } } ?>
+
+                                    <script src="http://www.youtube.com/player_api"></script>
+                                    <script>
+                                        var player;
+                                        function onYouTubePlayerAPIReady() {
+                                            player = new YT.Player('player', {
+                                                events: {
+                                                    'onReady': onPlayerReady,
+                                                    'onStateChange': onPlayerStateChange
+                                                }
+                                            });
+                                        }
+                                        function onPlayerReady(event) {
+                                            alert(event.target.getDuration());
+                                            function secondsTimeSpanToHMS(second) {
+                                                var hour = Math.floor(second/3600);
+                                                second -= hour*3600;
+                                                var minute = Math.floor(second/60);
+                                                second -= minute*60;
+                                                alert( hour+":"+(minute < 10 ? '0'+minute : minute)+":"+(second < 10 ? '0'+second : second));
+                                            }
+                                            secondsTimeSpanToHMS(event.target.getDuration());
+                                        }
+
+                                        function onPlayerStateChange(event) {
+                                            if (event.data == YT.PlayerState.ENDED) {
+                                                // ('#closeBtn').show();
+                                                alert("Complete");
+                                            }
+                                        }
+                                    </script>
+
+                                    <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/xU-cPw7Dl8I?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
                                     </tbody>
                                 </table>
                             </div>

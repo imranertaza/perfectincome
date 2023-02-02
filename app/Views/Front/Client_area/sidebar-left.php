@@ -69,10 +69,10 @@
             $status = get_id_by_data('status','users','ID',new_session()->user_id_client);
             if ((!empty($packId)) && ($status == 'Active')){
         ?>
-        <!-- <li>
-            <a href="<?php // print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
+        <li>
+            <a href="<?php print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
                 <i class="bi bi-youtube"></i> <span class="ms-1">Watch Video</span></a>
-        </li> -->
+        </li>
         <?php } ?>
     </ul>
 </div>
