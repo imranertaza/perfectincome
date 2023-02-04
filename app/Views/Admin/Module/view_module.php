@@ -18,8 +18,8 @@
                                     <thead>
                                         <tr>
                                             <th width="135">ID</th>
-                                            <th width="291">Moduel Name</th>
-                                            <th width="427">Moduel Key</th>
+                                            <th>Moduel Name</th>
+<!--                                            <th width="427">Moduel Key</th>-->
                                             <th width="120">Status</th>
                                         </tr>
                                     </thead>
@@ -28,11 +28,13 @@
                                             <tr class="odd gradeX" id="page_<?php print $module_id; ?>">
                                                 <td><?php print $rows->module_id; ?></td>
                                                 <td><?php print $rows->module_name; ?></td>
-                                                <td><?php print $rows->module_key; ?></td>
+<!--                                                <td>--><?php //print $rows->module_key; ?><!--</td>-->
                                                 <td class="center">
-                                                    <?php if ($rows->status == 1) { ?>
+                                                    <?php if ($rows->status == 1) { if(check_module_by_id($rows->module_id) == true){ ?>
+
                                                         <a class="btn btn-xs btn-success" href="Module/setting/<?= $rows->module_id; ?>">Setting</a>
-                                                    <?php } ?>
+
+                                                    <?php } } ?>
                                                    
                                                     <div class="material-switch pull-right">
                                                         <input id="label-<?= $rows->module_id; ?>" onclick="changeStatus(<?= $rows->module_id; ?>);" name="status" id="<?= $rows->module_id; ?>" type="checkbox" <?php echo ($rows->status == 1) ? 'checked' : '' ?>/>

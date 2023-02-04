@@ -18,6 +18,7 @@
                             <hr/>
                             <div class="dashboard_left_area">
                                 <div class="row">
+                                    <?php if( $functionModel->modulePermission('pin_option') == 1 ) { ?>
                                     <div class="col-md-6">
                                         <div style="border: 1px solid;padding: 20px;">
                                             <center><h4>Pin Active</h4></center>
@@ -34,6 +35,8 @@
                                         </div>
 
                                     </div>
+                                    <?php } ?>
+
                                     <div class="col-md-6">
                                         <div style="border: 1px solid;padding: 20px;">
                                             <h4>Active with Bkash</h4>

@@ -402,42 +402,103 @@ class Video extends BaseController
 //        return redirect()->to(site_url("member/dashboard"));
 //    }
 
-    public function view_video(){
+    public function view_video($video_id){
 
-        $videoId = $this->request->getPost('id');
-        $userId = $this->session->user_id_client;
+        $clientLogin = $this->session->isLoggedInClient;
+        if (!isset($clientLogin) || $clientLogin != TRUE) {
+            return redirect()->to(site_url("Member_form/login"));
+        } else {
+            $data['globalSettingsModel'] = $this->globalSettingsModel;
+
+            $data['dwn_path'] = base_url() . "/uploads/downloads/";
+            $downloads = DB()->table('downloads');
+
+            $sdow = $downloads->where('cat_id', '5')->get();
+            $notice_list = $sdow->getResult();
+
+            $downl = DB()->table('downloads');
+            $notiCount = $downl->where('cat_id', '5')->countAllResults();
+            if ($notiCount > 0) {
+                $data['list_notice'] = $notice_list;
+            } else {
+                $data['list_notice'] = 'No notice published';
+            }
 
 
-        //previous data delete
-        $today = date('Y-m-d');
-        $viVewCo = DB()->table('video_view_count');
-        $countRow = $viVewCo->where('u_id',$userId)->where('date <',$today)->countAllResults();
+            $data['footer_widget_title'] = $this->functionModel->show_widget('title', 8);
+            $data['footer_widget_description'] = $this->functionModel->show_widget('description', 8);
 
-        if(!empty($countRow)){
-            $viVewCoDel = DB()->table('video_view_count');
-            $viVewCoDel->where('u_id',$userId);
-            $viVewCoDel->where('date <',$today);
-            $viVewCoDel->delete();
+            $data['footer_widget2_title'] = $this->functionModel->show_widget('title', 9);
+            $data['footer_widget2_description'] = $this->functionModel->show_widget('description', 9);
+
+            $data['page_title'] = 'home';
+            $data['slider'] = '';
+
+            $role = $this->session->role_client;
+            $user_id = $this->session->user_id_client;
+
+
+
+            //video content
+
+//        $videoId = $this->request->getPost('id');
+            $videoId = $video_id;
+            $userId = $this->session->user_id_client;
+
+
+            //previous data delete
+            $today = date('Y-m-d');
+            $viVewCo = DB()->table('video_view_count');
+            $countRow = $viVewCo->where('u_id', $userId)->where('date <', $today)->countAllResults();
+
+            if (!empty($countRow)) {
+                $viVewCoDel = DB()->table('video_view_count');
+                $viVewCoDel->where('u_id', $userId);
+                $viVewCoDel->where('date <', $today);
+                $viVewCoDel->delete();
+            }
+
+
+            $checkVideo = $this->isTheVideoSeen($videoId);
+            if ($checkVideo == 0) {
+
+//            $view = '<div class="modal-header">
+//                <h4 class="modal-title">' . $query->title . '</h4>
+//                <p id="minCount" style="text-align: right;"></p>
+//                <button type="button" class="btn btn-success btn-sm" id="closeBtn" onclick="closeModal(' . $query->video_id . ')" style="display: none;">Close</button>
+//            </div>';
+//            $view .= '<div class="modal-body text-center" >' . $query->vi_url . '</div>';
+
+                if ($role == 6) {
+                    $data['log_url'] = 'member_form/logout';
+                    $data['log_title'] = 'Logout';
+                    $data['check_user'] = $clientLogin;
+                    $data['ID'] = $user_id;
+                    $data['u_name'] = get_field_by_id_from_table('users', 'username', 'ID', $user_id);
+                    $data['f_name'] = get_field_by_id_from_table('users', 'f_name', 'ID', $user_id);
+                    $data['l_name'] = get_field_by_id_from_table('users', 'l_name', 'ID', $user_id);
+                    $data['balance'] = get_field_by_id_from_table('users', 'balance', 'ID', $user_id);
+                    $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
+                    $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
+                    $data['user_id'] = $user_id;
+
+
+                    $video = DB()->table('video');
+                    $data['videoData'] = $video->where('video_id', $videoId)->get()->getRow();
+
+                    $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
+                    echo view('Front/Client_area/header', $data);
+                    echo view('Front/Client_area/Member/video_view', $data);
+                    echo view('Front/Client_area/footer', $data);
+                }
+
+            } else {
+                $view = '<div class="modal-body text-center" >The Video has been already Seen!</div>';
+            }
+//
+//
+//        print $view;
         }
-
-        $checkVideo = $this->isTheVideoSeen($videoId);
-
-        if ($checkVideo == 0) {
-            $video = DB()->table('video');
-            $query = $video->where('video_id', $videoId)->get()->getRow();
-            $view = '<div class="modal-header">
-                <h4 class="modal-title">' . $query->title . '</h4>
-                <p id="minCount" style="text-align: right;"></p>
-                <button type="button" class="btn btn-success btn-sm" id="closeBtn" onclick="closeModal(' . $query->video_id . ')" style="display: none;">Close</button>
-            </div>';
-            $view .= '<div class="modal-body text-center" >' . $query->vi_url . '</div>';
-
-        }else{
-            $view = '<div class="modal-body text-center" >The Video has been already Seen!</div>';
-        }
-
-
-        print $view;
     }
 
     public function view_video_count(){

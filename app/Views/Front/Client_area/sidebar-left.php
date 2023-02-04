@@ -1,3 +1,8 @@
+<?php
+
+use App\Models\FunctionModel;
+$this->functionModel = new \App\Models\FunctionModel();
+?>
 <div class="sidebar">
     <div class="user-info text-center">
         <?php $photo = get_field_by_id_from_table('users', 'photo', 'ID', $ID);?>
@@ -7,8 +12,12 @@
         <p>User Name: <?php print $u_name; ?><br>Full Name: <?php print $f_name; ?></p>
     </div>
     <div class="user-data">
+        <?php if( $this->functionModel->modulePermission('point_option') == 1 ) { ?>
         <p>Point <span class="float-end"><strong><?php print $point; ?> PT</strong></span></p>
-<!--        <p>Commission <span class="float-end"><strong>--><?php //print Tk_view(number_format(get_field_by_id_from_table('users', 'commission', 'ID', $ID), 2)); ?><!--</strong></span></p>-->
+        <?php } ?>
+        <?php if( $this->functionModel->modulePermission('user_commission') == 1 ) { ?>
+        <p>Commission <span class="float-end"><strong><?php print Tk_view(number_format(get_field_by_id_from_table('users', 'commission', 'ID', $ID), 2)); ?></strong></span></p>
+        <?php } ?>
         <p id="balUp">Balance <span class="float-end"><strong><?php print Tk_view(number_format($balance, 2)); ?></strong></span></p>
     </div>
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -45,7 +54,7 @@
             <a href="<?php print base_url(); ?>/Member/general/withdraw_report" class="nav-link px-0 align-middle">
                 <i class="bi bi-receipt"></i> <span class="ms-1">Cashout Report</span></a>
         </li>
-
+        <?php if( $this->functionModel->modulePermission('agent_option') == 1 ) { ?>
         <li>
             <a href="<?php print base_url(); ?>/Member/WithdrawbyAgent" class="nav-link px-0 align-middle">
                 <i class="bi bi-layer-forward"></i> <span class="ms-1">Withdraw by Agent</span></a>
@@ -55,6 +64,7 @@
             <a href="<?php print base_url(); ?>/Member/WithdrawbyAgent/list" class="nav-link px-0 align-middle">
                 <i class="bi bi-layer-forward"></i> <span class="ms-1">Agent Withdraw List</span></a>
         </li>
+        <?php } ?>
 
         <li>
             <a href="<?php print base_url(); ?>/Member/general/matching_report" class="nav-link px-0 align-middle">

@@ -66,25 +66,25 @@
 
 <script>
 
-    function startTimer(duration, display) {
-        var timer = duration, minutes, seconds;
-        var interval =  setInterval(function () {
-            minutes = parseInt(timer / 60, 10)
-            seconds = parseInt(timer % 60, 10);
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            display.textContent = minutes + ":" + seconds;
-
-            if (--timer < 0) {
-                timer = 0;
-                $('#minCount').hide();
-                $("#closeBtn").css('display', 'block');
-                clearInterval(interval);
-            }
-        }, 1000);
-    }
+    // function startTimer(duration, display) {
+    //     var timer = duration, minutes, seconds;
+    //     var interval =  setInterval(function () {
+    //         minutes = parseInt(timer / 60, 10)
+    //         seconds = parseInt(timer % 60, 10);
+    //
+    //         minutes = minutes < 10 ? "0" + minutes : minutes;
+    //         seconds = seconds < 10 ? "0" + seconds : seconds;
+    //
+    //         display.textContent = minutes + ":" + seconds;
+    //
+    //         if (--timer < 0) {
+    //             timer = 0;
+    //             $('#minCount').hide();
+    //             $("#closeBtn").css('display', 'block');
+    //             clearInterval(interval);
+    //         }
+    //     }, 1000);
+    // }
 
     function viewVideo(id) {
         $('#myModal').show();
@@ -106,9 +106,8 @@
     }
 
     function closeModal(id) {
-        $("#closeBtn").attr("disabled", true);
+        // $("#closeBtn").attr("disabled", true);
         document.getElementById("closeBtn").onclick = null;
-
         $.ajax({
             url: "<?php echo base_url('Member/Video/view_video_count')?>",
             data: {id: id},
@@ -117,10 +116,11 @@
                 $("#preloader").show();
             },
             success: function (data) {
-                $('#viewVideo').html('');
-                $('#myModal').hide();
-                $("#tabRelode").load(location.href + " #tabRelode");
-                $("#balUp").load(location.href + " #balUp");
+                window.location.href='<?php echo base_url('Member/Video')?>';
+                // $('#viewVideo').html('');
+                // $('#myModal').hide();
+                // $("#tabRelode").load(location.href + " #tabRelode");
+                // $("#balUp").load(location.href + " #balUp");
                 if (data == 0) {
                     $('#errorMes').html("This video might be seen already today or your process is wrong!");
                 }

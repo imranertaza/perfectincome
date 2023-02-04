@@ -964,3 +964,16 @@ function encrypt_decrypt($string, $action = 'encrypt')
     }
     return $output;
 }
+
+function check_module_by_id($module_id)
+{
+    $tableName = DB()->table('module_settings');
+    $query = $tableName->where('module_id', $module_id)->countAllResults();
+    if ($query > 0) {
+        return true;
+    } else {
+        return false;
+    }
+
+//    print $query;
+}

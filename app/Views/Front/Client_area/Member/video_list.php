@@ -9,7 +9,7 @@
                     <div class="right_contant dashboard_right">
                         <div class="top_right_content pt-5">
                             <h5 class="main-title">Videos</h5>
-                            <p id="errorMes">Videos</p>
+                            <p id="errorMes"></p>
                             <div class="top_right_content mt-5 border-con">
                                 <h6 style="font-weight: bold;">All Video</h6>
                                 <table class="table-hover table pt-2" id="tabRelode">
@@ -28,46 +28,44 @@
                                             <td><?php echo $key + 1; ?></td>
                                             <td><?php echo $itme->title; ?></td>
                                             <td>
-                                                <a href="#" class="btn btn-primary" title="View"
-                                                   style="padding: 0px 10px;font-size: 18px;"
-                                                   onclick="viewVideo(<?php echo $itme->video_id ?>)"><i
-                                                            class="bi bi-eye-fill"></i></a>
+<!--                                                <a href="#" class="btn btn-primary" title="View" style="padding: 0px 10px;font-size: 18px;" onclick="viewVideo(<?php //echo $itme->video_id ?>)"><i class="bi bi-eye-fill"></i></a>-->
+                                                <a href="<?php echo base_url('Member/Video/view_video/'.$itme->video_id)?>" class="btn btn-primary" title="View" style="padding: 0px 10px;font-size: 18px;" ><i class="bi bi-eye-fill"></i></a>
                                             </td>
                                         </tr>
                                     <?php } } ?>
 
-                                    <script src="http://www.youtube.com/player_api"></script>
-                                    <script>
-                                        var player;
-                                        function onYouTubePlayerAPIReady() {
-                                            player = new YT.Player('player', {
-                                                events: {
-                                                    'onReady': onPlayerReady,
-                                                    'onStateChange': onPlayerStateChange
-                                                }
-                                            });
-                                        }
-                                        function onPlayerReady(event) {
-                                            alert(event.target.getDuration());
-                                            function secondsTimeSpanToHMS(second) {
-                                                var hour = Math.floor(second/3600);
-                                                second -= hour*3600;
-                                                var minute = Math.floor(second/60);
-                                                second -= minute*60;
-                                                alert( hour+":"+(minute < 10 ? '0'+minute : minute)+":"+(second < 10 ? '0'+second : second));
-                                            }
-                                            secondsTimeSpanToHMS(event.target.getDuration());
-                                        }
+<!--                                    <script src="http://www.youtube.com/player_api"></script>-->
+<!--                                    <script>-->
+<!--                                        var player;-->
+<!--                                        function onYouTubePlayerAPIReady() {-->
+<!--                                            player = new YT.Player('player', {-->
+<!--                                                events: {-->
+<!--                                                    'onReady': onPlayerReady,-->
+<!--                                                    'onStateChange': onPlayerStateChange-->
+<!--                                                }-->
+<!--                                            });-->
+<!--                                        }-->
+<!--                                        function onPlayerReady(event) {-->
+<!--                                            alert(event.target.getDuration());-->
+<!--                                            function secondsTimeSpanToHMS(second) {-->
+<!--                                                var hour = Math.floor(second/3600);-->
+<!--                                                second -= hour*3600;-->
+<!--                                                var minute = Math.floor(second/60);-->
+<!--                                                second -= minute*60;-->
+<!--                                                alert( hour+":"+(minute < 10 ? '0'+minute : minute)+":"+(second < 10 ? '0'+second : second));-->
+<!--                                            }-->
+<!--                                            secondsTimeSpanToHMS(event.target.getDuration());-->
+<!--                                        }-->
+<!---->
+<!--                                        function onPlayerStateChange(event) {-->
+<!--                                            if (event.data == YT.PlayerState.ENDED) {-->
+<!--                                                // ('#closeBtn').show();-->
+<!--                                                alert("Complete");-->
+<!--                                            }-->
+<!--                                        }-->
+<!--                                    </script>-->
 
-                                        function onPlayerStateChange(event) {
-                                            if (event.data == YT.PlayerState.ENDED) {
-                                                // ('#closeBtn').show();
-                                                alert("Complete");
-                                            }
-                                        }
-                                    </script>
-
-                                    <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/xU-cPw7Dl8I?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+<!--                                    <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/xU-cPw7Dl8I?enablejsapi=1" frameborder="0" allowfullscreen></iframe>-->
                                     </tbody>
                                 </table>
                             </div>

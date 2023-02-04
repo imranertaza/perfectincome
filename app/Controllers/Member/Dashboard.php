@@ -148,6 +148,7 @@ class Dashboard extends BaseController
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
                 $data['user_id'] = $user_id;
                 $data['memo_number'] = "PI-".rand(10,10000);
+                $data['functionModel'] = $this->functionModel;
                 $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
                 echo view('Front/Client_area/header', $data);
 
