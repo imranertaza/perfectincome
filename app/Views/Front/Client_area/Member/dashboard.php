@@ -98,11 +98,12 @@
                                         </div>
                                     </div>
 
-                                    <?php if ((!empty($row->package_id)) && ($row->status == 'Active')) { ?>
+                                    <?php if ((!empty($row->package_id)) && ($row->status == 'Active')) {
+                                    if($functionModel->modulePermission('video_option') == 1 ) { ?>
                                     <div class="pinlist shadow mt-4">
                                         <a href="<?php print base_url(); ?>/Member/Video" class="videoBtn btn"><i class="bi bi-youtube"></i> Watch Video</a>
                                     </div>
-                                    <?php } ?>
+                                    <?php } } ?>
                                 </div>
                             </div>
 

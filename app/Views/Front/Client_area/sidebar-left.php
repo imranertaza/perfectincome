@@ -78,11 +78,11 @@ $this->functionModel = new \App\Models\FunctionModel();
             $packId = get_id_by_data('package_id','users','ID',new_session()->user_id_client);
             $status = get_id_by_data('status','users','ID',new_session()->user_id_client);
             if ((!empty($packId)) && ($status == 'Active')){
-        ?>
+            if( $this->functionModel->modulePermission('video_option') == 1 ) { ?>
         <li>
             <a href="<?php print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
                 <i class="bi bi-youtube"></i> <span class="ms-1">Watch Video</span></a>
         </li>
-        <?php } ?>
+        <?php } } ?>
     </ul>
 </div>

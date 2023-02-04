@@ -29,6 +29,7 @@ class Dashboard extends BaseController
         if (!isset($clientLogin) || $clientLogin != TRUE) {
             return redirect()->to(site_url("Member_form/login"));
         } else {
+            $data['functionModel'] = $this->functionModel;
             $data['globalSettingsModel'] = $this->globalSettingsModel;
 
             $data['dwn_path'] = base_url() . "/uploads/downloads/";
