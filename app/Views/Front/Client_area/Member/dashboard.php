@@ -21,7 +21,7 @@
 
                             <h5 class="main-title">Dashboard Statement</h5>
                                 <br>
-                                <p class="alert-warning">সম্মানিত গ্রাহক বৃন্দ এখন থেকে এজেন্ট উইথড্র দিতে হবে । উইডথড্র দেওয়ার পূর্বে এজেন্ট এর সাথে যোগাযোগ করে নিবেন । সব সময় আপনার আপলাইন এজেন্টের কাছে উইথড্র দিবেন । উইথড্রো দেওয়ার ১০ মিনিটের মধ্যে টাকা না পেলে আমাদের হোয়াটসঅ্যাপের মাধ্যমে জানাবেন । আমাদের হোয়াটসঅ্যাপ নাম্বার  01609535311</p>
+<!--                                <p class="alert-warning">সম্মানিত গ্রাহক বৃন্দ এখন থেকে এজেন্ট উইথড্র দিতে হবে । উইডথড্র দেওয়ার পূর্বে এজেন্ট এর সাথে যোগাযোগ করে নিবেন । সব সময় আপনার আপলাইন এজেন্টের কাছে উইথড্র দিবেন । উইথড্রো দেওয়ার ১০ মিনিটের মধ্যে টাকা না পেলে আমাদের হোয়াটসঅ্যাপের মাধ্যমে জানাবেন । আমাদের হোয়াটসঅ্যাপ নাম্বার  01609535311</p>-->
                             </div>
                             <?php $message = isset($_SESSION['message']) ? $_SESSION['message'] : 0;
                             if ($message) {
@@ -54,6 +54,7 @@
                                     <div class="pinlist shadow">
                                         <h6 style="font-weight: bold;"><?php print $u_name; ?></h6>
                                         <div class="row pt-3">
+                                            <?php if( $functionModel->modulePermission('point_option') == 1 ) { ?>
                                             <div class="col-lg-2">
                                                 <div class="icon-round" style="background-color: #3afff9;color: #ffffff;">
                                                     <i class="bi bi-crop"></i>
@@ -64,17 +65,19 @@
                                                     Pt.</h6>
                                                 <slmall class="st-font"><?php print (!empty($point))?$point:'0'; ?></slmall>
                                             </div>
-
+                                            <?php }
+                                            if( $functionModel->modulePermission('user_commission') == 1 ) { ?>
                                             <div class="col-lg-2 pt-2">
                                                 <div class="icon-round" style="background-color: #db0013;color: #ffffff;">
                                                     <i class="bi bi-cash"></i>
                                                 </div>
                                             </div>
+
                                             <div class="col-lg-10 pt-2">
                                                 <h6 style="font-weight: bold; margin-bottom: -5px; font-size: 14px;"><?php print Tk_view(number_format(get_field_by_id_from_table('users', 'commission', 'ID', $ID), 2)); ?></h6>
                                                 <slmall class="st-font">Commission</slmall>
                                             </div>
-
+                                            <?php } ?>
                                             <div class="col-lg-2 pt-2">
                                                 <div class="icon-round" style="background-color: #571ae1;color: #ffffff;">
                                                     <i class="bi bi-telephone"></i>
@@ -98,11 +101,12 @@
                                         </div>
                                     </div>
 
-                                    <?php if ((!empty($row->package_id)) && ($row->status == 'Active')) { ?>
+                                    <?php if ((!empty($row->package_id)) && ($row->status == 'Active')) {
+                                    if($functionModel->modulePermission('video_option') == 1 ) { ?>
                                     <div class="pinlist shadow mt-4">
-                                        <a href="<?php print base_url(); ?>/Member/Video" class="videoBtn btn"><i class="bi bi-youtube"></i> Watch Video</a>
+                                        <a href="<?php print base_url(); ?>/Member/Video" class="videoBtn btn"><i class="bi bi-youtube"></i> View Ads</a>
                                     </div>
-                                    <?php } ?>
+                                    <?php } } ?>
                                 </div>
                             </div>
 

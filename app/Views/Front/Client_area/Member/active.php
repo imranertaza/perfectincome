@@ -136,18 +136,20 @@
 
         $("#userActive").submit(function(e) {
             e.preventDefault();
+            alert('OK');
             $("#acBtnAc").attr("disabled", true);
             var dataString = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: "<?php  echo base_url('Member/Dashboard/deposit')?>",
-                data: dataString,
-                success: function (data) {
-                    $('#message').html(data);
-                    $('#hourModal').modal('hide');
-                    $("#acBtnAc").attr("disabled", false);
-                }
-            });
+            //$.ajax({
+            //    type: "POST",
+            //    url: "<?php // echo base_url('Member/Dashboard/deposit')?>//",
+            //    data: dataString,
+            //    success: function (data) {
+            //        $('#message').html(data);
+            //        $('#hourModal').modal('hide');
+            //        $("#acBtnAc").attr("disabled", false);
+            //    }
+            //});
         });
     }
+
 </script>

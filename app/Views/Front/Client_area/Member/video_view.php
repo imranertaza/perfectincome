@@ -18,7 +18,7 @@
 <!--                                <spen id="countTime" style="float: right;">0</spen>-->
                                 <h6 style="font-weight: bold;"><?php echo $videoData->title;?></h6>
                                 <br>
-                                <script src="http://www.youtube.com/player_api"></script>
+                                <script src="https://www.youtube.com/player_api"></script>
                                 <script>
                                     var player;
                                     function onYouTubePlayerAPIReady() {
