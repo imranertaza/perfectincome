@@ -128,28 +128,27 @@
 
 <script>
     function setPackagePrice(setprice,packId){
-
-        // alert(packId);
         $('#hourModal').modal('show');
         $("#amount").val(setprice);
         $("#packId").val(packId);
-
-        $("#userActive").submit(function(e) {
-            e.preventDefault();
-            alert('OK');
-            $("#acBtnAc").attr("disabled", true);
-            var dataString = $(this).serialize();
-            //$.ajax({
-            //    type: "POST",
-            //    url: "<?php // echo base_url('Member/Dashboard/deposit')?>//",
-            //    data: dataString,
-            //    success: function (data) {
-            //        $('#message').html(data);
-            //        $('#hourModal').modal('hide');
-            //        $("#acBtnAc").attr("disabled", false);
-            //    }
-            //});
-        });
     }
+
+    $("#userActive").submit(function(e) {
+        e.preventDefault();
+
+        $("#acBtnAc").attr("disabled", true);
+        var dataString = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "<?php  echo base_url('Member/Dashboard/deposit')?>",
+            data: dataString,
+            success: function (data) {
+                $('#message').html(data);
+                $('#hourModal').modal('hide');
+                $("#acBtnAc").attr("disabled", false);
+            }
+        });
+    });
+
 
 </script>
