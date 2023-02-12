@@ -20,6 +20,7 @@
                                         <th>Action</th>
                                     </tr>
                                     <?php
+                                    $i=0;
                                         foreach ($query as $key => $itme) {
                                         $shown = already_shown($itme->video_id);
                                         if (empty($shown)){
@@ -32,7 +33,7 @@
                                                 <a href="<?php echo base_url('Member/Video/view_video/'.$itme->video_id)?>" class="btn btn-primary" title="View" style="padding: 0px 10px;font-size: 18px;" ><i class="bi bi-eye-fill"></i></a>
                                             </td>
                                         </tr>
-                                    <?php } } ?>
+                                    <?php  $i++; } } if (empty($i)){ print '<tr class="text-center"><td colspan="3">পরবর্তী অ্যাড রাত ১২ টার পর আসবে</td> </tr>';} ?>
 
 <!--                                    <script src="http://www.youtube.com/player_api"></script>-->
 <!--                                    <script>-->

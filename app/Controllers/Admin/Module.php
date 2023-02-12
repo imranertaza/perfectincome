@@ -78,7 +78,7 @@ class Module extends BaseController
         $table = DB()->table('module_settings');
         $table->where('module_id', $id);
 
-        $fildes['title'] = $this->request->getPost('title');
+//        $fildes['title'] = $this->request->getPost('title');
         $fildes['value'] = $this->request->getPost('value');
 
         if ($table->update($fildes)) {

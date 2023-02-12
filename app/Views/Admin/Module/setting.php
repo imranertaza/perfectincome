@@ -17,13 +17,13 @@
                 <div class="col-lg-12">
                         <div class="panel-body no_padding">
                         <form method="post" action="<?php echo base_url('Admin/Module/update_setting')?>">
-                            <div class="form-group col-lg-8">
-                                <label>Title</label>
-                                <input class="form-control" name="title" value="<?php print $setting->title; ?>">
-                                <p class="help-block">Please keep the title here</p>
-                            </div>
+<!--                            <div class="form-group col-lg-8">-->
+<!--                                <label>Title</label>-->
+<!--                                <input class="form-control" name="title" value="--><?php //print $setting->title; ?><!--">-->
+<!--                                <p class="help-block">Please keep the title here</p>-->
+<!--                            </div>-->
                             <div class="form-group col-lg-12">
-                                <label>Value</label>
+                                <label class="text-capitalize"><?php print str_replace('_',' ',$setting->title); ?></label>
                                 <input class="form-control" name="value" value="<?php print $setting->value; ?>">
                                 <p class="help-block">The description you want to show into the page</p>
                             </div>

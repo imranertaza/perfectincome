@@ -158,8 +158,8 @@ class Profile extends BaseController
     public function account_action(){
 
         $id = $this->session->user_id_client;
-        $data['username'] = $this->request->getPost('uname');
-        $data['email'] = $this->request->getPost('email');
+//        $data['username'] = $this->request->getPost('uname');
+//        $data['email'] = $this->request->getPost('email');
         $pass = $this->request->getPost('pass');
         if (!empty($pass)) {
             $data['password'] = md5($pass);

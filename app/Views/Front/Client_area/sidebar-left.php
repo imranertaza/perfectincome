@@ -27,7 +27,7 @@ $this->functionModel = new \App\Models\FunctionModel();
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/tree" class="nav-link px-0 align-middle">
-                <i class="bi bi-diagram-3-fill"></i> <span class="ms-1">My Team</span></a>
+                <i class="bi bi-collection"></i> <span class="ms-1">My Team</span></a>
         </li>
 <!--        <li>-->
 <!--            <a href="--><?php //print base_url(); ?><!--/Member/General/pin_generate" class="nav-link px-0 align-middle">-->
@@ -35,7 +35,7 @@ $this->functionModel = new \App\Models\FunctionModel();
 <!--        </li>-->
         <li>
             <a href="<?php print base_url(); ?>/Member/profile" class="nav-link px-0 align-middle">
-                <i class="bi bi-person-fill"></i> <span class="ms-1">Profile</span></a>
+                <i class="bi bi-people-fill"></i> <span class="ms-1">Profile</span></a>
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/profile/profile_update" class="nav-link px-0 align-middle">
@@ -43,11 +43,11 @@ $this->functionModel = new \App\Models\FunctionModel();
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/referrals" class="nav-link px-0 align-middle">
-                <i class="bi bi-link-45deg"></i> <span class="ms-1">Referral</span></a>
+                <i class="bi bi-journal-album"></i> <span class="ms-1">Referral</span></a>
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/withdraw" class="nav-link px-0 align-middle">
-                <i class="bi bi-layer-forward"></i> <span class="ms-1">Cashout</span></a>
+                <i class="bi bi-sd-card-fill"></i> <span class="ms-1">Cashout</span></a>
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/withdraw_report" class="nav-link px-0 align-middle">
@@ -56,22 +56,22 @@ $this->functionModel = new \App\Models\FunctionModel();
         <?php if( $this->functionModel->modulePermission('agent_option') == 1 ) { ?>
         <li>
             <a href="<?php print base_url(); ?>/Member/WithdrawbyAgent" class="nav-link px-0 align-middle">
-                <i class="bi bi-layer-forward"></i> <span class="ms-1">Withdraw by Agent</span></a>
+                <i class="bi bi-card-image"></i> <span class="ms-1">Withdraw by Agent</span></a>
         </li>
 
         <li>
             <a href="<?php print base_url(); ?>/Member/WithdrawbyAgent/list" class="nav-link px-0 align-middle">
-                <i class="bi bi-layer-forward"></i> <span class="ms-1">Agent Withdraw List</span></a>
+                <i class="bi bi-card-checklist"></i> <span class="ms-1">Agent Withdraw List</span></a>
         </li>
         <?php } ?>
 
         <li>
             <a href="<?php print base_url(); ?>/Member/general/matching_report" class="nav-link px-0 align-middle">
-                <i class="bi bi-subtract"></i> <span class="ms-1">Matching Report</span></a>
+                <i class="bi bi-bar-chart"></i> <span class="ms-1">Matching Report</span></a>
         </li>
         <li>
             <a href="<?php print base_url(); ?>/Member/general/sponser_report" class="nav-link px-0 align-middle">
-                <i class="bi bi-pip-fill"></i> <span class="ms-1">Sponsor Report</span></a>
+                <i class="bi bi-bar-chart-fill"></i> <span class="ms-1">Sponsor Report</span></a>
         </li>
         <?php
             $packId = get_id_by_data('package_id','users','ID',new_session()->user_id_client);
