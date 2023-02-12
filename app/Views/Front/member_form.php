@@ -35,9 +35,11 @@
                             <div class="col-lg-12">
                                 <input type="submit" name="login" class="btn btn-submit" value="Login">
                             </div>
+                            <?php if( $functionModel->modulePermission('agent_option') == 1 ) { ?>
                             <div class="col-lg-12" style="margin-top: 15px;text-align: center; font-size: 14px">
                                 Agent member? <a href="<?php echo base_url('Agent/Login')?>" style="color: #189937;">login here</a>
                             </div>
+                            <?php } ?>
                         </div>
                     </form>
                 </div>

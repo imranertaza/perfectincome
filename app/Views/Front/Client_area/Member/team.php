@@ -45,7 +45,7 @@
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
-                                        <td colspan="2" align="center"> <a class="parent" href="<?php print base_url(); ?>/member/general/team/<?php print $u_id; ?>"> <?php print view_user_image($u_id, 90, 90); ?><br>
+                                        <td colspan="2" align="center"> <a class="parent" href="<?php print base_url(); ?>/member/general/tree/<?php print $u_id; ?>"> <?php print view_user_image($u_id, 90, 90); ?><br>
                                                 <?php print get_username_byID($u_id);
                                                 $p_left = get_hand_byID($u_id, 'l_t');
                                                 $p_right = get_hand_byID($u_id, 'r_t');
@@ -63,7 +63,7 @@
 
                                     <tr>
 
-                                        <td colspan="6" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/team/<?php print $p_left; ?>"> <?php print view_user_image($p_left, 90, 90); ?><br>
+                                        <td colspan="6" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_left; ?>"> <?php print view_user_image($p_left, 90, 90); ?><br>
                                                 <?php
                                                 print get_username_byID($p_left);
                                                 $p_l_left = get_hand_byID($p_left, 'l_t');
@@ -72,7 +72,7 @@
                                             </a></td>
 
 
-                                        <td colspan="6" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/team/<?php print $p_right; ?>"> <?php print view_user_image($p_right, 90, 90); ?><br>
+                                        <td colspan="6" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_right; ?>"> <?php print view_user_image($p_right, 90, 90); ?><br>
                                                 <?php
                                                 print get_username_byID($p_right);
                                                 $p_r_left = get_hand_byID($p_right, 'l_t');
@@ -89,7 +89,7 @@
                                     </tr>
 
                                     <tr>
-                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/team/<?php print $p_l_left; ?>"> <?php print view_user_image_leve2($p_l_left, 90, 90); ?><br>
+                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_l_left; ?>"> <?php print view_user_image_leve2($p_l_left, 90, 90); ?><br>
                                                 <?php
                                                 print get_username_byID($p_l_left);
                                                 $p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -97,7 +97,7 @@
                                                 ?>
                                             </a></td>
 
-                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/team/<?php print $p_l_right; ?>"> <?php print view_user_image_leve2($p_l_right, 90, 90); ?><br>
+                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_l_right; ?>"> <?php print view_user_image_leve2($p_l_right, 90, 90); ?><br>
                                                 <?php
                                                 print get_username_byID($p_l_right);
                                                 $p_l_r_left = get_hand_byID($p_l_right, 'l_t');
@@ -105,7 +105,7 @@
                                                 ?>
                                             </a></td>
 
-                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/team/<?php print $p_r_left; ?>"> <?php print view_user_image_leve2($p_r_left, 90, 90); ?><br>
+                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_r_left; ?>"> <?php print view_user_image_leve2($p_r_left, 90, 90); ?><br>
                                                 <?php
                                                 print get_username_byID($p_r_left);
                                                 $p_r_l_left = get_hand_byID($p_r_left, 'l_t');
@@ -113,7 +113,7 @@
                                                 ?>
                                             </a></td>
 
-                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/team/<?php print $p_r_right; ?>"> <?php print view_user_image_leve2($p_r_right, 90, 90); ?><br>
+                                        <td colspan="3" style="text-align: center;"><a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_r_right; ?>"> <?php print view_user_image_leve2($p_r_right, 90, 90); ?><br>
                                                 <?php
                                                 print get_username_byID($p_r_right);
                                                 $p_r_r_left = get_hand_byID($p_r_right, 'l_t');
@@ -142,7 +142,7 @@
 
                                     <tr>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_l_l_left; ?>/"> <?php print view_user_image_leve3($p_l_l_left, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_l_l_left; ?>/"> <?php print view_user_image_leve3($p_l_l_left, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_l_l_left);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -151,7 +151,7 @@
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_l_l_right; ?>/"> <?php print view_user_image_leve3($p_l_l_right, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_l_l_right; ?>/"> <?php print view_user_image_leve3($p_l_l_right, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_l_l_right);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -160,7 +160,7 @@
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_l_r_left; ?>/"> <?php print view_user_image_leve3($p_l_r_left, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_l_r_left; ?>/"> <?php print view_user_image_leve3($p_l_r_left, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_l_r_left);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -170,7 +170,7 @@
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_l_r_right; ?>/"> <?php print view_user_image_leve3($p_l_r_right, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_l_r_right; ?>/"> <?php print view_user_image_leve3($p_l_r_right, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_l_r_right);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -179,7 +179,7 @@
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_r_l_left; ?>/"> <?php print view_user_image_leve3($p_r_l_left, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_r_l_left; ?>/"> <?php print view_user_image_leve3($p_r_l_left, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_r_l_left);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -189,7 +189,7 @@
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_r_l_right; ?>/"> <?php print view_user_image_leve3($p_r_l_right, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_r_l_right; ?>/"> <?php print view_user_image_leve3($p_r_l_right, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_r_l_right);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -198,7 +198,7 @@
                                             </a>
                                         </td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_r_r_left; ?>/"> <?php print view_user_image_leve3($p_r_r_left, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_r_r_left; ?>/"> <?php print view_user_image_leve3($p_r_r_left, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_r_r_left);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');
@@ -208,7 +208,7 @@
                                         </td>
                                         <td>&nbsp;</td>
                                         <td style="text-align: center;">
-                                            <a href="<?php print base_url(); ?>/member/general/team/<?php print $p_r_r_right; ?>/"> <?php print view_user_image_leve3($p_r_r_right, 90, 90); ?>
+                                            <a href="<?php print base_url(); ?>/member/general/tree/<?php print $p_r_r_right; ?>/"> <?php print view_user_image_leve3($p_r_r_right, 90, 90); ?>
                                                 <?php
                                                 print get_username_byID($p_r_r_right);
                                                 //$p_l_l_left = get_hand_byID($p_l_left, 'l_t');

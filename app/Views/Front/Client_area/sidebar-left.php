@@ -6,7 +6,6 @@ $this->functionModel = new \App\Models\FunctionModel();
 <div class="sidebar">
     <div class="user-info text-center">
         <?php $photo = get_field_by_id_from_table('users', 'photo', 'ID', $ID);?>
-<!--        <img src="assets/img/offer1.png" class="img-fluid" alt="">-->
         <?php print view_user_image($ID, 90, 90); ?>
         <h3>Profile</h3>
         <p>User Name: <?php print $u_name; ?><br>Full Name: <?php print $f_name; ?></p>
@@ -81,7 +80,7 @@ $this->functionModel = new \App\Models\FunctionModel();
             if( $this->functionModel->modulePermission('video_option') == 1 ) { ?>
         <li>
             <a href="<?php print base_url(); ?>/Member/Video" class="nav-link px-0 align-middle">
-                <i class="bi bi-youtube"></i> <span class="ms-1">Watch Video</span></a>
+                <i class="bi bi-youtube"></i> <span class="ms-1">View Ads</span></a>
         </li>
         <?php } } ?>
     </ul>

@@ -178,6 +178,7 @@ class Member_form extends BaseController
 
         $data['footer_widget2_title'] = $this->functionModel->show_widget('title', 9);
         $data['footer_widget2_description'] = $this->functionModel->show_widget('description', 9);
+        $data['functionModel'] = $this->functionModel;
 
         $clientLogin = $this->session->isLoggedInClient;
         if (isset($clientLogin) || $clientLogin == TRUE) {
