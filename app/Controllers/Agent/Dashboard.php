@@ -88,10 +88,10 @@ class Dashboard extends BaseController
             $data['user_id'] = $user_id;
 
 
-            $data['sidebar_left'] = view('Front/Client_area/agent_sidebar_left', $data);
-            echo view('Front/Client_area/header', $data);
-            echo view('Front/Client_area/Agent/dashboard', $data);
-            echo view('Front/Client_area/footer', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/agent_sidebar_left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Agent/dashboard', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         } else {
             return redirect()->to(site_url("Agent/Login"));
         }

@@ -75,10 +75,10 @@ class Deposit extends BaseController
                 $sqlTre = $tree->where('status', '1')->get();
                 $data['query'] = $sqlTre->getResult();
 
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
-                echo view('Front/Client_area/Member/video_list', $data);
-                echo view('Front/Client_area/footer', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/video_list', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
 
 
@@ -174,10 +174,10 @@ class Deposit extends BaseController
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
                 $data['user_id'] = $user_id;
 
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
-                echo view('Front/Client_area/Member/payment', $data);
-                echo view('Front/Client_area/footer', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/payment', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
         }
     }
@@ -311,10 +311,10 @@ class Deposit extends BaseController
                 $sqlTre = $tree->where('status', '1')->get();
                 $data['query'] = $sqlTre->getResult();
 
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
-                echo view('Front/Client_area/Member/no_payment', $data);
-                echo view('Front/Client_area/footer', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/no_payment', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
         }
     }

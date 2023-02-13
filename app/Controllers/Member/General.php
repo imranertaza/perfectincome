@@ -67,8 +67,8 @@ class General extends BaseController
                 $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
                 $data['user_id'] = $user_id;
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
                 $user = DB()->table('users');
                 $sqlUs = $user->where('ID', $user_id)->get();
@@ -78,8 +78,8 @@ class General extends BaseController
                 $sqlTre = $tree->where('ref_id', $user_id)->get();
                 $data['query'] = $sqlTre->getResult();
 
-                echo view('Front/Client_area/Member/dashboard', $data);
-                echo view('Front/Client_area/footer', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/dashboard', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
 
 
@@ -149,11 +149,11 @@ class General extends BaseController
 
             $data['min_matching_com'] = get_field_by_id_from_table("global_settings", "value", "title", "min_matching_point");
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
 
-            echo view('Front/Client_area/header', $data);
-            echo view('Front/Client_area/Member/team', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/team', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
 
         }
 
@@ -205,14 +205,14 @@ class General extends BaseController
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id2);
             $data['user_id'] = $user_id;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
             $tree = DB()->table('tree');
             $data['query'] = $tree->where('spon_id', $user_id2)->get()->getResult();
 
-            echo view('Front/Client_area/Member/referrals', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/referrals', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 
@@ -263,8 +263,8 @@ class General extends BaseController
             $data['user_id'] = $user_id;
             $data['session'] = $this->session;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
 
             //query nagad transection list for this user
@@ -279,8 +279,8 @@ class General extends BaseController
             $tree = DB()->table('tree');
             $data['query'] = $tree->where('ref_id', $user_id2)->get()->getResult();
 
-            echo view('Front/Client_area/Member/withdraw_money', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/withdraw_money', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 
@@ -471,15 +471,15 @@ class General extends BaseController
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id2);
             $data['user_id'] = $user_id;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
             $withw = DB()->table('history_withdraw_pm');
             $data['with_match'] = $withw->where('receiver_id', $user_id2)->get()->getResult();
 //            print DB()->getLastQuery();
 
-            echo view('Front/Client_area/Member/withdraw_report', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/withdraw_report', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 
@@ -530,8 +530,8 @@ class General extends BaseController
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id2);
             $data['user_id'] = $user_id;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
             $comm_matching = DB()->table('comm_matching');
             $comm_matching->where('u_id', $user_id2)->get()->getResult();
@@ -544,8 +544,8 @@ class General extends BaseController
             $data['total_matching_amount'] = $commsum->selectSum('amount')->where('u_id', $user_id2)->get();
 
 
-            echo view('Front/Client_area/Member/matching_report', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/matching_report', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 
@@ -595,15 +595,15 @@ class General extends BaseController
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id2);
             $data['user_id'] = $user_id;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
             $comm_spot = DB()->table('comm_spot');
             $data['querya'] = $comm_spot->where('u_id', $user_id2)->get()->getResult();
 
 
-            echo view('Front/Client_area/Member/sponser_report', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/sponser_report', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 

@@ -89,10 +89,10 @@ class Dashboard extends BaseController
                     $data['acDepoStatus'] = 0;
                 }
 
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
-                echo view('Front/Client_area/Member/dashboard', $data);
-                echo view('Front/Client_area/footer', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/dashboard', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
 
 
@@ -150,11 +150,11 @@ class Dashboard extends BaseController
                 $data['user_id'] = $user_id;
                 $data['memo_number'] = "PI-".rand(10,10000);
                 $data['functionModel'] = $this->functionModel;
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
-                echo view('Front/Client_area/Member/active', $data);
-                echo view('Front/Client_area/footer', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/active', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
 
 

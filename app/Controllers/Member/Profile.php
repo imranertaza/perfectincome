@@ -65,15 +65,15 @@ class Profile extends BaseController
             $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
             $data['user_id'] = $user_id;
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
             $user = DB()->table('users');
             $query = $user->where('ID',$user_id)->get();
             $data['row'] = $query->getRow();
 
-            echo view('Front/Client_area/Member/profile', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/profile', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
 
 
         }
@@ -122,16 +122,16 @@ class Profile extends BaseController
             $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
             $data['user_id'] = $user_id;
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
             $user = DB()->table('users');
             $query = $user->where('ID',$user_id)->get();
             $data['row'] = $query->getRow();
             $data['user'] = $query->getResult();
 
-            echo view('Front/Client_area/Member/update', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/update', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
 
 
         }

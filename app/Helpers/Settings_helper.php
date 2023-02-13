@@ -977,3 +977,20 @@ function check_module_by_id($module_id)
 
 //    print $query;
 }
+
+function selected_theme(){
+    $table = DB()->table('global_settings');
+    $query = $table->where('title','theme')->get()->getRow();
+    return $query->value;
+}
+
+function available_theme($sel=''){
+    helper('filesystem');
+    $file = get_dir_file_info(FCPATH.'../app/Views/Theme');
+    $view = '';
+    foreach ($file as $key => $val){
+        $s = ($key == $sel)?"selected":"";
+        $view .= '<option value="'.$key.'" '.$s.' >'.$key.'</option>';
+    }
+    return $view;
+}

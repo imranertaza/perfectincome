@@ -285,6 +285,9 @@ $this->functionModel = new \App\Models\FunctionModel();
                             <a href="<?php echo base_url(); ?>/Admin/General_settings/gallery">Gallery</a>
                         </li>
                     <?php } ?>
+                    <li>
+                        <a href="<?php echo base_url(); ?>/Admin/Theme_settings">Theme</a>
+                    </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>

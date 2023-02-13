@@ -59,7 +59,7 @@ class Details extends BaseController
         } else {
             $data['list_slider'] = 'No Slider Added';
         }
-        $data['slider'] = view('Front/slider', $data);
+        $data['slider'] = view('Theme/'.selected_theme().'/Front/slider', $data);
 
         $pack = DB()->table('package');
         $packag = $pack->get();
@@ -69,9 +69,9 @@ class Details extends BaseController
         $data['check_user'] = '';
         $data['log_url'] = 'member_form/login';
         $data['log_title'] = 'Login';
-        $data['sidebar_left'] = view('Front/sidebar-left', $data);
-        echo view('Front/header', $data);
-        echo view('Front/page', $data);
-        echo view('Front/footer', $data);
+        $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/sidebar-left', $data);
+        echo view('Theme/'.selected_theme().'/Front/header', $data);
+        echo view('Theme/'.selected_theme().'/Front/page', $data);
+        echo view('Theme/'.selected_theme().'/Front/footer', $data);
     }
 }
