@@ -227,8 +227,8 @@ class Dashboard extends BaseController
 
         //All Users Perent_point will be increased And matching
         $min_matching_point = get_field_by_id_from_table("global_settings", "value", "title", "min_matching_point");
-//        $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
-        $matching_commission = get_field_by_id_from_table("package", "matching_commission", "package_id", $packageId);
+        $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
+//        $matching_commission = get_field_by_id_from_table("package", "matching_commission", "package_id", $packageId);
         $point = get_id_by_data('point', 'package', 'package_id', $packageId);
         $per_day_matching = get_field_by_id_from_table("global_settings", "value", "title", "per_day_matching");
 
@@ -503,8 +503,8 @@ class Dashboard extends BaseController
 
             //All Users Perent_point will be increased And matching
             $min_matching_point = get_field_by_id_from_table("global_settings", "value", "title", "min_matching_point");
-//            $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
-            $matching_commission = get_id_by_data('matching_commission', 'package', 'package_id', $packageId);
+            $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
+//            $matching_commission = get_id_by_data('matching_commission', 'package', 'package_id', $packageId);
             $point = get_id_by_data('point', 'package', 'package_id', $packageId);
             $per_day_matching = get_field_by_id_from_table("global_settings", "value", "title", "per_day_matching");
 

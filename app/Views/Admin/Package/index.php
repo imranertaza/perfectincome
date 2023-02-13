@@ -25,7 +25,7 @@
                             <th>Package Name</th>
                             <th>Price</th>
                             <th>Sponsor Commission</th>
-                            <th>Matching Commission</th>
+<!--                            <th>Matching Commission</th>-->
                             <th>Point</th>
                             <th>Total Pin Generated Number</th>
                             <th>Video Commission</th>
@@ -38,7 +38,7 @@
                                 <td><?php echo $item->package_name;?></td>
                                 <td><?php echo $item->price;?></td>
                                 <td><?php echo $item->sponsor_commission;?></td>
-                                <td><?php echo $item->matching_commission;?></td>
+<!--                                <td>--><?php //echo $item->matching_commission;?><!--</td>-->
                                 <td><?php echo $item->point;?></td>
                                 <td><?php echo $item->total_pin_generated_number;?></td>
                                 <td><?php echo $item->video_watch_earning;?></td>

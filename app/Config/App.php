@@ -26,7 +26,7 @@ class App extends BaseConfig
 
     // public $baseURL = 'http://localhost/perfect_income/public_html/';
 
-   public $baseURL = 'http://test.dns/perfect_latest/public_html/';
+   public $baseURL = 'http://perfectincome.dns/';
 
 
     /**
