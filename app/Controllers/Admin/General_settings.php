@@ -50,6 +50,7 @@ class General_settings extends BaseController
         $title['gen_email'] = $this->request->getPost('gen_email');
         $title['form_email'] = $this->request->getPost('form_email');
         $title['contact_email'] = $this->request->getPost('contact_email');
+        $title['matching_commission'] = $this->request->getPost('matching_commission');
         $title['per_day_matching'] = $this->request->getPost('per_day_matching');
         $title['min_matching_point'] = $this->request->getPost('min_matching_point');
         $title['PM_ID'] = $this->request->getPost('PM_ID');

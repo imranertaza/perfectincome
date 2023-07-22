@@ -32,7 +32,8 @@
                                 <label>Contact page email</label>
                                 <input type="text" name="contact_email" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'contact_email'); ?>" /><br />
 
-
+                                <label>Matching Commission</label>
+                                <input type="text" name="matching_commission" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'matching_commission'); ?>" /><br />
 
                                 <label>Perday matching</label>
                                 <input type="text" name="per_day_matching" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'per_day_matching'); ?>" /><br />
