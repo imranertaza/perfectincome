@@ -28,9 +28,9 @@
                                     <p class="help-block">Video title</p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Video Url</label>
+                                    <label>Video Code</label>
                                     <input class="form-control" name="vi_url" required>
-                                    <p class="help-block">Video url embed code</p>
+                                    <p class="help-block">Video code</p>
                                 </div>
 
                                 <div class="form-group">

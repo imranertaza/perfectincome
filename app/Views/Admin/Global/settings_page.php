@@ -32,7 +32,8 @@
                                 <label>Contact page email</label>
                                 <input type="text" name="contact_email" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'contact_email'); ?>" /><br />
 
-
+                                <label>Matching Commission</label>
+                                <input type="text" name="matching_commission" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'matching_commission'); ?>" /><br />
 
                                 <label>Perday matching</label>
                                 <input type="text" name="per_day_matching" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'per_day_matching'); ?>" /><br />
@@ -49,19 +50,31 @@
                                 <label>Perday video watch earning</label>
                                 <input type="text" name="per_day_video_watch_earning" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'per_day_video_watch_earning'); ?>" /><br />
 
-                                <label>Max Withdraw PerDay</label>
+                                <label>Max Withdraw PerDay (Member)</label>
                                 <input type="text" name="maxWithdrawPerDay" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'maxWithdrawPerDay'); ?>" /><br />
 
-                                <label>Min Withdraw PerTime</label>
+                                <label>Min Withdraw PerTime (Member)</label>
                                 <input type="text" name="minWithdrawPerTime" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'minWithdrawPerTime'); ?>" /><br />
 
 
 
-                                <label>Max Withdraw PerTime</label>
+                                <label>Max Withdraw PerTime (Member)</label>
                                 <input type="text" name="maxWithdrawPerTime" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'maxWithdrawPerTime'); ?>" /><br />
 
                                 <label>User expiry day</label>
                                 <input type="text" name="user_expiry_day" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'user_expiry_day'); ?>" /><br />
+
+
+                                <label>Max Withdraw PerDay (Agent)</label>
+                                <input type="text" name="maxWithdrawPerDayAgent" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'maxWithdrawPerDayAgent'); ?>" /><br />
+
+                                <label>Min Withdraw PerTime (Agent)</label>
+                                <input type="text" name="minWithdrawPerTimeAgent" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'minWithdrawPerTimeAgent'); ?>" /><br />
+
+
+
+                                <label>Max Withdraw PerTime (Agent)</label>
+                                <input type="text" name="maxWithdrawPerTimeAgent" class="form-control" value="<?php print $globalSettings->get_each_setting_value($key = 'maxWithdrawPerTimeAgent'); ?>" /><br />
 
                                 
                                 <input type="submit" name="save_settings" class="btn btn-default btn btn-primary" value="Save Settings" />

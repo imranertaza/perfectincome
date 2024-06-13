@@ -29,6 +29,7 @@ class Dashboard extends BaseController
         if (!isset($clientLogin) || $clientLogin != TRUE) {
             return redirect()->to(site_url("Member_form/login"));
         } else {
+            $data['functionModel'] = $this->functionModel;
             $data['globalSettingsModel'] = $this->globalSettingsModel;
 
             $data['dwn_path'] = base_url() . "/uploads/downloads/";
@@ -88,10 +89,10 @@ class Dashboard extends BaseController
                     $data['acDepoStatus'] = 0;
                 }
 
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
-                echo view('Front/Client_area/Member/dashboard', $data);
-                echo view('Front/Client_area/footer', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/dashboard', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
 
 
@@ -148,11 +149,12 @@ class Dashboard extends BaseController
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
                 $data['user_id'] = $user_id;
                 $data['memo_number'] = "PI-".rand(10,10000);
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
+                $data['functionModel'] = $this->functionModel;
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
-                echo view('Front/Client_area/Member/active', $data);
-                echo view('Front/Client_area/footer', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/active', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
 
 
@@ -226,6 +228,7 @@ class Dashboard extends BaseController
         //All Users Perent_point will be increased And matching
         $min_matching_point = get_field_by_id_from_table("global_settings", "value", "title", "min_matching_point");
         $matching_commission = get_field_by_id_from_table("global_settings", "value", "title", "matching_commission");
+//        $matching_commission = get_field_by_id_from_table("package", "matching_commission", "package_id", $packageId);
         $point = get_id_by_data('point', 'package', 'package_id', $packageId);
         $per_day_matching = get_field_by_id_from_table("global_settings", "value", "title", "per_day_matching");
 

@@ -585,10 +585,10 @@ function view_user_image($user_id, $w, $h)
     }
 
     if (!empty($user_info[0]->photo)) {
-        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/' . $user_info[0]->photo . ' &amp;w=' . $w . '&amp;h=' . $h . '&amp;zc=1" class=" level" style="border:1px solid;" />';
+        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/' . $user_info[0]->photo . ' &w=' . $w . '&h=' . $h . '&zc=1" class=" level" style="border:1px solid;" />';
 
     } else {
-        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/images.png&amp;w=' . $w . '&amp;h=' . $h . '&amp;zc=1" class=" level" style="border:1px solid;" />';
+        return '<img ' . $style . ' src="' . base_url() . '/assets/timthumb.php?src=' . base_url() . '/uploads/user_image/thumb.png&w=' . $w . '&h=' . $h . '&zc=1" class=" level" style="border:1px solid;" />';
     }
 
 }
@@ -963,4 +963,34 @@ function encrypt_decrypt($string, $action = 'encrypt')
         $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
     }
     return $output;
+}
+
+function check_module_by_id($module_id)
+{
+    $tableName = DB()->table('module_settings');
+    $query = $tableName->where('module_id', $module_id)->countAllResults();
+    if ($query > 0) {
+        return true;
+    } else {
+        return false;
+    }
+
+//    print $query;
+}
+
+function selected_theme(){
+    $table = DB()->table('global_settings');
+    $query = $table->where('title','theme')->get()->getRow();
+    return $query->value;
+}
+
+function available_theme($sel=''){
+    helper('filesystem');
+    $file = get_dir_file_info(FCPATH.'../app/Views/Theme');
+    $view = '';
+    foreach ($file as $key => $val){
+        $s = ($key == $sel)?"selected":"";
+        $view .= '<option value="'.$key.'" '.$s.' >'.$key.'</option>';
+    }
+    return $view;
 }

@@ -32,11 +32,11 @@
                                     <input class="form-control" name="sponsor_commission" value="<?php echo $package->sponsor_commission; ?>" required>
                                     <p class="help-block help_text">Please put the Sponsor Commission here.</p>
                                 </div>
-                                <div class="col-lg-6">
-                                    <label>Matching Commission</label>
-                                    <input class="form-control" name="matching_commission" value="<?php echo $package->matching_commission; ?>" required>
-                                    <p class="help-block help_text">Please put the Matching Commission here.</p>
-                                </div>
+<!--                                <div class="col-lg-6">-->
+<!--                                    <label>Matching Commission</label>-->
+<!--                                    <input class="form-control" name="matching_commission" value="--><?php //echo $package->matching_commission; ?><!--" required>-->
+<!--                                    <p class="help-block help_text">Please put the Matching Commission here.</p>-->
+<!--                                </div>-->
                                 <div class="col-lg-6">
                                     <label>Point</label>
                                     <input class="form-control" name="point" value="<?php echo $package->point; ?>" required>
@@ -46,6 +46,10 @@
                                     <label>Video Commission</label>
                                     <input class="form-control" name="video_watch_earning" value="<?php echo $package->video_watch_earning; ?>" required>
                                     <p class="help-block help_text">Please put the video commission here.</p>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label>Description</label>
+                                    <textarea name="description" id="ckeditor" class="ckeditor"><?php echo $package->description; ?></textarea>
                                 </div>
                                 <div class="col-lg-12">
                                     <br>

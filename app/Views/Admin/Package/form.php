@@ -31,11 +31,11 @@
                                     <input class="form-control" name="sponsor_commission" required>
                                     <p class="help-block help_text">Please put the Sponsor Commission here.</p>
                                 </div>
-                                <div class="col-lg-6">
-                                    <label>Matching Commission</label>
-                                    <input class="form-control" name="matching_commission" required>
-                                    <p class="help-block help_text">Please put the Matching Commission here.</p>
-                                </div>
+<!--                                <div class="col-lg-6">-->
+<!--                                    <label>Matching Commission</label>-->
+<!--                                    <input class="form-control" name="matching_commission" required>-->
+<!--                                    <p class="help-block help_text">Please put the Matching Commission here.</p>-->
+<!--                                </div>-->
                                 <div class="col-lg-6">
                                     <label>Point</label>
                                     <input class="form-control" name="point" required>
@@ -46,6 +46,10 @@
                                     <label>Video Commission</label>
                                     <input class="form-control" name="video_watch_earning" required>
                                     <p class="help-block help_text">Please put the video commission here.</p>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label>Description</label>
+                                    <textarea name="description" id="ckeditor" class="ckeditor"></textarea>
                                 </div>
 
                                 <div class="col-lg-12">

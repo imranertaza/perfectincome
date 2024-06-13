@@ -56,10 +56,10 @@ class Member_form extends BaseController
             $data['check_user'] = '';
             $data['log_url'] = 'member_form/login';
             $data['log_title'] = 'Login';
-            $data['sidebar_left'] = view('Front/sidebar-left', $data);
-            echo view('Front/header', $data);
-            echo view('Front/register', $data);
-            echo view('Front/footer', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/header', $data);
+            echo view('Theme/'.selected_theme().'/Front/register', $data);
+            echo view('Theme/'.selected_theme().'/Front/footer', $data);
         }
 
 
@@ -178,6 +178,7 @@ class Member_form extends BaseController
 
         $data['footer_widget2_title'] = $this->functionModel->show_widget('title', 9);
         $data['footer_widget2_description'] = $this->functionModel->show_widget('description', 9);
+        $data['functionModel'] = $this->functionModel;
 
         $clientLogin = $this->session->isLoggedInClient;
         if (isset($clientLogin) || $clientLogin == TRUE) {
@@ -185,10 +186,10 @@ class Member_form extends BaseController
         } else {
             $data['log_url'] = 'member_form/login';
             $data['log_title'] = 'Login';
-            $data['sidebar_left'] = view('Front/sidebar-left', $data);
-            echo view('Front/header', $data);
-            echo view('Front/member_form', $data);
-            echo view('Front/footer', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/header', $data);
+            echo view('Theme/'.selected_theme().'/Front/member_form', $data);
+            echo view('Theme/'.selected_theme().'/Front/footer', $data);
         }
 
     }

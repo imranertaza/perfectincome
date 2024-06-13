@@ -68,8 +68,8 @@ class WithdrawbyAgent extends BaseController
                 $data['point'] = get_field_by_id_from_table('users', 'point', 'ID', $user_id);
                 $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id);
                 $data['user_id'] = $user_id;
-                $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-                echo view('Front/Client_area/header', $data);
+                $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
                 $user = DB()->table('users');
                 $sqlUs = $user->where('ID', $user_id)->get();
@@ -79,8 +79,8 @@ class WithdrawbyAgent extends BaseController
                 $sqlTre = $tree->where('ref_id', $user_id)->get();
                 $data['query'] = $sqlTre->getResult();
 
-                echo view('Front/Client_area/Member/withdrawbyAgent', $data);
-                echo view('Front/Client_area/footer', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/Member/withdrawbyAgent', $data);
+                echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
             }
 
 
@@ -224,8 +224,8 @@ class WithdrawbyAgent extends BaseController
             $data['user_id'] = $this->session->user_id_client;
             $data['session'] = $this->session;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
 
             //query nagad transection list for this user
@@ -233,8 +233,8 @@ class WithdrawbyAgent extends BaseController
             $data['query'] = $withwpm->where('sender_id', $user_id2)->get()->getResult();
 
 
-            echo view('Front/Client_area/Member/withdrawbyAgentList', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/withdrawbyAgentList', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 
@@ -301,11 +301,11 @@ class WithdrawbyAgent extends BaseController
 
             $data['min_matching_com'] = get_field_by_id_from_table("global_settings", "value", "title", "min_matching_point");
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
 
-            echo view('Front/Client_area/header', $data);
-            echo view('Front/Client_area/Member/tree', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/tree', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
 
         }
 
@@ -357,14 +357,14 @@ class WithdrawbyAgent extends BaseController
             $data['role'] = get_field_by_id_from_table('user_roles', 'roleID', 'userID', $user_id2);
             $data['user_id'] = $user_id;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
             $tree = DB()->table('tree');
             $data['query'] = $tree->where('spon_id', $user_id2)->get()->getResult();
 
-            echo view('Front/Client_area/Member/referrals', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/referrals', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 
@@ -415,8 +415,8 @@ class WithdrawbyAgent extends BaseController
             $data['user_id'] = $user_id;
             $data['session'] = $this->session;
 
-            $data['sidebar_left'] = view('Front/Client_area/sidebar-left', $data);
-            echo view('Front/Client_area/header', $data);
+            $data['sidebar_left'] = view('Theme/'.selected_theme().'/Front/Client_area/sidebar-left', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/header', $data);
 
 
             //query nagad transection list for this user
@@ -431,8 +431,8 @@ class WithdrawbyAgent extends BaseController
             $tree = DB()->table('tree');
             $data['query'] = $tree->where('ref_id', $user_id2)->get()->getResult();
 
-            echo view('Front/Client_area/Member/withdraw_money', $data);
-            echo view('Front/Client_area/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Member/withdraw_money', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/footer', $data);
         }
     }
 

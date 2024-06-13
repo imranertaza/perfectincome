@@ -184,6 +184,9 @@ class Ajax extends BaseController
         }
     }
 
+
+
+
     public function check_pin(){
         $pin = $this->request->getPost('pin');
 
@@ -204,6 +207,25 @@ class Ajax extends BaseController
         }else {
             return '0';
         }
+    }
+
+    public function module_status(){
+        $id = $this->request->getPost('id');
+
+        $table = DB()->table('modules');
+        $row = $table->where('module_id',$id)->get()->getRow();
+        // print_r($row->status);
+        // exit();
+
+        if($row->status == '1' ) {
+            $table->where('module_id', $id)->update( ['status' => '0'] );
+            return 'OK';
+        } else {
+            $table->where('module_id', $id)->update( ['status' => '1'] );
+            return 'OK';
+        }
+        
+        
     }
 
 

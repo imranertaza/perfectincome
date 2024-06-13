@@ -77,9 +77,9 @@ class Login extends BaseController
         } else {
             $data['log_url'] = 'member_form/login';
             $data['log_title'] = 'Login';
-            echo view('Front/header', $data);
-            echo view('Front/Client_area/Agent/login', $data);
-            echo view('Front/footer', $data);
+            echo view('Theme/'.selected_theme().'/Front/header', $data);
+            echo view('Theme/'.selected_theme().'/Front/Client_area/Agent/login', $data);
+            echo view('Theme/'.selected_theme().'/Front/footer', $data);
         }
 
 

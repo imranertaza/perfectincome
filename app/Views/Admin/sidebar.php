@@ -185,7 +185,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                 <li>
                     <a href="<?php echo base_url(); ?>/Admin/Package"><i class="fa fa-fw"></i> Package</a>
                 </li>
-
+                <?php if( $this->functionModel->modulePermission('pin_option') == 1 ) { ?>
                 <li>
                     <a href="#"><i class="fa fa-fw"></i> Pin Gnerate<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -202,6 +202,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                <?php } ?>
 
 
             <?php }
@@ -220,11 +221,16 @@ $this->functionModel = new \App\Models\FunctionModel();
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>/Admin/Agent/"><i class="fa fa-fw"></i> Agent</a>
+                    <a href="<?php echo base_url(); ?>/Admin/Users/"><i class="fa fa-fw"></i> Users</a>
                 </li>
+                <?php if( $this->functionModel->modulePermission('agent_option') == 1 ) { ?>
+                <li>
+                    <a href="<?php echo base_url(); ?>/Admin/Agent/"><i class="fa fa-fw"></i> Agent</a>
+                </li>                
                 <li>
                     <a href="<?php echo base_url(); ?>/Admin/Agent/withdraw_request"><i class="fa fa-fw"></i> Agent Withdraw request</a>
                 </li>
+                <?php } ?>
                 <li>
                     <a href="<?php echo base_url(); ?>/Admin/Withdraw/"><i class="fa fa-fw"></i> Withdraw request</a>
                 </li>
@@ -234,7 +240,7 @@ $this->functionModel = new \App\Models\FunctionModel();
                 </li>
 
             <?php }
-            if ($this->functionModel->hasPermission('download_list') == true) { ?>
+            if ($this->functionModel->hasPermission('download_list') == true && $this->functionModel->modulePermission('point_option') == 1) { ?>
                 <li>
                     <a href="#"><i class="fa fa-fw"></i> Point History<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -247,19 +253,19 @@ $this->functionModel = new \App\Models\FunctionModel();
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
-
-                <li>
-                    <a href="#"><i class="fa fa-youtube-play"></i> Videos<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <?php if ($this->functionModel->hasPermission('download_list') == true) { ?>
-                            <li>
-                                <a href="<?php echo base_url(); ?>/Admin/Video"><i
-                                            class="fa fa-list fa-fw"></i> Video list</a>
-                            </li>
-                        <?php }  ?>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
+            <?php }
+            if ($this->functionModel->modulePermission('video_option') == 1) { ?>
+            <li>
+                <a href="#"><i class="fa fa-youtube-play"></i> Videos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <?php if ($this->functionModel->hasPermission('download_list') == true) { ?>
+                        <li>
+                            <a href="<?php echo base_url(); ?>/Admin/Video"><i
+                                        class="fa fa-list fa-fw"></i> Video list</a>
+                        </li>
+                    <?php }  ?>
+                </ul>
+            </li>
             <?php } ?>
             <li>
                 <a href="#"><i class="fa fa-cogs fa-fw"></i> Settings<span class="fa arrow"></span></a>
@@ -279,9 +285,15 @@ $this->functionModel = new \App\Models\FunctionModel();
                             <a href="<?php echo base_url(); ?>/Admin/General_settings/gallery">Gallery</a>
                         </li>
                     <?php } ?>
+                    <li>
+                        <a href="<?php echo base_url(); ?>/Admin/Theme_settings">Theme</a>
+                    </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <?php if($this->functionModel->hasPermission('module') == true) { ?>
+                <li><a href="<?php echo base_url(); ?>/Admin/Module"><i class="fa fa-database"></i> Module</a></li>
+            <?php } ?>
             <?php /* if ($this->functionModel->hasPermission('user_list') == true) { ?>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>

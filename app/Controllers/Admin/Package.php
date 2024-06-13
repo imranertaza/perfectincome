@@ -78,6 +78,7 @@ class Package extends BaseController
           'matching_commission' => $this->request->getPost('matching_commission'),
           'point' => $this->request->getPost('point'),
           'video_watch_earning' => $this->request->getPost('video_watch_earning'),
+          'description' => $this->request->getPost('description'),
         );
 
         $table = DB()->table('package');
@@ -118,9 +119,10 @@ class Package extends BaseController
             'package_name' => $this->request->getPost('name'),
             'price' => $this->request->getPost('price'),
             'sponsor_commission' => $this->request->getPost('sponsor_commission'),
-            'matching_commission' => $this->request->getPost('matching_commission'),
+//            'matching_commission' => $this->request->getPost('matching_commission'),
             'point' => $this->request->getPost('point'),
             'video_watch_earning' => $this->request->getPost('video_watch_earning'),
+            'description' => $this->request->getPost('description'),
         );
 
         $table = DB()->table('package');
